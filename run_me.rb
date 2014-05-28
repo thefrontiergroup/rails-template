@@ -1,3 +1,6 @@
+require 'active_support/inflector'
+include ActiveSupport::Inflector
+
 def replace(path, original, with)
   run_command("find . -type f -name '#{path}' -exec sed -i '' s/#{original.chomp}/#{with.chomp}/ {} +")
 end
@@ -19,3 +22,5 @@ end
 app_name = prompt "What is the name of the new app? (EG: App Name)"
 replace("*application.rb", "TfgTemplate", app_name)
 replace("*application.html.haml", "TfgTemplate", app_name)
+replace("*.ruby-gemset", "tfg_template", app_name.parameterize("_"))
+replace("*database.yml", "tfg-template", app_name.parameterize("-"))
