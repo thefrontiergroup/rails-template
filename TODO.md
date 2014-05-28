@@ -1,8 +1,11 @@
 - Add BaseController
 - Add README for using template and README for rails app
-- Convert application.html.erb to application.html.haml
+- Add Devise
+  - User model
+  - Implementation
+  - Feature tests
 - Replace
-  - TfgTemplate with AppName (config/application)
+  - TfgTemplate with AppName (config/application && layouts/application.html.haml)
   - Tfg Template with App name (README)
   - tfg_template with app_name (.ruby-gemset)
   - tfg-template with app-name (database.yml)
