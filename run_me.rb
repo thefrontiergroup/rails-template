@@ -1,5 +1,5 @@
-def replace(original, with)
-  # run_command("perl -pi -w -e 's/#{original}/#{with.chomp}/g;' config/**/*.rb")
+def replace(path, original, with)
+  run_command("find . -type f -name '#{path}' -exec sed -i '' s/#{original.chomp}/#{with.chomp}/ {} +")
 end
 
 def run_command(command)
@@ -17,4 +17,5 @@ end
 # run_command("git remote add origin #{github_repo}")
 
 app_name = prompt "What is the name of the new app? (EG: App Name)"
-replace("TfgTemplate", app_name)
+replace("*application.rb", "TfgTemplate", app_name)
+replace("*application.html.haml", "TfgTemplate", app_name)
