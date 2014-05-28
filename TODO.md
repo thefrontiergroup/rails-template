@@ -1,8 +1,8 @@
 - Add BaseController
 - Add README for using template and README for rails app
 - Convert application.html.erb to application.html.haml
-- Configure database.yml
 - Replace
   - TfgTemplate with AppName (config/application)
   - Tfg Template with App name (README)
   - tfg_template with app_name (.ruby-gemset)
+  - tfg-template with app-name (database.yml)
