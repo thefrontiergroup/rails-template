@@ -1,9 +1,11 @@
-- Add BaseController
+- Add seeds for users
+- User CRUD
+- Add Admin::BaseController
 - Add README for using template and README for rails app
 - Add Devise
-  - User model
-  - Implementation
-  - Feature tests
+  - User model [x]
+  - Implementation [x]
+  - Feature tests [x]
 - Replace
   - TfgTemplate with AppName (config/application && layouts/application.html.haml)
   - Tfg Template with App name (README)

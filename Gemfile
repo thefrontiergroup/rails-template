@@ -5,6 +5,9 @@ gem 'rails', '4.1.1'
 # Use PostgreSQL as the database for ActiveRecord
 gem 'pg'
 
+# Use devise for authentication
+gem 'devise'
+
 # Use HAML and SASS
 gem 'haml-rails'
 gem 'sass-rails'
@@ -25,7 +28,18 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'email_spec'
+  gem 'shoulda-matchers'
+end
+
 group :development, :test do
   gem 'byebug'
+  # RSpec for unit and integration tests
+  gem 'rspec-rails'
+  gem 'capybara'
+  # Generate fake data for seeds and tests
+  gem 'factory_girl_rails'
+  gem 'ffaker'
 end
 
