@@ -1,6 +1,5 @@
 - Add seeds for users
 - User CRUD
 - Add Admin::BaseController
-- Add README for using template and README for rails app
 - Replace
   - Tfg Template with App name (README)
