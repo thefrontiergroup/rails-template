@@ -14,7 +14,7 @@ feature 'A visitor can sign up' do
 
     submit_form
 
-    page.should have_flash :notice, /signed up/
+    expect(page).to have_flash :notice, /signed up/
     expect(current_path).to eq(root_path)
   end
 
