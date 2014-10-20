@@ -14,9 +14,9 @@ def run_command(command)
   `#{command}`
 end
 
-def prompt(string)
+def prompt(string,default="")
   puts string
-  gets
+  gets.chomp
 end
 
 # github_repo = prompt "What is the github repo for the new app?"
