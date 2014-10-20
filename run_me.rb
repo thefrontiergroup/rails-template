@@ -30,7 +30,7 @@ replace("*application.rb", "TfgTemplate", app_name)
 replace("*application.html.haml", "TfgTemplate", app_name)
 replace("*.ruby-gemset", "tfg_template", app_name.parameterize("_"))
 replace("*database.yml", "tfg-template", app_name.parameterize("-"))
-replace("*APP_README.md", "TFG Template", app_name)
+replace("*APP_README.md", "TfgTemplate", app_name)
 
 heading("Overwriting existing README.md with template for a Rails app's README")
 run_command("mv APP_README.md README.md")
