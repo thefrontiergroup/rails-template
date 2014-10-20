@@ -37,9 +37,11 @@ group :development, :test do
   gem 'byebug'
   # RSpec for unit and integration tests
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
   gem 'capybara'
   # Generate fake data for seeds and tests
   gem 'factory_girl_rails'
   gem 'ffaker'
 end
-
