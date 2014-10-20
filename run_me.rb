@@ -14,9 +14,15 @@ def run_command(command)
   `#{command}`
 end
 
-def prompt(string,default="")
+def prompt(string,default=nil)
+  string = "#{string} (#{default})" unless default.nil?
   puts string
-  gets.chomp
+  val = gets.chomp
+  if val.empty?
+    return default
+  else
+    return val
+  end
 end
 
 # github_repo = prompt "What is the github repo for the new app?"
