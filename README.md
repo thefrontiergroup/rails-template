@@ -1,24 +1,38 @@
-# TFG Template
+# TfgTemplate
 
-This is a RoR template using The Frontier Group's (TFG) SOE.
+TODO: Brief description of application. You may want to include information like start date of the project.
 
-Currently (2014.05.28) it uses the following technologies:
+## Project Champion
 
-- Rails 4.1
-- Ruby 2.0.0-p451
+TODO: Add project champion. This person should be the primary source of information for the application.
 
-## Usage
+## Developers
 
-Clone this repo and run the file `run_me.rb`.
+TODO: Add a list of developers who are working on this project. These people should be the secondary source of information for the application.
 
-The output of this script should give you the instructions you will need.
+## Client Information
 
-## What does the template include out of the box?
+TODO: Add any relevant information about the client. For example, their name and contact details, the company the work for.
 
-- RVM Support via .ruby-gemset and .ruby-version
-- PostgreSQL with TFG SOE database.yml. No configuration required.
-- Devise implementation using User, includes feature specs for:
-  - Resetting password
-  - Signing in
-  - Signing up
-  - Signing out
+## Optional: Related Projects
+
+TODO: Add any related github projects. For example, if this is a Rails API and has a corresponding iOS or Android client, you should link to these here.
+
+## Project Management
+
+TODO: Add links to Basecamp, Pivotal Tracker, or any other websites that are of use.
+
+[Basecamp](url)
+[Pivotal Tracker](url)
+
+## Getting Started
+
+TODO: Include information on getting started with this application. This should include the process from cloning the repo to running the server locally. Assume the reader has little experience with Rails when writing this.
+
+## Staging Environment Information
+
+TODO: Add staging information. EG: Server name, location on server, where to get auth to access the server, any other special instructions
+
+## Production Environment Information
+
+TODO: Add production information. EG: Server name, location on server, where to get auth to access the server, any other special instructions
