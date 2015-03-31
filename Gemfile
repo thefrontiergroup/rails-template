@@ -26,6 +26,8 @@ gem 'turbolinks'
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Quiet Assets hides all of the asset logging in Development.
+  gem 'quiet_assets'
 end
 
 group :test do
@@ -34,6 +36,7 @@ group :test do
 end
 
 group :development, :test do
+  # byebug allows user of the `debugger` key word
   gem 'byebug'
   # RSpec for unit and integration tests
   gem 'rspec-rails'
