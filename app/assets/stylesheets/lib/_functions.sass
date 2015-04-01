@@ -1,0 +1,11 @@
+@function black($opacity)
+  @return rgba(0, 0, 0, $opacity)
+
+@function white($opacity)
+  @return rgba(255, 255, 255, $opacity)
+
+@function whiten($color, $amount: 0.5)
+  @return mix(#fff, $color, percentage($amount))
+
+@function blacken($color, $amount: 0.5)
+  @return mix(#000, $color, percentage($amount))

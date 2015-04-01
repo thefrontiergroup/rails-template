@@ -12,6 +12,8 @@ gem 'pundit'
 # Use HAML and SASS
 gem 'haml-rails'
 gem 'sass-rails'
+# Use normalize.css as it makes browsers render all elements more consistently
+gem 'normalize-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
