@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   enum role: [:admin, :member]
 
   validates :role, presence: true
+
+  def to_s
+    email
+  end
+
 end

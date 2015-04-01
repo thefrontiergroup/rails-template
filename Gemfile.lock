@@ -55,6 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
+    colorize (0.7.5)
     columnize (0.9.0)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -180,6 +181,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    seed_helper (1.5.0)
+      colorize (~> 0.7.5)
+      rake (>= 10.0.0)
     sexp_processor (4.5.0)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
@@ -233,6 +237,7 @@ DEPENDENCIES
   rspec-rails
   rspec_junit_formatter
   sass-rails
+  seed_helper
   shoulda-matchers
   simplecov
   simplecov-rcov
