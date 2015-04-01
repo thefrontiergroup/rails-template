@@ -37,12 +37,13 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FeatureHelper, type: :feature
-  config.extend FeatureMacros, type: :feature
+  config.include FeatureAuthenticationHelper, type: :feature
+  config.extend FeatureAuthenticationMacros, type: :feature
 
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
 
   # Controllers
   config.include Devise::TestHelpers, type: :controller
-  config.extend AuthenticationSupport, type: :controller
+  config.extend ControllerAuthenticationSupport, type: :controller
 end

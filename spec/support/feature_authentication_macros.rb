@@ -1,4 +1,4 @@
-module FeatureMacros
+module FeatureAuthenticationMacros
 
   def sign_in_as(type_or_user)
     before do

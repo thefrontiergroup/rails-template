@@ -11,24 +11,38 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new(new_user_attributes)
-    @user.save if authorize(@user, :create?)
+    @user = User.new(user_form_attributes)
+    authorize(@user, :create?)
+    @user.save
 
     respond_with(@user, location: admin_users_path)
   end
 
   def edit
-
+    @user = find_user
+    authorize(@user, :update?)
   end
 
   def update
+    @user = find_user
+    authorize(@user, :update?)
 
+    if @user.update_attributes(user_form_attributes)
+      flash[:notice] = "User #{@user} successfully updated"
+    end
+    respond_with(@user, location: admin_users_path)
   end
 
 private
 
-  def new_user_attributes
-    params.permit(user: [:email, :role, :password])[:user]
+  def find_user
+    User.find(params[:id])
+  end
+
+  def user_form_attributes
+    params.permit(user: [:email, :role, :password])[:user].tap do |attributes|
+      attributes.delete(:password) if attributes[:password].blank?
+    end
   end
 
 end
