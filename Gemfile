@@ -23,6 +23,9 @@ gem 'coffee-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Forms
+gem 'simple_form'
+
 # Pagination
 gem 'kaminari'
 
