@@ -1,19 +1,24 @@
 !!!5
 %html
-%head
-  %title CurtinVolunteers
-  = stylesheet_link_tag 'application', media: 'all'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
-%body
-  .navigation
-    - if current_user
-      = link_to "Sign out", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Sign in", new_user_session_path
-      = link_to "Sign up", new_user_registration_path
-  .flash
-    - flash.each do |key, value|
-      .flash-wrapper
-        .flash{class: "flash-#{key}"}= value
-  = yield
+  %head
+    %title CurtinVolunteers
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    .navigation
+      - user_policy = UserPolicy.new(current_user, User)
+      - if user_policy.admin_dashboard?
+        = link_to "Dashboard", admin_dashboard_index_path
+      - if !user_policy.admin_dashboard? && user_policy.member_dashboard?
+        = link_to "Dashboard", member_dashboard_index_path
+      - if current_user
+        = link_to "Sign out", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Sign in", new_user_session_path
+        = link_to "Sign up", new_user_registration_path
+    .flash
+      - flash.each do |key, value|
+        .flash-wrapper
+          .flash{class: "flash-#{key}"}= value
+    = yield

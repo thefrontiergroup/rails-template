@@ -1,8 +1,8 @@
 module FeatureMacros
 
-  def sign_in
+  def sign_in_as(type_or_user)
     before do
-      sign_in
+      sign_in_as(type_or_user)
     end
 
     let(:current_user) { @current_user }

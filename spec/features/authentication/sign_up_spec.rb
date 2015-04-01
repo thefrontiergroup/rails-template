@@ -16,6 +16,9 @@ feature 'A visitor can sign up' do
 
     expect(page).to have_flash :notice, /signed up/
     expect(current_path).to eq(root_path)
+
+    # Signing up should create the user as a member
+    expect(User.first).to be_member
   end
 
   scenario "User doesn't fill in details" do

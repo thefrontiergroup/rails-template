@@ -1,7 +1,11 @@
 module FeatureHelper
 
-  def sign_in
-    @current_user = FactoryGirl.create(:user)
+  def sign_in_as(role_or_user = :public_user)
+    if role_or_user.is_a?(User)
+      @current_user = role_or_user
+    else
+      @current_user = FactoryGirl.create :user, role_or_user
+    end
 
     visit root_path
     click_link("Sign in")

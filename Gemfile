@@ -5,8 +5,9 @@ gem 'rails'
 # Use PostgreSQL as the database for ActiveRecord
 gem 'pg'
 
-# Use devise for authentication
+# Authentication & Authorization
 gem 'devise'
+gem 'pundit'
 
 # Use HAML and SASS
 gem 'haml-rails'
