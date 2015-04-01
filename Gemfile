@@ -23,6 +23,9 @@ gem 'coffee-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Pagination
+gem 'kaminari'
+
 group :development do
   gem 'seed_helper'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
