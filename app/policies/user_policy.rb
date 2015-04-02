@@ -25,7 +25,7 @@ class UserPolicy
   end
 
   def update?
-    is_admin?
+    is_admin? || (user.present? && user == record)
   end
 
   def destroy?

@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe UserPolicy do
-  subject { UserPolicy.new(user, user) }
+  subject { UserPolicy.new(user, target_user) }
+  let(:target_user) { user }
 
   context "for an anonymous user" do
     let(:user) { nil }
@@ -38,7 +39,16 @@ describe UserPolicy do
     # CRUD actions
     it { should_not permit_access_to(:index) }
     it { should_not permit_access_to(:create) }
-    it { should_not permit_access_to(:update) }
+    describe "update?" do
+      context "when user is current user" do
+        let(:target_user) { user }
+        it { should permit_access_to(:update) }
+      end
+      context "when user is other user" do
+        let(:target_user) { FactoryGirl.build(:user) }
+        it { should_not permit_access_to(:update) }
+      end
+    end
     it { should_not permit_access_to(:destroy) }
   end
 end
