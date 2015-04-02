@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Soft delete - uses deleted_at field
+  acts_as_paranoid
+
   enum role: [:admin, :member]
 
   validates :role, presence: true

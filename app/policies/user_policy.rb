@@ -28,6 +28,10 @@ class UserPolicy
     is_admin?
   end
 
+  def destroy?
+    is_admin?
+  end
+
 private
 
   def is_admin?

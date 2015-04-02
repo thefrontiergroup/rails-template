@@ -33,6 +33,13 @@ class Admin::UsersController < Admin::BaseController
     respond_with(@user, location: admin_users_path)
   end
 
+  def destroy
+    @user = find_user
+    authorize(@user, :destroy?)
+    @user.destroy
+    redirect_to(admin_users_path, alert: "'#{@user}' deleted")
+  end
+
 private
 
   def find_user

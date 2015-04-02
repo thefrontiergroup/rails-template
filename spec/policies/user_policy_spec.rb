@@ -13,6 +13,7 @@ describe UserPolicy do
     it { should_not permit_access_to(:index) }
     it { should_not permit_access_to(:create) }
     it { should_not permit_access_to(:update) }
+    it { should_not permit_access_to(:destroy) }
   end
 
   context "for an admin" do
@@ -25,6 +26,7 @@ describe UserPolicy do
     it { should permit_access_to(:index) }
     it { should permit_access_to(:create) }
     it { should permit_access_to(:update) }
+    it { should permit_access_to(:destroy) }
   end
 
   context "for a member" do
@@ -37,5 +39,6 @@ describe UserPolicy do
     it { should_not permit_access_to(:index) }
     it { should_not permit_access_to(:create) }
     it { should_not permit_access_to(:update) }
+    it { should_not permit_access_to(:destroy) }
   end
 end

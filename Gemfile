@@ -29,6 +29,9 @@ gem 'simple_form'
 # Pagination
 gem 'kaminari'
 
+# Adds ability to archive (soft-delete) records
+gem 'paranoia'
+
 group :development do
   gem 'seed_helper'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

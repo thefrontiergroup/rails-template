@@ -131,4 +131,23 @@ describe Admin::UsersController do
     it_behaves_like "action requiring authentication"
   end
 
+  describe 'DELETE destroy' do
+    subject { delete :destroy, id: target_user.id }
+    let(:target_user) { FactoryGirl.create(:user) }
+
+    authenticated_as(:admin) do
+      it "deletes the user" do
+        subject
+        expect(target_user.reload.deleted_at).to be_present
+      end
+      it { should redirect_to(admin_users_path) }
+    end
+
+    authenticated_as(:member) do
+      it_behaves_like "unauthorized access to controller action"
+    end
+
+    it_behaves_like "action requiring authentication"
+  end
+
 end

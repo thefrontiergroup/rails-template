@@ -1,0 +1,22 @@
+require 'spec_helper'
+
+feature 'Admin can delete an existing User' do
+
+  sign_in_as(:admin)
+  let!(:target_user) { FactoryGirl.create(:user, email: "something@nothing.com") }
+
+  before do
+    click_link("Dashboard")
+    click_link("Users")
+  end
+
+  scenario 'Admin can delete user' do
+    within_row(target_user.email) do
+      click_link("Delete")
+    end
+
+    # User should be deleted
+    expect(User.count).to eq(1)
+    expect(page).to have_content("'something@nothing.com' deleted")
+  end
+end

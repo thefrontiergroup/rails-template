@@ -13,6 +13,6 @@
         %td= user.role
         %td
           = link_to "Edit", edit_admin_user_path(user)
-          = link_to "Delete", "#"
+          = link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }
 
 = paginate @users
