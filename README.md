@@ -2,10 +2,6 @@
 
 ## General Information
 
-* Rails 4.2.1
-* Ruby 2.2.1
-* PostgreSQL 9.3 or above
-
 ### Browser Support
 
 * ???
