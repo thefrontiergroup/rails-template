@@ -12,3 +12,7 @@
 # Ignore spec files
 results/rspec.xml
 coverage/*
+
+# Ignore config files
+config/database.yml
+config/secrets.yml

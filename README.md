@@ -1,38 +1,37 @@
-# TfgTemplate
+# Curtin Volunteers Website
 
-TODO: Brief description of application. You may want to include information like start date of the project.
+## General Information
 
-## Project Champion
+### Browser Support
 
-TODO: Add project champion. This person should be the primary source of information for the application.
+* ???
 
-## Developers
+### Description
 
-TODO: Add a list of developers who are working on this project. These people should be the secondary source of information for the application.
+### TFG Staff
 
-## Client Information
+Manager:
 
-TODO: Add any relevant information about the client. For example, their name and contact details, the company the work for.
+* Tony Issakov
 
-## Optional: Related Projects
+Developers:
 
-TODO: Add any related github projects. For example, if this is a Rails API and has a corresponding iOS or Android client, you should link to these here.
-
-## Project Management
-
-TODO: Add links to Basecamp, Pivotal Tracker, or any other websites that are of use.
-
-[Basecamp](url)
-[Pivotal Tracker](url)
+* Brendan Ragan
+* Jordan Maguire
+* Steve Webb
 
 ## Getting Started
 
-TODO: Include information on getting started with this application. This should include the process from cloning the repo to running the server locally. Assume the reader has little experience with Rails when writing this.
+  1. Setup configuration files via ``rake initial_config``
 
-## Staging Environment Information
+## Terminology
 
-TODO: Add staging information. EG: Server name, location on server, where to get auth to access the server, any other special instructions
+Avoid the use of the terms "Staff", "Admin" and "Student" as they have meanings in the curtin university context that don't apply to the users of this app. For example: volunteering "staff" may not be curtin "staff" or the converse.
 
-## Production Environment Information
+The system should instead use:
 
-TODO: Add production information. EG: Server name, location on server, where to get auth to access the server, any other special instructions
+  1. Volunteer (someone who volunteers for projects)
+  2. Project Co-ordinator (someone who co-ordinates projects)
+  3. System Manager (someone who manages this system)
+
+## Deployment
