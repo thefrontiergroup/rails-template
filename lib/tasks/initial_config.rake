@@ -2,7 +2,7 @@ require 'fileutils'
 require 'yaml'
 
 desc "Setup config files for database, secrets and amazon"
-task initial_config: :environment do
+task :initial_config do
   configs = ["config/secrets.yml", "config/database.yml"]
   if warning_prompt(configs)
     copy_samples(configs)
