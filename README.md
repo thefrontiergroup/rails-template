@@ -22,7 +22,8 @@ Developers:
 
 ## Getting Started
 
-  1. Setup configuration files via ``rake spin_up``
+  1. ``bundle``
+  2. Setup configuration files via ``rake spin_up``
 
 ## Terminology
 
