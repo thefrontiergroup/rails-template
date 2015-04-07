@@ -28,11 +28,6 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'email_spec'
-  gem 'shoulda-matchers'
-end
-
 group :development, :test do
   # byebug allows user of the `debugger` key word
   gem 'byebug'
@@ -45,4 +40,14 @@ group :development, :test do
   # Generate fake data for seeds and tests
   gem 'factory_girl_rails'
   gem 'ffaker'
+end
+
+group :test do
+  gem 'email_spec'
+  gem 'shoulda-matchers'
+end
+
+group :staging do
+  # Enable "Staging" ribbon on top right corner
+  gem 'rack-dev-mark'
 end

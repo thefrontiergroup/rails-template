@@ -22,7 +22,7 @@ Developers:
 
 ## Getting Started
 
-  1. Setup configuration files via ``rake initial_config``
+  1. Setup configuration files via ``rake spin_up``
 
 ## Terminology
 
