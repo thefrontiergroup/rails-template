@@ -1,0 +1,53 @@
+form
+  > div
+    @extend %clearfix
+    margin-bottom: $gutter
+
+  .error, .hint
+    display: block
+    margin-left: 200px
+    padding-top: 5px
+    font-size: 14px
+
+  .error
+    color: #911
+
+  .hint
+    color: #666
+
+label
+  width: (200px - $gutter)
+  float: left
+  padding-top: 3px
+  text-align: right
+  margin-right: $gutter
+
+input[type="submit"]
+  margin-left: 200px
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+textarea,
+select
+  width: 300px
+
+input[type="checkbox"],
+input[type="radio"]
+  vertical-align: middle
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button
+  background-color: $button-color
+  border: none
+  color: #fff
+  cursor: pointer
+  display: inline-block
+  font-weight: 200
+  padding: ($gutter / 2) $gutter
+  transition: background-color 300ms ease-out
+  &:hover, &:focus
+    background-color: $button-hover-color
