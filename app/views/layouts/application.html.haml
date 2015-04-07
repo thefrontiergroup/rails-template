@@ -6,8 +6,13 @@
     = javascript_include_tag 'application'
     = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login
     = csrf_meta_tags
+
   %body
+    %h1 CurtinVolunteers
+
     %nav{role: 'navigation'}
+      %h1 Navigation
+
       - user_policy = UserPolicy.new(current_user, User)
       %ul
         - if user_policy.admin_dashboard?
