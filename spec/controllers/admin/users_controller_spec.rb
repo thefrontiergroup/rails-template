@@ -58,6 +58,7 @@ describe Admin::UsersController do
       end
 
       context "with invalid parameters" do
+        let(:params) { {email: nil} }
         specify { expect { subject }.not_to change(User, :count) }
       end
     end

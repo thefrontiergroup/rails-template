@@ -27,7 +27,7 @@ private
   end
 
   def user_form_attributes
-    params.permit(user: [:email, :password])[:user]
+    params.require(:user).permit(:email, :password)
   end
 
 end

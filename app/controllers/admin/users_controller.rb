@@ -11,9 +11,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new(user_form_attributes)
+    @user = User.new
     authorize(@user, :create?)
-    @user.save
+    @user.update_attributes(user_form_attributes)
 
     respond_with(@user, location: admin_users_path)
   end
@@ -47,8 +47,8 @@ private
   end
 
   def user_form_attributes
-    params.permit(user: [:email, :role, :password])[:user].tap do |attributes|
-      attributes.delete(:password) if attributes[:password].blank?
+    params.require(:user).permit(:email, :role, :password).tap do |attributes|
+      attributes[:user].delete(:password) if attributes[:user].present? && attributes[:user][:password].blank?
     end
   end
 
