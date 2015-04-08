@@ -6,8 +6,6 @@ class ApplicationPolicy
     @record = record
   end
 
-protected
-
   def is_admin?
     user.present? && user.admin?
   end

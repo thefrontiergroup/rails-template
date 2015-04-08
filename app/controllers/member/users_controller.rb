@@ -2,12 +2,12 @@ class Member::UsersController < Member::BaseController
 
   def edit
     @user = find_user
-    authorize(@user, :update?)
+    authorize(@user)
   end
 
   def update
     @user = find_user
-    authorize(@user, :update?)
+    authorize(@user)
 
     if @user.update_attributes(strong_params_for(@user))
       flash[:notice] = "User #{@user} successfully updated"

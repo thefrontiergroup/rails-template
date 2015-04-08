@@ -20,21 +20,15 @@ class UserPolicy < ApplicationPolicy
 
 # CRUD
 
-  def index?
-    is_admin?
-  end
-
-  def create?
-    is_admin?
-  end
+  alias :index? :is_admin?
+  alias :new? :is_admin?
+  alias :create? :is_admin?
+  alias :destroy? :is_admin?
 
   def update?
     is_admin? || (user.present? && user == record)
   end
-
-  def destroy?
-    is_admin?
-  end
+  alias :edit? :update?
 
 end
 

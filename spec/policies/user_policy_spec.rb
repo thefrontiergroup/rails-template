@@ -18,7 +18,9 @@ describe UserPolicy do
 
     # CRUD actions
     it { should_not permit_access_to(:index) }
+    it { should_not permit_access_to(:new) }
     it { should_not permit_access_to(:create) }
+    it { should_not permit_access_to(:edit) }
     it { should_not permit_access_to(:update) }
     it { should_not permit_access_to(:destroy) }
   end
@@ -38,7 +40,9 @@ describe UserPolicy do
 
     # CRUD actions
     it { should permit_access_to(:index) }
+    it { should permit_access_to(:new) }
     it { should permit_access_to(:create) }
+    it { should permit_access_to(:edit) }
     it { should permit_access_to(:update) }
     it { should permit_access_to(:destroy) }
   end
@@ -58,14 +62,17 @@ describe UserPolicy do
 
     # CRUD actions
     it { should_not permit_access_to(:index) }
+    it { should_not permit_access_to(:new) }
     it { should_not permit_access_to(:create) }
     describe "update?" do
       context "when user is current user" do
         let(:target_user) { user }
+        it { should permit_access_to(:edit) }
         it { should permit_access_to(:update) }
       end
       context "when user is other user" do
         let(:target_user) { FactoryGirl.build(:user) }
+        it { should_not permit_access_to(:edit) }
         it { should_not permit_access_to(:update) }
       end
     end
