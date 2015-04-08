@@ -18,9 +18,12 @@ feature 'Admin can update an existing User' do
     select("Member", from: "Role")
     click_button("Update User")
 
+    # Current user should be redirected to the index
+    expect(current_path).to eq(admin_users_path)
+
     # User should be saved
-    expect(page).to have_content("valid@example.com")
     latest_user = User.order(:created_at).last
+    expect(latest_user.email).to eq("valid@example.com")
     expect(latest_user).to be_member
   end
 
@@ -28,6 +31,8 @@ feature 'Admin can update an existing User' do
     fill_in("Email", with: "")
     click_button("Update User")
 
+    # Ensure user is not updated
+    expect(target_user.reload.email).to eq("something@nothing.com")
     expect(page).to have_content("can't be blank")
   end
 end
