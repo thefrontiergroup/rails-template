@@ -21,6 +21,22 @@ protected
     end
   end
 
+  def strong_params_for(resource, params_key=nil)
+    params_key = infer_params_key(resource) unless params_key.present?
+    permitted_attributes = permitted_attributes_for(resource)
+    params.require(params_key).permit(*permitted_attributes)
+  end
+
+  def permitted_attributes_for(klass_or_instance)
+    policy(klass_or_instance).permitted_attributes
+  end
+
+  def infer_params_key(resource)
+    # outputs :foo_bar when input is FooBar or when resource is an instance of FooBar.
+    klass = resource.is_a?(Class) ? resource : resource.class
+    klass.name.underscore.to_sym
+  end
+
 private
 
   def user_not_authorized
