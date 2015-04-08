@@ -5,16 +5,16 @@ Rails.application.routes.draw do
     registrations: "devise_customisations/registrations",
   }
 
-  resources :home, only: [:index]
+  resources :home, only: :index
   root to: "home#index"
 
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: :index
     resources :users
   end
 
   namespace :member do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: :index
     resources :users, only: [:edit, :update]
   end
 
