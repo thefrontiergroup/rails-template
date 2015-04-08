@@ -7,5 +7,5 @@
 @function whiten($color, $amount: 0.5)
   @return mix(#fff, $color, percentage($amount))
 
-@function blacken($color, $amount: 0.5)
-  @return mix(#000, $color, percentage($amount))
+@function blacken($color, $base-black-color: $brand-black, $amount: 0.5)
+  @return mix($base-black-color, $color, percentage($amount))
