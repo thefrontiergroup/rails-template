@@ -34,7 +34,7 @@ describe UserPolicy do
     end
 
     it { should permit_access_to(:admin_dashboard) }
-    it { should permit_access_to(:member_dashboard) }
+    it { should_not permit_access_to(:member_dashboard) }
 
     # CRUD actions
     it { should permit_access_to(:index) }

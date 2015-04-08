@@ -12,7 +12,7 @@
       %ul
         - if user_policy.admin_dashboard?
           %li= link_to "Dashboard", admin_dashboard_index_path
-        - if !user_policy.admin_dashboard? && user_policy.member_dashboard?
+        - if user_policy.member_dashboard?
           %li= link_to "Dashboard", member_dashboard_index_path
         = yield(:navigation_items) if content_for?(:navigation_items)
         - if current_user

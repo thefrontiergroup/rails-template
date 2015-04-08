@@ -21,7 +21,7 @@ class UserPolicy
   end
 
   def member_dashboard?
-    user.present?
+    is_member?
   end
 
 # CRUD
