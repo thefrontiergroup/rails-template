@@ -2,13 +2,16 @@
 *, *:before, *:after
   box-sizing: border-box
 
+html
+  font-size: 100%
+
 body
   padding: 0
   > h1
     @extend %visually-hidden
 
 body, input, textarea, select, button
-  font: 400 16px/1.5 "Helvetica Neue", Arial, sans-serif
+  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif
 
 main
   margin-left: ($sidebar-width + $gutter)
