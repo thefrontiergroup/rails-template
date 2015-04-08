@@ -50,8 +50,7 @@ describe Admin::UsersController do
 
           user = User.order(:created_at).last
           expect(user).to be_present
-          expect(user.email).to eq("jordan@example.com")
-          expect(user).to be_member
+          expect(user).to have_attributes(params.slice(:email, :role))
         end
 
         it { should redirect_to(admin_users_path) }
