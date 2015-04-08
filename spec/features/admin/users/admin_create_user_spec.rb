@@ -17,8 +17,8 @@ feature 'Admin can create a new User' do
     click_button("Create User")
 
     # User should be saved
-    expect(page).to have_content("valid@example.com")
     latest_user = User.order(:created_at).last
+    expect(latest_user.email).to eq("valid@example.com")
     expect(latest_user).to be_member
   end
 
