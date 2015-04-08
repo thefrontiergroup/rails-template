@@ -6,6 +6,16 @@ class UserPolicy
     @record = record
   end
 
+  def permitted_attributes
+    if is_admin?
+      [:email, :role, :password]
+    elsif is_member?
+      [:email, :password]
+    else
+      []
+    end
+  end
+
   def admin_dashboard?
     is_admin?
   end
@@ -36,6 +46,10 @@ private
 
   def is_admin?
     user.present? && user.admin?
+  end
+
+  def is_member?
+    user.present? && user.member?
   end
 end
 

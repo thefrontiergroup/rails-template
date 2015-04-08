@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe UserPolicy do
-  subject { UserPolicy.new(user, target_user) }
+  subject { policy }
+  let(:policy) { UserPolicy.new(user, target_user) }
   let(:target_user) { user }
 
   context "for an anonymous user" do
     let(:user) { nil }
+
+    describe '#permitted_attributes' do
+      subject { policy.permitted_attributes }
+      it { should be_empty }
+    end
 
     it { should_not permit_access_to(:admin_dashboard) }
     it { should_not permit_access_to(:member_dashboard) }
@@ -20,6 +26,13 @@ describe UserPolicy do
   context "for an admin" do
     let(:user) { FactoryGirl.build(:user, :admin) }
 
+    describe '#permitted_attributes' do
+      subject { policy.permitted_attributes }
+      it { should include(:email) }
+      it { should include(:role) }
+      it { should include(:password) }
+    end
+
     it { should permit_access_to(:admin_dashboard) }
     it { should permit_access_to(:member_dashboard) }
 
@@ -32,6 +45,13 @@ describe UserPolicy do
 
   context "for a member" do
     let(:user) { FactoryGirl.build(:user, :member) }
+
+    describe '#permitted_attributes' do
+      subject { policy.permitted_attributes }
+      it { should     include(:email) }
+      it { should_not include(:role) }
+      it { should     include(:password) }
+    end
 
     it { should_not permit_access_to(:admin_dashboard) }
     it { should     permit_access_to(:member_dashboard) }

@@ -9,7 +9,7 @@ class Member::UsersController < Member::BaseController
     @user = find_user
     authorize(@user, :update?)
 
-    if @user.update_attributes(user_form_attributes)
+    if @user.update_attributes(user_form_attributes(@user))
       flash[:notice] = "User #{@user} successfully updated"
       # When we change the email or password Warden will not be able to recognize the session
       # https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-password
@@ -26,8 +26,8 @@ private
     User.find(params[:id])
   end
 
-  def user_form_attributes
-    params.require(:user).permit(:email, :password)
+  def user_form_attributes(user)
+    params.require(:user).permit(policy(user).permitted_attributes)
   end
 
 end
