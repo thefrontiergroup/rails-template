@@ -5,7 +5,7 @@ feature 'Member can update their profile' do
   sign_in_as(:member)
 
   before do
-    click_link("My Profile")
+    click_header_option("My Profile")
   end
 
   scenario 'With valid data' do
@@ -13,7 +13,7 @@ feature 'Member can update their profile' do
     click_button("Update User")
 
     # User should be saved
-    click_link("My Profile")
+    click_header_option("My Profile")
     expect(page).to have_content("valid@example.com")
   end
 

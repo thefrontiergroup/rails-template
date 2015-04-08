@@ -6,8 +6,8 @@ feature 'Admin can update an existing User' do
   let!(:target_user) { FactoryGirl.create(:user, email: "something@nothing.com") }
 
   before do
-    click_link("Dashboard")
-    click_link("Users")
+    click_header_option("Dashboard")
+    click_sidemenu_option("Users")
     within_row(target_user.email) do
       click_link("Edit")
     end

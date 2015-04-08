@@ -5,7 +5,7 @@ feature 'Admin can access their dashboard' do
   sign_in_as(:admin)
 
   scenario 'User clicks "Dashboard" link' do
-    click_link "Dashboard"
+    click_header_option "Dashboard"
     expect(page).to have_content("Admin Dashboard")
   end
 end
