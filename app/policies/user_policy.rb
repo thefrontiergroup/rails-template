@@ -1,10 +1,4 @@
-class UserPolicy
-  attr_reader :user, :record
-
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
+class UserPolicy < ApplicationPolicy
 
   def permitted_attributes
     if is_admin?
@@ -42,14 +36,5 @@ class UserPolicy
     is_admin?
   end
 
-private
-
-  def is_admin?
-    user.present? && user.admin?
-  end
-
-  def is_member?
-    user.present? && user.member?
-  end
 end
 
