@@ -10,6 +10,7 @@ describe User do
 
     it "validates uniqueness with other active users" do
       expect(new_user).to be_invalid
+      expect(new_user.errors[:email]).to be_present
     end
 
     it "doesn't validate uniqueness with deleted users" do
