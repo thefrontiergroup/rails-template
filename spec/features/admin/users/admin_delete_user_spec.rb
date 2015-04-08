@@ -15,7 +15,7 @@ feature 'Admin can delete an existing User' do
       click_link("Delete")
     end
 
-    # User should be deleted
+    # User should be deleted - only admin should be visible
     expect(User.count).to eq(1)
     expect(page).to have_flash(:notice, "'something@nothing.com' deleted")
   end
