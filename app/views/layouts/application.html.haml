@@ -1,19 +1,29 @@
 !!!5
 %html
-%head
-  %title CurtinVolunteers
-  = stylesheet_link_tag 'application', media: 'all'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
-%body
-  .navigation
-    - if current_user
-      = link_to "Sign out", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Sign in", new_user_session_path
-      = link_to "Sign up", new_user_registration_path
-  .flash
-    - flash.each do |key, value|
-      .flash-wrapper
-        .flash{class: "flash-#{key}"}= value
-  = yield
+  %head
+    %title CurtinVolunteers
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login
+    = csrf_meta_tags
+  %body
+    %nav{role: 'navigation'}
+      - user_policy = UserPolicy.new(current_user, User)
+      %ul
+        - if user_policy.admin_dashboard?
+          %li= link_to "Dashboard", admin_dashboard_index_path
+        - if user_policy.member_dashboard?
+          %li= link_to "Dashboard", member_dashboard_index_path
+        = yield(:navigation_items)
+        - if current_user
+          %li= link_to "Sign out", destroy_user_session_path, method: :delete
+        - else
+          %li= link_to "Sign in", new_user_session_path
+          %li= link_to "Sign up", new_user_registration_path
+
+    .container
+      - flash.each do |key, value|
+        .flash-wrapper
+          .flash{class: "flash-#{key}"}= value
+
+      = content_for?(:content) ? yield(:content) : yield

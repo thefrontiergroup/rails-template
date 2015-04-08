@@ -36,9 +36,16 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  config.include FeatureHelper, type: :feature
-  config.extend FeatureMacros, type: :feature
-
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+
+  # Controllers
+  config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerAuthenticationSupport, type: :controller
+
+  # Features
+  config.include FeatureHelper, type: :feature
+  config.include FeatureAuthenticationHelper, type: :feature
+  config.include FeatureNavigationHelper, type: :feature
+  config.extend FeatureAuthenticationMacros, type: :feature
 end

@@ -1,0 +1,21 @@
+// box-sizing FTW: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*, *:before, *:after
+  box-sizing: border-box
+
+body
+  padding: 0
+
+body, input, textarea, select, button
+  font: 400 16px/1.5 Helvetica, Arial, sans-serif
+
+main
+  margin-left: ($sidebar-width + $gutter)
+  > h1
+    margin-top: 0
+
+.container
+  padding: $gutter
+
+table
+  td, th
+    padding: 5px

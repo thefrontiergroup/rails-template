@@ -2,34 +2,30 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
-# Use PostgreSQL as the database for ActiveRecord
+# Database & ORM
+gem 'paranoia'
 gem 'pg'
 
-# Use devise for authentication
+# Authentication & Authorization
 gem 'devise'
+gem 'pundit'
 
-# Use HAML and SASS
-gem 'haml-rails'
-gem 'sass-rails'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
-# Use CoffeeScript for .js.coffee assets and views
+# Presentation
 gem 'coffee-rails'
-
-# Use jquery as the JavaScript library
+gem 'haml-rails'
 gem 'jquery-rails'
+gem 'kaminari'
+gem 'normalize-rails'
+gem 'sass-rails'
+gem 'simple_form'
+gem 'uglifier'
+
 
 group :development do
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   # Quiet Assets hides all of the asset logging in Development.
   gem 'quiet_assets'
-end
-
-group :test do
-  gem 'email_spec'
-  gem 'shoulda-matchers'
+  gem 'seed_helper'
+  gem 'spring'
 end
 
 group :development, :test do
@@ -44,4 +40,14 @@ group :development, :test do
   # Generate fake data for seeds and tests
   gem 'factory_girl_rails'
   gem 'ffaker'
+end
+
+group :test do
+  gem 'email_spec'
+  gem 'shoulda-matchers'
+end
+
+group :staging do
+  # Enable "Staging" ribbon on top right corner
+  gem 'rack-dev-mark'
 end
