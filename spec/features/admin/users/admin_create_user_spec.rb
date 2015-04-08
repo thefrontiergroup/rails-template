@@ -28,6 +28,8 @@ feature 'Admin can create a new User' do
     fill_in("Password", with: "")
     click_button("Create User")
 
+    # Ensure no user is created
+    expect(User.count).to eq(1)
     expect(page).to have_content("can't be blank")
   end
 end
