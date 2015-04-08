@@ -13,4 +13,4 @@ easySignIn = ->
       $password.val $el.data('password')
       $form.submit()
 
-$(document).ready(easySignIn).on("page:load", easySignIn)
+$(document).ready(easySignIn)
