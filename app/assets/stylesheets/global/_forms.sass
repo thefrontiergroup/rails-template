@@ -16,19 +16,44 @@ form
     color: #666
 
 label
-  width: (200px - $gutter)
   float: left
-  padding-top: 3px
+  min-height: 28px
+  padding-right: $gutter
+  padding-top: 2px
   text-align: right
-  margin-right: $gutter
+  width: 200px
 
-input[type="submit"]
-  margin-left: 200px
-
-input[type="text"],
-input[type="email"],
+input[type="color"],
 input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
 input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea
+  border: 1px solid #ccc
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
 textarea,
 select
   width: 300px
@@ -46,8 +71,10 @@ button
   color: #fff
   cursor: pointer
   display: inline-block
-  font-weight: 200
   padding: ($gutter / 2) $gutter
   transition: background-color 250ms ease-out
   &:hover, &:focus
     background-color: $button-hover-color
+
+input[type="submit"]
+  margin-left: 200px
