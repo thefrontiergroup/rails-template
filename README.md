@@ -19,11 +19,12 @@ Developers:
 * Brendan Ragan
 * Jordan Maguire
 * Steve Webb
+* Patrik Affentranger
 
 ## Getting Started
 
-  1. ``bundle``
-  2. Setup configuration files via ``rake spin_up``
+  1. `bundle`
+  2. Setup configuration files via `rake spin_up`
 
 ## Terminology
 
