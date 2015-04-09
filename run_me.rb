@@ -50,7 +50,7 @@ heading("Changing all instances referencing template name to appropriate casing 
 replace(new_path, "*application.rb", "TfgTemplate", app_name_as_constant)
 replace(new_path, "*application.html.haml", "TfgTemplate", app_name_as_constant)
 replace(new_path, "*.ruby-gemset", "tfg_template", app_name.parameterize("_"))
-replace(new_path, "*database.yml", "tfg-template", app_name.parameterize("-"))
+replace(new_path, "*database.yml.sample", "tfg-template", app_name.parameterize("-"))
 replace(new_path, "*APP_README.md", "TfgTemplate", app_name)
 
 heading("Overwriting existing README.md with template for a Rails app's README")

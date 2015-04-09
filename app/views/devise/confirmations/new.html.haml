@@ -3,7 +3,6 @@
   = devise_error_messages!
   %div
     = f.label :email
-    %br/
     = f.email_field :email, autofocus: true
   %div= f.submit "Resend confirmation instructions"
 = render "devise/shared/links"

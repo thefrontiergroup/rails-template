@@ -3,7 +3,7 @@
   = devise_error_messages!
   %div
     = f.label :email
-    %br/
     = f.email_field :email, autofocus: true
   %div= f.submit "Send me reset password instructions"
+
 = render "devise/shared/links"

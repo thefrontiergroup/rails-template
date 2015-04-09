@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Signed in users can sign out' do
 
-  sign_in
+  sign_in_as(:admin)
 
   scenario 'User signs out successfully' do
     click_link 'Sign out'

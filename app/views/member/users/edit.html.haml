@@ -1,0 +1,7 @@
+%h1 Edit #{@user}
+
+= simple_form_for [:member, @user] do |f|
+  = f.input :email
+  = f.input :password, required: true
+
+  = f.button :submit
