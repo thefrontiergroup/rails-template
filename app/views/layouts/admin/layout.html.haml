@@ -1,0 +1,10 @@
+- content_for :content do
+  .sidebar
+    %h1 Actions
+    %ul
+      %li= link_to 'Users', admin_users_path
+
+  %main{role: 'main'}
+    = yield
+
+= render template: "layouts/application"

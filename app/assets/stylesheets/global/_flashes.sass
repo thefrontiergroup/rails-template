@@ -1,0 +1,14 @@
+.flash-wrapper
+  margin-bottom: $gutter
+
+  .flash
+    border: 1px solid transparent
+    padding: 5px 10px
+    &-notice
+      border-color: $flash-notice-color
+      background-color: lighten($flash-notice-color, 10%)
+
+    &-alert
+      border-color: $flash-alert-color
+      background-color: lighten($flash-alert-color, 20%)
+      color: $flash-alert-copy-color

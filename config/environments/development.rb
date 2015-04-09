@@ -34,5 +34,11 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  config.action_view.raise_on_missing_translations = true
+
+  # Seed data
+  config.should_seed_application_data = true
+
+  # Shows some menu options on sign in that can sign in the seed users
+  config.should_show_easy_login = true
 end

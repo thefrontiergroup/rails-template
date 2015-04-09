@@ -1,0 +1,28 @@
+// box-sizing FTW: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*, *:before, *:after
+  box-sizing: border-box
+
+html
+  font-size: 100%
+
+body
+  padding: 0
+  > h1
+    @extend %visually-hidden
+
+body, input, textarea, select, button
+  font: 400 16px/1.5 "Helvetica", "Arial", sans-serif
+  color: $copy-color
+
+main
+  margin-left: ($sidebar-width + $gutter)
+  > h1
+    margin-top: 0
+
+.container
+  padding: $gutter
+
+a
+  color: $link-color
+  &:hover
+    color: $link-hover-color

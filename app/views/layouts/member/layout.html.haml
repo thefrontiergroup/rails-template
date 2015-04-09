@@ -1,0 +1,4 @@
+- content_for :navigation_items do
+  %li= link_to "My Profile", edit_member_user_path(current_user)
+
+= render template: "layouts/application"
