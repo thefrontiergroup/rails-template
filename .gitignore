@@ -10,10 +10,6 @@
 /tmp
 /.sass-cache
 
-# Ignore os display files
-.DS_Store
-Thumbs.db
-
 # Ignore spec files
 results/rspec.xml
 coverage/*
