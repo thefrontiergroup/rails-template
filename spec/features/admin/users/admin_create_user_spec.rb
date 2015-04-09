@@ -7,7 +7,7 @@ feature 'Admin can create a new User' do
   before do
     click_header_option("Dashboard")
     click_sidemenu_option("Users")
-    click_link("New")
+    click_link("Add new User")
   end
 
   scenario 'Admin creates user with valid data' do
