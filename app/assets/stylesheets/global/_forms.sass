@@ -10,10 +10,10 @@ form
     font-size: 14px
 
   .error
-    color: #911
+    color: $form-error-color
 
   .hint
-    color: #666
+    color: $form-hint-color
 
 label
   float: left
@@ -38,7 +38,7 @@ input[type="time"],
 input[type="url"],
 input[type="week"],
 textarea
-  border: 1px solid #ccc
+  border: 1px solid $input-border-color
 
 input[type="color"],
 input[type="date"],
@@ -66,9 +66,9 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 button
-  background-color: $button-color
+  background-color: $button-background-color
   border: none
-  color: #fff
+  color: $button-color
   cursor: pointer
   display: inline-block
   padding: ($gutter / 2) $gutter
