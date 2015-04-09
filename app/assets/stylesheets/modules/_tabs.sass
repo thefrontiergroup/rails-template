@@ -11,11 +11,11 @@
       margin-left: 0
 
     &.active a
-      background-color: #fff
+      background-color: $tab-active-background-color
       cursor: default
 
   a
-    background-color: #f3f3f3
+    background-color: $tab-background-color
     border-color: #ddd
     border-style: solid
     border-top-left-radius: 4px
@@ -25,7 +25,7 @@
     display: block
     padding: ($gutter / 2) $gutter
     text-decoration: none
-    transition: background-color 250ms ease-out
+    transition: background-color $default-timing ease-out
     &:hover
-      background-color: darken(#f3f3f3, 5%)
+      background-color: darken($tab-background-color, 5%)
 

@@ -1,23 +1,23 @@
 table
   border-collapse: collapse
-  border: 1px solid #ddd
+  border: 1px solid $table-border-color
   width: 100%
 
 tr
   &:nth-child(odd) td
-    background-color: #fff
+    background-color: $table-odd-row-background-color
 
   &:nth-child(even) td
-    background-color: #f3f3f3
+    background-color: $table-even-row-background-color
 
   &:hover td
-    background-color: darken(#f3f3f3, 4%)
+    background-color: $table-row-hover-background-color
 
 th
   text-align: left
   border-style: solid
   border-width: 1px 0
-  border-color: #ddd
+  border-color: $table-border-color
 
 th, td
   padding: ($gutter / 2)
