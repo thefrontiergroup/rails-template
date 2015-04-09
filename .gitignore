@@ -8,6 +8,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/.sass-cache
 
 # Ignore spec files
 results/rspec.xml

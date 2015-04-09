@@ -1,5 +1,0 @@
-- Add seeds for users
-- User CRUD
-- Add Admin::BaseController
-- Replace
-  - Tfg Template with App name (README)

@@ -1,7 +1,10 @@
 nav[role='navigation']
-  background-color: #fcfcfc
-  border-bottom: 1px solid darken(#fcfcfc, 10%)
+  background-color: $nav-background-color
+  border-bottom: 1px solid $nav-border-color
   padding: 5px $gutter
+
+  > h1
+    @extend %visually-hidden
 
   ul
     list-style: none
@@ -16,7 +19,7 @@ nav[role='navigation']
       margin-left: 0
 
   a
-    color: #444
+    color: $copy-color
     display: inline-block
     padding: 5px
     text-decoration: none

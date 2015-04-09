@@ -2,11 +2,17 @@
 *, *:before, *:after
   box-sizing: border-box
 
+html
+  font-size: 100%
+
 body
   padding: 0
+  > h1
+    @extend %visually-hidden
 
 body, input, textarea, select, button
-  font: 400 16px/1.5 Helvetica, Arial, sans-serif
+  font: 400 16px/1.5 "Helvetica", "Arial", sans-serif
+  color: $copy-color
 
 main
   margin-left: ($sidebar-width + $gutter)
@@ -16,6 +22,7 @@ main
 .container
   padding: $gutter
 
-table
-  td, th
-    padding: 5px
+a
+  color: $link-color
+  &:hover
+    color: $link-hover-color

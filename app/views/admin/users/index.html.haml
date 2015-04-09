@@ -1,11 +1,18 @@
 %h1 User Management
 
+%ul
+  %li= link_to "Add new User", new_admin_user_path
+
+%ul.tabs
+  %li.active= link_to "Active Tab", admin_users_path
+  %li= link_to "Inactive Tab", admin_users_path
+
 %table
   %thead
     %tr
       %th Email
       %th Role
-      %th= link_to "New", new_admin_user_path
+      %th Actions
   %tbody
     - @users.each do |user|
       %tr
