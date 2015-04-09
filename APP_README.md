@@ -27,7 +27,9 @@ TODO: Add links to Basecamp, Pivotal Tracker, or any other websites that are of 
 
 ## Getting Started
 
-TODO: Include information on getting started with this application. This should include the process from cloning the repo to running the server locally. Assume the reader has little experience with Rails when writing this.
+1. Run `bundle` to install the gems
+2. Run `rake spin_up` to perform any spin up tasks and to setup the database
+3. Run `rails s` to run the app
 
 ## Staging Environment Information
 
