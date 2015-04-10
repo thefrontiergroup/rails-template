@@ -9,11 +9,8 @@ describe Admin::UsersController do
       it { should be_success }
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
   describe 'GET new' do
@@ -23,11 +20,8 @@ describe Admin::UsersController do
       it { should be_success }
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
   describe 'POST create' do
@@ -62,11 +56,8 @@ describe Admin::UsersController do
       end
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
   describe 'GET edit' do
@@ -77,11 +68,8 @@ describe Admin::UsersController do
       it { should be_success }
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
   describe 'POST update' do
@@ -124,11 +112,8 @@ describe Admin::UsersController do
       end
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
   describe 'DELETE destroy' do
@@ -143,11 +128,8 @@ describe Admin::UsersController do
       it { should redirect_to(admin_users_path) }
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
 end

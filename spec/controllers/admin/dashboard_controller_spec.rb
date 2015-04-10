@@ -9,11 +9,8 @@ describe Admin::DashboardController do
       it { should be_success }
     end
 
-    authenticated_as(:member) do
-      it_behaves_like "unauthorized access to controller action"
-    end
-
     it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
   end
 
 end
