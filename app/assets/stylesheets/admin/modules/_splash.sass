@@ -1,0 +1,21 @@
+.splash
+  display: block
+  margin: 0 auto
+  text-align: center
+  +span-columns(4)
+  +shift(4)
+
+  h1
+    @extend %visually-hidden
+
+  img
+    height: auto
+    width: 100%
+
+  span
+    display: block
+    font-family: Courier, monospace
+    font-size: 5vw
+    font-weight: 700
+    text-transform: uppercase
+    margin-bottom: $small-spacing

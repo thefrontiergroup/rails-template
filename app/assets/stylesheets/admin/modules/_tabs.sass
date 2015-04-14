@@ -1,0 +1,22 @@
+.tabs
+  border-bottom: 1px solid $tabs-bottom-border-color
+  margin-top: $gutter
+
+  li
+    display: inline
+    &.active a
+      background-color: $tabs-active-tab-background
+      border: 1px solid $tabs-active-tab-border-color
+      border-bottom-color: $tabs-active-tab-background
+      margin-bottom: -1px
+
+  a
+    color: $base-font-color
+    display: inline-block
+    padding: ($base-spacing /2) $gutter
+    text-decoration: none
+    &:hover
+      color: $action-color
+
+.tabs + table
+  margin-top: 0

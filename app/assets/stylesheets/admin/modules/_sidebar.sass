@@ -1,0 +1,16 @@
+.sidebar
+  +span-columns(3)
+  background: $sidebar-background
+  border-top: 2px solid $sidebar-border-top-color
+  +border-bottom-radius($base-border-radius)
+  +pad
+
+  > h1
+    margin-top: 0
+
+  ul
+    @extend %default-ul
+    margin-bottom: 0
+
+.sidebar + main
+  +span-columns(9)
