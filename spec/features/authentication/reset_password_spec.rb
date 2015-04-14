@@ -27,7 +27,8 @@ feature 'Existing users can reset their passwords' do
     fill_in 'Email', with: 'fake@email.com'
     submit_form
     within("form") do
-      expect(page).to have_content("Email not found")
+      # Errors show below the inputs, Capybara will show the error as follows
+      expect(page).to have_content("Emailnot found")
     end
   end
 end
