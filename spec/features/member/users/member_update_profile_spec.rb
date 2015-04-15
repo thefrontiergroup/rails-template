@@ -14,7 +14,7 @@ feature 'Member can update their profile' do
 
     # User should be saved
     click_header_option("My Profile")
-    expect(page).to have_content("valid@example.com")
+    expect(current_user.reload.email).to eq("valid@example.com")
   end
 
   scenario 'With invalid data' do
