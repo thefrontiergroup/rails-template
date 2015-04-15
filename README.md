@@ -24,7 +24,7 @@ The output of this script should give you the instructions you will need.
 - Dashboard with update profile link for Members with full unit and feature tests
 - Seeds configuration via SeedHelper, including seeding some initial Users
 - Easy sign in functionality to speed up development
-- Basic set of styles for all pages above
+- Basic set of desktop styles for all pages above
 
 ## TODO
 
