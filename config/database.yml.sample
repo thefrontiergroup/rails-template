@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: curtin-volunteers_development
+  database: tfg-template_development
   pool: 5
   username: develop
   password: develop
@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: curtin-volunteers_test
+  database: tfg-template_test
   pool: 5
   username: test
   password: test
