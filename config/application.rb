@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module TfgTemplate
+module CurtinVolunteers
   class Application < Rails::Application
     config.should_seed_application_data = false
     config.should_show_easy_login = false

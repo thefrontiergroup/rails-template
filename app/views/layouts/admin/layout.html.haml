@@ -1,6 +1,9 @@
+- content_for :stylesheets do
+  = stylesheet_link_tag 'admin', media: 'all'
+
 - content_for :content do
-  .sidebar
-    %h1 Actions
+  %aside.sidebar
+    %h1 Pages
     %ul
       %li= link_to 'Users', admin_users_path
 

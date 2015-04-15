@@ -9,7 +9,7 @@ feature 'A visitor can sign up' do
 
   scenario 'User signs up successfully' do
     fill_in("Email", with: "email@example.com")
-    fill_in("Password", with: "password")
+    fill_in("user_password", with: "password", exact: true)
     fill_in("Password confirmation", with: "password")
 
     submit_form
@@ -24,8 +24,9 @@ feature 'A visitor can sign up' do
   scenario "User doesn't fill in details" do
     submit_form
     within("form") do
-      expect(page).to have_content("Email can't be blank")
-      expect(page).to have_content("Password can't be blank")
+      # Errors show below the inputs, Capybara will show the error as follows
+      expect(page).to have_content("Emailcan't be blank")
+      expect(page).to have_content("Passwordcan't be blank")
     end
   end
 end

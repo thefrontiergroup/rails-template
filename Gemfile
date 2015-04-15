@@ -19,6 +19,8 @@ gem 'normalize-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'bourbon'
+gem 'neat'
 
 
 group :development do

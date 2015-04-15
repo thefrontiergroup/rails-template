@@ -9,6 +9,7 @@ shared_examples_for "unauthorized access to controller action" do
     expect(request.flash[:alert]).to include "You are not authorized to perform this action."
   end
 
+
 end
 
 shared_examples_for "action authorizes roles" do |authorized_roles|

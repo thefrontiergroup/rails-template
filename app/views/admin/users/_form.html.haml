@@ -1,6 +1,7 @@
-= simple_form_for [:admin, @user] do |f|
+= simple_form_for [:admin, @user], wrapper: "horizontal", html: { class: "form-horizontal"} do |f|
+
   = f.input :email
   = f.input :role, collection: User.roles.collect {|k,v| [k.titleize, k]}
   = f.input :password
-
-  = f.button :submit
+  .form-actions
+    = f.button :submit

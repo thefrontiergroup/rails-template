@@ -1,0 +1,53 @@
+$navigation-height: 60px
+
+header[role="banner"]
+  background-color: $nav-background-color
+  border-bottom: 1px solid darken($nav-background-color, 10)
+  margin-bottom: $gutter
+  min-height: $navigation-height
+  width: 100%
+
+  .logo
+    float: left
+    margin-left: 1em
+    margin-right: 2em
+    max-height: $navigation-height
+    padding: 0.8em 0
+
+  img
+    max-height: $navigation-height
+
+nav[role='navigation']
+  +clearfix
+
+  > h1
+    @extend %visually-hidden
+
+  li
+    display: inline
+    padding-right: 0.8em
+    line-height: $navigation-height
+
+    &:first-child
+      margin-left: 0
+
+  a
+    color: $base-font-color
+    display: inline-block
+    text-decoration: none
+    &:hover, &:focus
+      text-decoration: underline
+
+  > ul
+    min-height: $navigation-height
+
+  .site-nav
+    float: left
+
+  .session
+    float: right
+    padding-right: 1em
+
+    li
+      padding-right: 0
+      padding-left: 0.8em
