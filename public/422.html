@@ -1,67 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The change you wanted was rejected (422)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  <head>
+    <meta charset="utf-8">
+    <title>The change you wanted was rejected (422)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        text-align: center;
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0;
+        font-size: 1em;
+      }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+      div.dialog {
+        width: 95%;
+        max-width: 33em;
+        margin: 2em auto 0;
+      }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+      div.dialog:before {
+        color: #96151b;
+        content: "422";
+        display: block;
+        font-size: 9em;
+      }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+      div.dialog > div {
+        background-color: #f7f7f7;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 4px solid #96151b;
+        line-height: 1.5;
+        margin-bottom: 2em;
+        padding: 5%;
+      }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
+      div.dialog p {
+        margin-top: 1em;
+        margin-bottom: 0;
+      }
 
-<body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+      h1 {
+        font-size: 1.3em;
+        color: #6a0f13;
+        line-height: 1.5em;
+        margin-top: 0;
+      }
+
+      a {
+        color: #333;
+      }
+
+      a.logo {
+        display: inline-block;
+        font-family: Courier, monospace;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      a.logo img {
+        vertical-align: middle;
+      }
+
+      @media (max-width: 568px) {
+        body {
+          font-size: 0.9em;
+        }
+
+        div.dialog {
+          margin-top: 0.5em;
+        }
+
+        div.dialog:before {
+          font-size: 5em;
+        }
+
+        div.dialog > div {
+          padding: 5% 3%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dialog">
+      <div>
+        <h1>The change you wanted was rejected.</h1>
+        <p>Maybe you tried to change something you didn't have access to.</p>
+        <p>
+          Return to the
+          <a href="/">home page</a>.
+        </p>
+      </div>
+      <a href="/" class="logo">
+        <img width="34" height="34" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAQAAACSGls5AAACKUlEQVR4Ae2XIUwcQRSGv70LSRMQGEwVKOoqa9FnOQsWvariNEkV2Dt7tejaQ1J3uDoUClEECQkJTCeXl2zS37Cv72ZE7/vV7uzyHrezs/NRgA0bRjn1YYtfOVtUpyXltFRmj0dSzm/2qMqMZJlRkc+8kiyv+agaC1IXFlRiTPorYyrwgTsr/yMnrXKXzxZnYsVf+JTzYkcTCvORJyt9AZkLO3rKI0X5boUf2IXMLg92Zk5BvvBmZc/AOLMzb3m0EA03VvSWIRhDbu3sDQ1FOCVZjuggHyXLKQXY5t7KXcnYlY3cs83aObdizxzI2AHPNnrOmtmXUoa0uc9a0B9/BwV29MFFotPxBME40akczYDlO17Qhp921ZIBwciS1Xu5i6H3Ij7vPgCEc9njs9Z9Ei8J5rDnh77bJBwSiW59emybAhmRLMe8l2OSZRTpcmmVa/pwbXeFeWDrFIZONtpIl0tM6cvU7nyM8MCZ54/JPzGLc7m25GNVFt4JJxN9EeNyo4BXf/zvLhcTtwdOSMGZ+F0uNi4PnJOIzxwlaHPzza776txUOVzO34jPA3UDHNCIbrz9LudvRD3Q73IRjagH+i/3N6IeGPkDSiP+h+6fUtJI5GswVJeLakQWhiXDmGVHGolbKtXl/I34PVBdLr4R9cAIl/M3oh7odTl/I+qBAS4njQRsQtXlIhpxeGBLqphWNKhOOnWbkSpn2rlcpYR4oNEwWKXh/2DDhj/MPI4mJQflNQAAAABJRU5ErkJggg==">
+        CREATE
+      </a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
-</body>
+  </body>
 </html>
