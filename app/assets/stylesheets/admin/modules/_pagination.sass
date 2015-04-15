@@ -1,0 +1,20 @@
+.pagination
+  margin: $base-spacing 0
+  text-align: center
+
+  span
+    display: inline
+
+  a, .current
+    padding: ($base-spacing / 4) ($gutter / 2)
+
+  a
+    background: $pagination-background
+    border-radius: $base-border-radius
+    color: $pagination-color
+    outline: none
+    text-decoration: none
+    +transition(all 200ms ease-in-out)
+    &:hover, &:focus
+      background-color: $pagination-hover-background
+      color: $action-color
