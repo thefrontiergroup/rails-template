@@ -16,5 +16,5 @@
   .easy-sign-in
     %h3 Easy Sign-in
     %ul
-      %li= link_to 'Sign in as Administrator', '#', data: { email: "admin@example.com", password: "password" }
-      %li= link_to 'Sign in as Member', '#', data: { email: "member@example.com", password: "password" }
+      - User.roles.keys.each do |role_name|
+        %li= link_to "Sign in as #{role_name.titleize}", '#', data: { email: "#{role_name}@example.com", password: "password" }
