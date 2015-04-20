@@ -6,5 +6,8 @@
 
     = f.input :email
     = f.input :password, required: true
+
+    = f.input :created_at, as: :date_picker
+
     .form-actions
       = f.button :submit
