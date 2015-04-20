@@ -1,3 +1,10 @@
+# Simple Form
+
+## Table of Contents
+
+1. [Form Styles](#formstyles)
+2. [Custom input field: datepicker](#custominputfielddatepicker)
+
 # Form styles
 
 Rails template gives you three different form styles by default, similar to what [Bootstrap](http://getbootstrap.com/css/#forms) or [Zurb Foundation](http://foundation.zurb.com/docs/components/forms.html) offers:
@@ -35,6 +42,19 @@ Using the [Neat Grid](http://neat.bourbon.io/) to align label and corresponding 
 ```haml
 = simple_form_for(wrapper: "horizontal", html: { class: "form-horizontal"}) do |f|
   = f.input :email
+  .form-actions
+    = f.button :submit
+```
+
+# Custom input field: datepicker
+
+Input fields with date pickers have become very common in our Rails apps, so we wanted to have a default implementation. Our implementation uses the Pikaday JavaScript library for all desktop and the native UI datepicker on mobile devices.
+
+**Usage:**
+
+```haml
+= simple_form_for(...) do |f|
+  = f.input :deadline, as: :date_picker
   .form-actions
     = f.button :submit
 ```
