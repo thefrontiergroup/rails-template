@@ -4,7 +4,7 @@ class UserPolicy < ApplicationPolicy
     if is_admin?
       [:email, :role, :password]
     elsif is_member?
-      [:email, :password, :created_at]
+      [:email, :password]
     else
       []
     end
