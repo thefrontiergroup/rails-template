@@ -32,8 +32,8 @@ class SpinUpHelper
   def setup_secrets_config
     filename = "config/secrets.yml"
     yaml = YAML.load_file(filename)
-    yaml["development"]["secret_key_base"] = SecureRandom.hex(30)
-    yaml["test"]["secret_key_base"] = SecureRandom.hex(30)
+    yaml["development"]["secret_key_base"] = SecureRandom.hex(128)
+    yaml["test"]["secret_key_base"] = SecureRandom.hex(128)
     write_yaml(yaml, filename)
   end
 
