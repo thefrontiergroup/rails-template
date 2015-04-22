@@ -1,17 +1,17 @@
-development:
+base: &base
   adapter: postgresql
   encoding: unicode
-  database: tfg-template_development
   pool: 5
-  username: develop
-  password: develop
   host: localhost
 
+development:
+  <<: *base
+  database: tfg-template_development
+  username: develop
+  password: develop
+
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *base
   database: tfg-template_test
-  pool: 5
   username: test
   password: test
-  host: localhost

@@ -8,7 +8,6 @@ task :spin_up do
   helper = SpinUpHelper.new
   if helper.warning_prompt(configs)
     helper.copy_samples(configs)
-    helper.setup_database_config
     helper.setup_secrets_config
     helper.setup_database
   end
@@ -30,18 +29,11 @@ class SpinUpHelper
     end
   end
 
-  def setup_database_config
-    filename = "config/database.yml"
-    yaml = YAML.load_file(filename)
-
-    write_yaml(yaml, filename)
-  end
-
   def setup_secrets_config
     filename = "config/secrets.yml"
     yaml = YAML.load_file(filename)
-    yaml["development"]["secret_key_base"] = SecureRandom.hex(30)
-    yaml["test"]["secret_key_base"] = SecureRandom.hex(30)
+    yaml["development"]["secret_key_base"] = SecureRandom.hex(128)
+    yaml["test"]["secret_key_base"] = SecureRandom.hex(128)
     write_yaml(yaml, filename)
   end
 
