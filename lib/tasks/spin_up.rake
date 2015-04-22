@@ -8,7 +8,6 @@ task :spin_up do
   helper = SpinUpHelper.new
   if helper.warning_prompt(configs)
     helper.copy_samples(configs)
-    helper.setup_database_config
     helper.setup_secrets_config
     helper.setup_database
   end
@@ -28,13 +27,6 @@ class SpinUpHelper
     configs.each do |config|
       FileUtils.copy("#{config}.sample", config)
     end
-  end
-
-  def setup_database_config
-    filename = "config/database.yml"
-    yaml = YAML.load_file(filename)
-
-    write_yaml(yaml, filename)
   end
 
   def setup_secrets_config
