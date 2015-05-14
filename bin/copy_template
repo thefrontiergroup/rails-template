@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 require 'active_support/inflector'
 include ActiveSupport::Inflector
@@ -56,8 +56,11 @@ replace(new_path, "*APP_README.md", "TfgTemplate", app_name)
 heading("Overwriting existing README.md with template for a Rails app's README")
 run_command("cd #{new_path} && mv APP_README.md README.md && cd -")
 
+heading("Removing bin/copy_template")
+run_command("cd #{new_path} && git rm bin/copy_template")
+
 heading("Comitting changes to your new app at #{new_path}")
-run_command("cd #{new_path} && git remote rm origin && git add . && git commit -m '[rails-template] CONFIGURED'")
+run_command("cd #{new_path} && git remote rm origin && git add --all . && git commit -m '[rails-template] CONFIGURED'")
 
 puts
 puts

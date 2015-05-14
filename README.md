@@ -4,6 +4,13 @@ This is a RoR template using The Frontier Group's (TFG) SOE.
 
 ## Usage
 
+```
+git clone https://github.com/thefrontiergroup/rails-template
+cd rails-template
+gem install bundler
+bundle
+bin/copy_template
+```
 Clone this repo and run the file `run_me.rb`.
 
 The output of this script should give you the instructions you will need.
