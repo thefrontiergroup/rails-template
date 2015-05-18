@@ -21,6 +21,7 @@ class UserPolicy < ApplicationPolicy
 # CRUD
 
   alias :index? :is_admin?
+  alias :index_admins? :is_admin?
   alias :new? :is_admin?
   alias :create? :is_admin?
   alias :destroy? :is_admin?

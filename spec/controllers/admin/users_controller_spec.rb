@@ -3,10 +3,35 @@ require 'spec_helper'
 describe Admin::UsersController do
 
   describe 'GET index' do
-    subject { get :index }
+    subject(:get_index) { get :index }
 
     authenticated_as(:admin) do
       it { should be_success }
+
+      describe "populating @users" do
+        subject(:users) { get_index; assigns(:users) }
+
+        it { should include(FactoryGirl.create(:user, :member)) }
+        it { should_not include(FactoryGirl.create(:user, :admin)) }
+      end
+    end
+
+    it_behaves_like "action requiring authentication"
+    it_behaves_like "action authorizes roles", [:admin]
+  end
+
+  describe 'GET index_admins' do
+    subject(:get_index) { get :index_admins }
+
+    authenticated_as(:admin) do
+      it { should be_success }
+
+      describe "populating @users" do
+        subject(:users) { get_index; assigns(:users) }
+
+        it { should include(FactoryGirl.create(:user, :admin)) }
+        it { should_not include(FactoryGirl.create(:user, :member)) }
+      end
     end
 
     it_behaves_like "action requiring authentication"

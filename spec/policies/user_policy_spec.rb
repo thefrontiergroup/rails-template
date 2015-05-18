@@ -18,6 +18,7 @@ describe UserPolicy do
 
     # CRUD actions
     it { should_not permit_access_to(:index) }
+    it { should_not permit_access_to(:index_admins) }
     it { should_not permit_access_to(:new) }
     it { should_not permit_access_to(:create) }
     it { should_not permit_access_to(:edit) }
@@ -40,6 +41,7 @@ describe UserPolicy do
 
     # CRUD actions
     it { should permit_access_to(:index) }
+    it { should permit_access_to(:index_admins) }
     it { should permit_access_to(:new) }
     it { should permit_access_to(:create) }
     it { should permit_access_to(:edit) }
@@ -62,6 +64,7 @@ describe UserPolicy do
 
     # CRUD actions
     it { should_not permit_access_to(:index) }
+    it { should_not permit_access_to(:index_admins) }
     it { should_not permit_access_to(:new) }
     it { should_not permit_access_to(:create) }
     describe "update?" do
