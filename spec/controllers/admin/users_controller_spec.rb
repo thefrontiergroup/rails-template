@@ -8,7 +8,7 @@ describe Admin::UsersController do
     authenticated_as(:admin) do
       it { should be_success }
 
-      describe "populating @users" do
+      describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
 
         it { should include(FactoryGirl.create(:user, :member)) }
@@ -26,7 +26,7 @@ describe Admin::UsersController do
     authenticated_as(:admin) do
       it { should be_success }
 
-      describe "populating @users" do
+      describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
 
         it { should include(FactoryGirl.create(:user, :admin)) }
