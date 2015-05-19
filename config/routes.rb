@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: :index
-    resources :users
+    resources :users do
+      collection do
+        # admins/users/admins
+        get "admins", action: :index_admins
+      end
+    end
   end
 
   namespace :member do

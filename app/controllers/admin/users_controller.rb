@@ -2,7 +2,13 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize(User)
-    @users = User.all.page(params[:page])
+    @users = policy_scope(User.member).page(params[:page])
+  end
+
+  def index_admins
+    authorize(User)
+    @users = policy_scope(User.admin).page(params[:page])
+    render :index
   end
 
   def new
