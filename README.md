@@ -4,7 +4,13 @@ This is a RoR template using The Frontier Group's (TFG) SOE.
 
 ## Usage
 
-Clone this repo and run the file `run_me.rb`.
+```
+git clone https://github.com/thefrontiergroup/rails-template
+cd rails-template
+gem install bundler
+bundle
+bin/copy_template
+```
 
 The output of this script should give you the instructions you will need.
 
@@ -35,5 +41,4 @@ The output of this script should give you the instructions you will need.
 - Add in mailer defaults for dev (mailcatcher), staging, and production (jazz)
 - Custom 404, 500, and maintenance pages
 - Custom favicon
-- Delete the run_me.rb when app is copied
 - Validate format of email address
