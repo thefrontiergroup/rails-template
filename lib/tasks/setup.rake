@@ -1,7 +1,7 @@
 require 'fileutils'
 
 namespace :setup do
-  desc "Set random keys in the config/secrects.yml"
+  desc "Set random keys in the config/secrets.yml"
   task :randomize_secrets do
     filename = "config/secrets.yml"
     yaml = YAML.load_file(filename)
