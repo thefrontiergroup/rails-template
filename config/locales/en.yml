@@ -1,2 +1,13 @@
 en:
   hello: "Hello world"
+  views:
+    pagination:
+      first: "&laquo;"
+      first_title: "First page"
+      last: "&raquo;"
+      last_title: "Last page"
+      previous: "&lsaquo;"
+      previous_title: "Previous page"
+      next: "&rsaquo;"
+      next_title: "Next page"
+      truncate: "&hellip;"

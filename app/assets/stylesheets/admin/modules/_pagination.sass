@@ -5,6 +5,32 @@
   span
     display: inline
 
+    &.first a:after
+      content: " First"
+
+    &.prev a:after
+      content: " Prev"
+
+    &.next a:before
+      content: "Next "
+
+    &.last a:before
+      content: "Last "
+
+    +media($medium-screen-down)
+      a
+        font-size: em(20)
+        font-family: Arial, Helvetica, sans-serif
+        &:before, &:after
+          display: none
+      &.page
+        display: none
+
+      &.current
+        display: inline
+        &:before
+          content: "Page: "
+
   a, .current
     padding: ($base-spacing / 4) ($gutter / 2)
 
@@ -18,3 +44,4 @@
     &:hover, &:focus
       background-color: $pagination-hover-background
       color: $action-color
+
