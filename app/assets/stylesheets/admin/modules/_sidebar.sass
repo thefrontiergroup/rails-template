@@ -1,16 +1,91 @@
-.sidebar
+aside[role="complementary"]
   +span-columns(3)
+  padding-left: 1em
+
+.sidebar-pages
   background: $sidebar-background
   border-top: 2px solid $sidebar-border-top-color
   +border-bottom-radius($base-border-radius)
-  +pad
+  +pad(1em)
 
   > h1
-    margin-top: 0
+    margin: 0
 
   ul
     @extend %default-ul
+    margin-top: $small-spacing
     margin-bottom: 0
 
-.sidebar + main
+  .mobile-nav
+    background-color: transparent
+    float: right
+    height: 30px
+    position: absolute
+    top: 10px
+    right: 1em
+    width: 30px
+    &:hover, &:focus
+      background-color: transparent
+    &:before
+      border-left: em(8px) solid transparent
+      border-right: em(8px) solid transparent
+      border-bottom: em(8px) solid $sidebar-arrow-color
+      content: "\0020" // space
+      display: block
+      height: 0
+      margin-left: -8px
+      margin-top: -1px
+      width: 0
+      +transition(transform 100ms linear)
+    &.expanded:before
+      +transform(rotate(180deg))
+      .no-csstransforms &
+        border-bottom: 0 none
+        border-top: em(8px) solid $sidebar-arrow-color
+
+aside[role="complementary"] + main
   +span-columns(9)
+  padding-left: 0
+
+
++media($large-screen-down)
+  aside[role="complementary"]
+    +span-columns(8)
+    padding-right: 1em
+    margin-bottom: $base-spacing
+
+    + main
+      +span-columns(8)
+      padding-left: 1em
+
+  .sidebar-pages
+    position: relative
+
+    > h1
+      cursor: pointer
+      margin: -1em
+      padding: 1em
+
+    ul
+      display: none
+      margin-top: $small-spacing
+      &.is-expanded
+        display: block
+
+    .mobile-nav
+      display: block !important // override inline style
+
++media($medium-screen-down)
+  .sidebar-pages
+    ul
+      list-style: none
+      margin-bottom: 0
+      padding-left: 0
+
+    li
+      border-top: 1px solid $sidebar-item-separator-color
+      &:first-child
+        border-top: none
+    a
+      display: block
+      padding: ($small-spacing / 2) 0

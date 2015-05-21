@@ -2,10 +2,13 @@
   = stylesheet_link_tag 'admin', media: 'all'
 
 - content_for :content do
-  %aside.sidebar
-    %h1 Pages
-    %ul
-      %li= link_to 'Users', admin_users_path
+  %aside{role: 'complementary'}
+    .sidebar-pages
+      %h1.js-nav-toggle{'data-navigation-toggle-target': '#pages-nav'} Pages
+      %button.mobile-nav.js-nav-toggle{'aria-label': 'Toggle Pages', style: 'display: none;', 'data-navigation-toggle-target': '#pages-nav'}
+        %span Menu
+      %ul#pages-nav.nav
+        %li= link_to 'Users', admin_users_path
 
   %main{role: 'main'}
     = yield

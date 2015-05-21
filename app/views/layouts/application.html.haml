@@ -11,6 +11,7 @@
     = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login
     = csrf_meta_tags
     = favicon_link_tag "favicon.ico"
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
 
   %body
     %h1 Curtin Volunteers!
@@ -19,25 +20,30 @@
       .container
         = link_to root_path, class: "logo", rel: "home" do
           = image_tag 'create-glyph-logo.svg', size: '34x34'
-        %nav{role: 'navigation'}
-          %h1 Navigation
 
-          - user_policy = UserPolicy.new(current_user, User)
-          - logged_in = user_policy.admin_dashboard? || user_policy.member_dashboard?
+        .navigation-wrapper
+          %button.mobile-nav.js-nav-toggle{"aria-label": "Toggle Navigation", 'data-navigation-toggle-target': '#site-nav', 'data-requires-modal': 'true'}
+            %span Menu
 
-          - if logged_in
-            %ul.site-nav
-              - if user_policy.admin_dashboard?
-                %li= link_to "Dashboard", admin_dashboard_index_path
-              - if user_policy.member_dashboard?
-                %li= link_to "Dashboard", member_dashboard_index_path
-              = yield(:navigation_items)
-          %ul.session
-            - if current_user
-              %li= link_to "Sign out", destroy_user_session_path, method: :delete
-            - else
-              %li= link_to "Sign in", new_user_session_path
-              %li= link_to "Sign up", new_user_registration_path
+          %nav#site-nav.is-collapsed{role: 'navigation'}
+            %h1 Navigation
+
+            - user_policy = UserPolicy.new(current_user, User)
+            - logged_in = user_policy.admin_dashboard? || user_policy.member_dashboard?
+
+            - if logged_in
+              %ul.site-nav
+                - if user_policy.admin_dashboard?
+                  %li= link_to "Dashboard", admin_dashboard_index_path
+                - if user_policy.member_dashboard?
+                  %li= link_to "Dashboard", member_dashboard_index_path
+                = yield(:navigation_items)
+            %ul.session
+              - if current_user
+                %li= link_to "Sign out", destroy_user_session_path, method: :delete
+              - else
+                %li= link_to "Sign in", new_user_session_path
+                %li= link_to "Sign up", new_user_registration_path
 
     .container
       - flash.each do |key, value|
@@ -45,3 +51,5 @@
           .flash{class: "flash-#{key}"}= value
 
       = content_for?(:content) ? yield(:content) : yield
+
+    #js-fade-screen

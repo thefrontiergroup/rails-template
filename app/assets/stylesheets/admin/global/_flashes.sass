@@ -8,10 +8,15 @@
       color: darken($color, 90%)
 
 .flash-wrapper
+  margin: 0 1em
+
+  +media($medium-screen-down)
+    margin: -1em 0 0
+
   .flash
     display: block
     font-weight: 600
-    margin-bottom: $gutter
+    margin-bottom: $base-spacing
     padding: $small-spacing
     text-align: center
     &-notice
@@ -19,3 +24,6 @@
 
     &-alert
       @include flash($flash-alert-color)
+
+    +media($medium-screen-down)
+      padding: 0.75em 1em
