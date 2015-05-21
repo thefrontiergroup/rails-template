@@ -24,8 +24,9 @@ td.actions,
 th.actions
   text-align: right
 
-tr:hover td
-  background-color: $table-row-hover-background-color
++media($xlarge-screen-up)
+  tr:hover td
+    background-color: $table-row-hover-background-color
 
 // Controlling overflow if content does not fit into fixed table layout
 // More info: https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout

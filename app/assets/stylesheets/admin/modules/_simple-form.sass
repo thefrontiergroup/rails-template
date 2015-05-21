@@ -1,7 +1,10 @@
 .simple_form
+  margin-bottom: $base-spacing
+
   .error, .hint
     position: relative
     top: ($base-spacing / -3)
+    font-size: em(14)
 
   .error
     color: darken($form-error-color, 70)
@@ -48,11 +51,67 @@
   .form-actions
     +shift(2)
 
-.sidebar + main
+  +media($large-screen-down)
+    > .input > label
+      +span-columns(2)
+
+    .control
+      +span-columns(3)
+
+    .form-actions
+      +shift(2)
+
+  +media($medium-screen-down)
+    > .input > label
+      +fill-parent()
+      +omega()
+      margin-bottom: ($small-spacing / 2)
+      padding-top: 0
+      text-align: left
+
+    .control
+      +fill-parent()
+      +omega()
+
+    .form-actions
+      +fill-parent()
+      +omega()
+      +shift(0)
+
+aside[role="complementary"] + main
   .form-horizontal
     > .input > label
       +span-columns(2 of 9)
+
     .control
       +span-columns(4 of 9)
+
     .form-actions
       +shift(2 of 9)
+
+  +media($large-screen-down)
+    .form-horizontal
+      > .input > label
+        +span-columns(2 of 8)
+
+      .control
+        +span-columns(3 of 8)
+
+      .form-actions
+        +shift(2 of 8)
+
+  +media($medium-screen-down)
+    .form-horizontal
+      > .input
+        &:after
+          display: none // remove clearfix added by +row() on desktop
+        > label
+          +fill-parent()
+          margin-right: 0
+
+      .control
+        +fill-parent()
+
+      .form-actions
+        +fill-parent()
+        +shift(0)

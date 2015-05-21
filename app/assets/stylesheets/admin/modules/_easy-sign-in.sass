@@ -1,9 +1,17 @@
 .easy-sign-in
   +span-columns(4)
   +shift(2)
-  +pad()
+  +pad(1em)
   background: $easy-sign-in-background
   border-radius: $base-border-radius
+
+  +media($large-screen-down)
+    +span-columns(3)
+    +shift(1)
+
+  +media($medium-screen-down)
+    +fill-parent
+    +shift(0)
 
   ul
     @extend %default-ul

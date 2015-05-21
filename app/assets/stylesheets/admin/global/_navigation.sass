@@ -1,53 +1,122 @@
-$navigation-height: 60px
-
 header[role="banner"]
   background-color: $nav-background-color
   border-bottom: 1px solid darken($nav-background-color, 10)
-  margin-bottom: $gutter
-  min-height: $navigation-height
+  margin-bottom: 1em
+  min-height: $nav-height
   width: 100%
 
   .logo
     float: left
     margin-left: 1em
     margin-right: 2em
-    max-height: $navigation-height
+    max-height: $nav-height
     padding: 0.8em 0
 
   img
-    max-height: $navigation-height
+    max-height: $nav-height
+
+  .mobile-nav
+    background-color: transparent
+    border: 1px solid $medium-gray
+    cursor: pointer
+    display: inline-block
+    float: right
+    padding: 1em
+    margin: em(8) 1em 0
+    position: relative
+    width: 44px
+    height: 44px
+    &:before
+      $width: 24px
+      $height: 15px
+      border-bottom: 3px solid $dark-gray
+      border-top: 9px double $dark-gray
+      content: "\0020" // space
+      display: block
+      height: $height
+      left: 50%
+      margin-left: ($width/-2)
+      margin-top: ($height/-2)
+      position: absolute
+      top: 50%
+      width: $width
+
+    +media($large-screen-up)
+      display: none
+
+.navigation-wrapper
+  +clearfix
 
 nav[role='navigation']
   +clearfix
+  +position(fixed, 0px auto 0px 0px)
+  +size($nav-mobile-width 100%)
+  background: $nav-mobile-background
+  z-index: 999
+  overflow-y: auto
+  // https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
+  -webkit-overflow-scrolling: touch
+  &.transitionable
+    +transition(transform 250ms ease-out)
+  &.is-expanded
+    +transform(translateX(0))
+    .no-csstransforms &
+      display: block
+  &.is-collapsed
+    +transform(translateX(-$nav-mobile-width))
+    .no-csstransforms &
+      display: none
 
   > h1
     @extend %visually-hidden
 
   li
-    display: inline
-    padding-right: 0.8em
-    line-height: $navigation-height
-
-    &:first-child
-      margin-left: 0
+    border-bottom: 2px solid rgba($medium-gray, 0.15)
 
   a
-    color: $base-font-color
-    display: inline-block
-    text-decoration: none
+    color: white
+    display: block
+    padding: $small-spacing
     &:hover, &:focus
-      text-decoration: underline
+      background-color: rgba($medium-gray, 0.15)
+      text-decoration: none
 
-  > ul
-    min-height: $navigation-height
+  +media($large-screen-up)
+    +position(static)
+    +size(auto)
+    background: none
+    overflow: visible
+    &.is-collapsed
+      +transform(translateX(0))
+      .no-csstransforms &
+        display: block
 
-  .site-nav
-    float: left
-
-  .session
-    float: right
-    padding-right: 1em
+    > ul
+      min-height: $nav-height
 
     li
-      padding-right: 0
-      padding-left: 0.8em
+      display: inline
+      padding-right: 0.8em
+      line-height: $nav-height
+      border-bottom: none
+      &:first-child
+        margin-left: 0
+
+    a
+      color: $base-font-color
+      display: inline-block
+      padding: 0
+      &:hover, &:focus
+        background-color: transparent
+        text-decoration: underline
+
+    .site-nav
+      float: left
+
+    .session
+      float: right
+      padding-right: 1em
+
+      li
+        padding-right: 0
+        padding-left: 0.8em

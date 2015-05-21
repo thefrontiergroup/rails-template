@@ -1,6 +1,6 @@
 .tabs
   border-bottom: 1px solid $tabs-bottom-border-color
-  margin-top: $gutter
+  margin-top: $base-spacing
 
   li
     display: inline
@@ -13,10 +13,23 @@
   a
     color: $base-font-color
     display: inline-block
-    padding: ($base-spacing /2) $gutter
+    padding: ($base-spacing / 2) $gutter
     text-decoration: none
     &:hover
       color: $action-color
 
-.tabs + table
-  margin-top: 0
+  + table
+    margin-top: 0
+
+  +media($medium-screen-down)
+    border-bottom: 0 none
+    margin-bottom: $small-spacing
+
+    li
+      &.active a
+        background-color: $tabs-active-tab-mobile-background
+
+      a
+        border: 1px solid $tabs-active-tab-border-color
+        display: block
+        padding: ($base-spacing / 2)

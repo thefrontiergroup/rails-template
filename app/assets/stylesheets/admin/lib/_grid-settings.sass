@@ -12,8 +12,11 @@ $border-box-sizing: true !global
 // Neat Breakpoints
 $medium-screen: em(640)
 $large-screen: em(860)
+$xlarge-screen: em(1025)
 
-// $medium-screen-up: new-breakpoint(min-width $medium-screen 8)
-// $large-screen-up: new-breakpoint(min-width $large-screen 12)
+$medium-screen-down: new-breakpoint(max-width $medium-screen 4)
+$large-screen-down: new-breakpoint(max-width $large-screen 8)
+$large-screen-up: new-breakpoint(min-width $large-screen $grid-columns)
+$xlarge-screen-up: new-breakpoint(min-width $xlarge-screen $grid-columns)
 
 $visual-grid: false !global
