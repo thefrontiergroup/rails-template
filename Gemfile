@@ -23,16 +23,13 @@ gem 'uglifier'
 gem 'bourbon'
 gem 'neat'
 
-
 group :development do
-  # Quiet Assets hides all of the asset logging in Development.
   gem 'quiet_assets'
   gem 'seed_helper'
   gem 'spring'
 end
 
 group :development, :test do
-  # byebug allows user of the `debugger` key word
   gem 'byebug'
   # RSpec for unit and integration tests
   gem 'rspec-rails'

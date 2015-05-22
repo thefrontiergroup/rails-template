@@ -7,7 +7,7 @@ module FeatureNavigationHelper
   end
 
   def click_sidemenu_option(option)
-    within(".sidebar") do
+    within(".sidebar-pages") do
       click_link(option)
     end
   end

@@ -9,6 +9,8 @@ git clone https://github.com/thefrontiergroup/rails-template
 cd rails-template
 gem install bundler
 bundle
+bin/setup
+# Run this to create a new Rails application from the template
 bin/copy_template
 ```
 
@@ -18,7 +20,7 @@ The output of this script should give you the instructions you will need.
 
 - RVM Support via .ruby-gemset and .ruby-version
 - PostgreSQL with TFG SOE database.yml. No configuration required.
-- Rake task to spin up app (`rake spin_up`)
+- Script to spin up app (`bin/setup`)
 - Devise implementation using User, includes feature specs for:
   - Resetting password
   - Signing in
@@ -27,18 +29,20 @@ The output of this script should give you the instructions you will need.
 - Authorization with Pundit with full unit tests
 - Admin and Member Users
 - Dashboard and CRUD (including soft delete via the paranoia gem) for Users for Admins with full unit and feature tests
+- CRUD for users has swappable tabs per role
+- CRUD for users has sortable columns
 - Dashboard with update profile link for Members with full unit and feature tests
 - Seeds configuration via SeedHelper, including seeding some initial Users
 - Easy sign in functionality to speed up development
 - Basic set of desktop styles for all pages above
+- Responsive styles for all pages above
+- Custom 404, 500, and maintenance pages
+- Custom favicon
 
 ## TODO
 
 - (Possible) Add in rake task for adding build to CI
 - Add generators for CRUD
-- Make admin pages responsive
 - Use dropdown menu for user actions
 - Add in mailer defaults for dev (mailcatcher), staging, and production (jazz)
-- Custom 404, 500, and maintenance pages
-- Custom favicon
 - Validate format of email address

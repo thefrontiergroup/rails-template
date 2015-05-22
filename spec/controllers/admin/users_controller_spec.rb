@@ -11,8 +11,17 @@ describe Admin::UsersController do
       describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
 
-        it { should include(FactoryGirl.create(:user, :member)) }
-        it { should_not include(FactoryGirl.create(:user, :admin)) }
+        describe "filtering" do
+          it { should include(FactoryGirl.create(:user, :member)) }
+          it { should_not include(FactoryGirl.create(:user, :admin)) }
+        end
+
+        describe "sorting" do
+          it "sorts by query parameters" do
+            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything).and_call_original
+            subject
+          end
+        end
       end
     end
 
@@ -29,8 +38,17 @@ describe Admin::UsersController do
       describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
 
-        it { should include(FactoryGirl.create(:user, :admin)) }
-        it { should_not include(FactoryGirl.create(:user, :member)) }
+        describe "filtering" do
+          it { should include(FactoryGirl.create(:user, :admin)) }
+          it { should_not include(FactoryGirl.create(:user, :member)) }
+        end
+
+        describe "sorting" do
+          it "sorts by query parameters" do
+            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything).and_call_original
+            subject
+          end
+        end
       end
     end
 

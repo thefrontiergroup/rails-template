@@ -4,8 +4,8 @@
 - content_for :content do
   %aside{role: 'complementary'}
     .sidebar-pages
-      %h1.js-nav-toggle{'data-navigation-toggle-target': '#pages-nav'} Pages
-      %button.mobile-nav.js-nav-toggle{'aria-label': 'Toggle Pages', style: 'display: none;', 'data-navigation-toggle-target': '#pages-nav'}
+      %h1.js-nav-toggle{data: {navigation_toggle_target: '#pages-nav'}} Pages
+      %button.mobile-nav.js-nav-toggle{style: 'display: none;', aria: {label: 'Toggle Pages'}, data: {navigation_toggle_target: '#pages-nav'}}
         %span Menu
       %ul#pages-nav.nav
         %li= link_to 'Users', admin_users_path

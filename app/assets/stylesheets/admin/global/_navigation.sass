@@ -60,6 +60,7 @@ nav[role='navigation']
     +transition(transform 250ms ease-out)
   &.is-expanded
     +transform(translateX(0))
+    box-shadow: 2px 0 4px black(0.24), 2px 0 6px black(0.12)
     .no-csstransforms &
       display: block
   &.is-collapsed

@@ -6,8 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module CurtinVolunteers
+module RailsTemplate
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join('lib')
+
     config.should_seed_application_data = false
     config.should_show_easy_login = false
   end
