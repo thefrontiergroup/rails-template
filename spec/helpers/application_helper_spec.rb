@@ -7,7 +7,7 @@ describe ApplicationHelper do
     let(:attribute) { "dongle" }
 
     before do
-      stub_request = Object.new
+      stub_request = instance_double(ActionDispatch::Request)
       allow(stub_request).to receive(:path).and_return("x")
       allow(stub_request).to receive(:query_parameters).and_return({sort_direction: "asc"})
       allow(helper).to receive(:request).and_return(stub_request)

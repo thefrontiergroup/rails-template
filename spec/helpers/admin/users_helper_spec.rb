@@ -8,7 +8,7 @@ describe Admin::UsersHelper do
     let(:path)  { "dong_where_is_my_automobile" }
 
     before do
-      stub_request = Object.new
+      stub_request = instance_double(ActionDispatch::Request)
       allow(stub_request).to receive(:path).and_return(current_path)
       allow(helper).to receive(:request).and_return(stub_request)
     end
