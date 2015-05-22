@@ -26,10 +26,14 @@
     margin-bottom: $small-spacing
 
     li
+      &:last-child a
+        border-bottom: 1px solid $tabs-active-tab-border-color
+
       &.active a
         background-color: $tabs-active-tab-mobile-background
 
       a
         border: 1px solid $tabs-active-tab-border-color
+        border-bottom-width: 0
         display: block
         padding: ($base-spacing / 2)

@@ -21,7 +21,7 @@
         = link_to root_path, class: "logo", rel: "home" do
           = image_tag 'create-glyph-logo.svg', size: '34x34'
         .navigation-wrapper
-          %button.mobile-nav.js-nav-toggle{"aria-label": "Toggle Navigation", 'data-navigation-toggle-target': '#site-nav', 'data-requires-modal': 'true'}
+          %button.mobile-nav.js-nav-toggle{aria: {label: "Toggle Navigation"}, data: {navigation_toggle_target: '#site-nav', requires_modal: 'true'}}
             %span Menu
 
           %nav#site-nav.is-collapsed{role: 'navigation'}

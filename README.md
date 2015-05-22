@@ -29,6 +29,8 @@ The output of this script should give you the instructions you will need.
 - Authorization with Pundit with full unit tests
 - Admin and Member Users
 - Dashboard and CRUD (including soft delete via the paranoia gem) for Users for Admins with full unit and feature tests
+- CRUD for users has swappable tabs per role
+- CRUD for users has sortable columns
 - Dashboard with update profile link for Members with full unit and feature tests
 - Seeds configuration via SeedHelper, including seeding some initial Users
 - Easy sign in functionality to speed up development

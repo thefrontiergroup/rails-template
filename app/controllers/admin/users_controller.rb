@@ -2,12 +2,12 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize(User)
-    @users = policy_scope(User.member).page(params[:page])
+    @users = sort(policy_scope(User.member).page(params[:page]))
   end
 
   def index_admins
     authorize(User)
-    @users = policy_scope(User.admin).page(params[:page])
+    @users = sort(policy_scope(User.admin.page(params[:page])))
     render :index
   end
 
@@ -50,6 +50,10 @@ private
 
   def find_user
     User.find(params[:id])
+  end
+
+  def sort(collection)
+    ModelSorter.sort(collection, params)
   end
 
   def user_form_attributes(user)

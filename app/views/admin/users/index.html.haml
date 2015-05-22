@@ -10,7 +10,7 @@
   %col{style: 'width: 50%'}
   %thead
     %tr
-      %th Email
+      %th= sortable_heading_for(:email)
       %th.actions Actions
   %tbody
     - @users.each do |user|
