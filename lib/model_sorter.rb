@@ -16,7 +16,7 @@ private
   def self.sort_scope(scope, attribute, direction)
     case direction
     when "asc", "desc"
-      scope.order("#{attribute} #{direction}")
+      scope.order(attribute => direction)
     else
       raise(ArgumentError, "Unknown sort direction provided: #{direction}")
     end

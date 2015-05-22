@@ -10,13 +10,13 @@ describe ModelSorter do
     context "when asc" do
       let(:sort_direction) { "asc" }
 
-      it { should eq(User.all.order("email asc")) }
+      it { should eq(User.all.order(email: :asc)) }
     end
 
     context "when desc" do
       let(:sort_direction) { "desc" }
 
-      it { should eq(User.all.order("email desc")) }
+      it { should eq(User.all.order(email: :desc)) }
     end
 
     context "when not asc or desc" do
