@@ -8,7 +8,7 @@
       %button.mobile-nav.js-nav-toggle{style: 'display: none;', aria: {label: 'Toggle Pages'}, data: {navigation_toggle_target: '#pages-nav'}}
         %span Menu
       %ul#pages-nav.nav
-        %li= link_to 'Users', admin_users_path
+        = render "layouts/admin/sidebar_links"
 
   %main{role: 'main'}
     = yield
