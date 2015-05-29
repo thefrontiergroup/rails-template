@@ -32,10 +32,8 @@ class Admin::UsersController < Admin::BaseController
   def update
     @user = find_user
     authorize(@user)
+    @user.update_attributes(user_form_attributes(@user))
 
-    if @user.update_attributes(user_form_attributes(@user))
-      flash[:notice] = "User #{@user} successfully updated"
-    end
     respond_with(@user, location: admin_users_path)
   end
 

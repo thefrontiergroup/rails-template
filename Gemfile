@@ -23,6 +23,8 @@ gem 'uglifier'
 gem 'bourbon'
 gem 'neat'
 
+gem 'responders'
+
 group :development do
   gem 'quiet_assets'
   gem 'seed_helper'
