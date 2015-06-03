@@ -250,6 +250,7 @@ DEPENDENCIES
   quiet_assets
   rack-dev-mark
   rails
+  responders
   rspec-rails
   rspec_junit_formatter
   sass-rails
