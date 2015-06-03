@@ -1,12 +1,13 @@
 class ModelSorter
 
-  def self.sort(scope, params)
+  def self.sort(scope, params, default_sort_options=nil)
     sort_attribute = params[:sort_attribute]
     sort_direction = params[:sort_direction]
 
     if sort_attribute.present? && sort_direction.present?
       sort_scope(scope, sort_attribute, sort_direction)
     else
+      scope = scope.order(default_sort_options) if default_sort_options.present?
       scope
     end
   end
