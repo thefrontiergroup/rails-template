@@ -46,6 +46,7 @@ RSpec.configure do |config|
   # Controllers
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerAuthenticationSupport, type: :controller
+  config.extend ControllerParameterSupport, type: :controller
   config.extend ControllerDescribeAssignsHelper, type: :controller
 
   # Features
