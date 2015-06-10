@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Admin can sort an index of users' do
 

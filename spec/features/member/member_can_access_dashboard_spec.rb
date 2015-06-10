@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Member can access their dashboard' do
 
