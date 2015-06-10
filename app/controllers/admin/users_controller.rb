@@ -50,10 +50,6 @@ private
     User.find(params[:id])
   end
 
-  def sort(collection)
-    ModelSorter.sort(collection, params)
-  end
-
   def user_form_attributes(user)
     params.require(:user).permit(policy(user).permitted_attributes).tap do |attributes|
       attributes[:user].delete(:password) if attributes[:user].present? && attributes[:user][:password].blank?
