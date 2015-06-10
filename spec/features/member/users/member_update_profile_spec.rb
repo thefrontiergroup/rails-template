@@ -10,7 +10,8 @@ feature 'Member can update their profile' do
 
   scenario 'With valid data' do
     fill_in("Email", with: "valid@example.com")
-    click_button("Update User")
+    fill_in("Current password", with: "password")
+    click_button("Update")
 
     # User should be saved
     click_header_option("My Profile")
@@ -19,7 +20,7 @@ feature 'Member can update their profile' do
 
   scenario 'With invalid data' do
     fill_in("Email", with: "")
-    click_button("Update User")
+    click_button("Update")
 
     expect(page).to have_content("can't be blank")
   end
