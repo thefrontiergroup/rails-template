@@ -30,6 +30,16 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  # Warden test mode speeds up tests, since you no longer need to
+  # visit the login page to perform the authentication before feature tests
+  config.before(:suite) do
+    Warden.test_mode!
+  end
+
+  config.after(:each) do
+    Warden.test_reset!
+  end
+
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
 
@@ -44,4 +54,5 @@ RSpec.configure do |config|
   config.include FeatureAuthenticationHelper, type: :feature
   config.include FeatureNavigationHelper, type: :feature
   config.extend FeatureAuthenticationMacros, type: :feature
+  config.include Warden::Test::Helpers
 end
