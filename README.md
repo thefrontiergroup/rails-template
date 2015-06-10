@@ -38,6 +38,7 @@ The output of this script should give you the instructions you will need.
 - Responsive styles for all pages above
 - Custom 404, 500, and maintenance pages
 - Custom favicon
+- Basic mailer configuration for development environment
 
 ## TODO
 
