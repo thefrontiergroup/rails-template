@@ -38,11 +38,12 @@ The output of this script should give you the instructions you will need.
 - Responsive styles for all pages above
 - Custom 404, 500, and maintenance pages
 - Custom favicon
+- Basic mailer configuration for development environment
 
 ## TODO
 
 - (Possible) Add in rake task for adding build to CI
 - Add generators for CRUD
 - Use dropdown menu for user actions
-- Add in mailer defaults for dev (mailcatcher), staging, and production (jazz)
+- Add in mailer defaults for staging, and production (jazz)
 - Validate format of email address
