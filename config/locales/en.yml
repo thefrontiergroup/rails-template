@@ -1,5 +1,12 @@
 en:
-  hello: "Hello world"
+  time:
+    formats:
+      default: "%a, %d %B %Y at %I:%M %p"
+      short: "%d %b %H:%M"
+  date:
+    formats:
+      default: "%d %b, %Y"
+      long: "%A, %d %B %Y"
   views:
     pagination:
       first: "&laquo;"

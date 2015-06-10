@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Existing users can reset their passwords' do
   let(:user) { FactoryGirl.create(:user) }

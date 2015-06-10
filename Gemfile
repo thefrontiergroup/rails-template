@@ -29,6 +29,7 @@ group :development do
   gem 'quiet_assets'
   gem 'seed_helper'
   gem 'spring'
+  gem 'letter_opener'
 end
 
 group :development, :test do

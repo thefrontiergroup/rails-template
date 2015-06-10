@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
   namespace :member do
     resources :dashboard, only: :index
-    resources :users, only: [:edit, :update]
   end
 
 end
