@@ -51,6 +51,7 @@ RSpec.configure do |config|
 
   # Features
   config.include FeatureHelper, type: :feature
+  config.include FeatureAttributesSupport, type: :feature
   config.include FeatureAuthenticationHelper, type: :feature
   config.include FeatureNavigationHelper, type: :feature
   config.extend FeatureAuthenticationMacros, type: :feature

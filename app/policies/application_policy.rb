@@ -14,4 +14,13 @@ class ApplicationPolicy
     user.present? && user.member?
   end
 
+# CRUD
+
+  alias :index?   :is_admin?
+  alias :new?     :is_admin?
+  alias :create?  :is_admin?
+  alias :edit?    :is_admin?
+  alias :update?  :is_admin?
+  alias :destroy? :is_admin?
+
 end
