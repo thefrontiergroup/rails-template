@@ -12,7 +12,12 @@ module FeatureAttributesSupport
         field = find_field(field_name)
         case field.tag_name
         when "select"
-          field.select value
+          if value.is_a?(Fixnum)
+            text = field.find("option[value='#{value}']").text
+            field.select text
+          else
+            field.select value
+          end
         else
           field.set value
         end
