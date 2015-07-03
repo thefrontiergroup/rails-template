@@ -6,9 +6,13 @@ class Admin::BaseController < ApplicationController
 
 protected
 
+  # Sort by :id by default, so there is a consistent order even when no order has been
+  # selected via the interface
+  def default_sort_options
+    {id: :desc}
+  end
+
   def sort(collection)
-    # Sort by :id by default, so there is a consistent order even when no order has been
-    # selected via the interface
-    ModelSorter.sort(collection, params, {id: :desc})
+    ModelSorter.sort(collection, params, default_sort_options)
   end
 end
