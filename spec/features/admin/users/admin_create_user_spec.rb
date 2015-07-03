@@ -14,7 +14,7 @@ feature 'Admin can create a new User' do
     fill_in("Email", with: "valid@example.com")
     select("Member", from: "Role")
     fill_in("Password", with: "password")
-    click_button("Create User")
+    click_button("Create")
 
     # Current user should be redirected to the index
     expect(current_path).to eq(admin_users_path)
@@ -29,7 +29,7 @@ feature 'Admin can create a new User' do
     fill_in("Email", with: "")
     select("Member", from: "Role")
     fill_in("Password", with: "")
-    click_button("Create User")
+    click_button("Create")
 
     # Ensure no user is created
     expect(User.count).to eq(1)

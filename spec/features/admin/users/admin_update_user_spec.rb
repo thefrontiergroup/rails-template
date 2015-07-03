@@ -16,7 +16,7 @@ feature 'Admin can update an existing User' do
   scenario 'Admin updates user with valid data' do
     fill_in("Email", with: "valid@example.com")
     select("Member", from: "Role")
-    click_button("Update User")
+    click_button("Save Changes")
 
     # Current user should be redirected to the index
     expect(current_path).to eq(admin_users_path)
@@ -29,7 +29,7 @@ feature 'Admin can update an existing User' do
 
   scenario 'Admin updates user with invalid data' do
     fill_in("Email", with: "")
-    click_button("Update User")
+    click_button("Save Changes")
 
     # Ensure user is not updated
     expect(target_user.reload.email).to eq("something@nothing.com")
