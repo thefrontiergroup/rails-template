@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # Soft delete - uses deleted_at field
   acts_as_paranoid
 
-  enum role: [:admin, :member]
+  enum role: {admin: 0, member: 1}
 
   # In order to override the devise validations, I have to remove the validatable module
   # and re-implement it with some changes
