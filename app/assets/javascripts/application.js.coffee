@@ -4,5 +4,6 @@
 #= require moment
 #= require pikaday
 #= require pikaday.jquery
+#= require jquery.timepicker.js
 #= require requestAnimationFrame.polyfill
 #= require_tree .
