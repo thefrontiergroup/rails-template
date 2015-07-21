@@ -1,10 +1,8 @@
-body
+body, input, textarea, select, button
   @include font-feature-settings("kern", "liga", "pnum")
   -webkit-font-smoothing: antialiased
   color: $base-font-color
-  font-family: $base-font-family
-  font-size: $base-font-size
-  line-height: $base-line-height
+  font: 400 #{$base-font-size}/$base-line-height $body-fonts
 
 h1,
 h2,
@@ -16,18 +14,3 @@ h6
   font-size: $base-font-size
   line-height: $heading-line-height
   margin: 0 0 $small-spacing
-
-p
-  margin: 0 0 $small-spacing
-
-hr
-  border-bottom: $base-border
-  border-left: none
-  border-right: none
-  border-top: none
-  margin: $base-spacing 0
-
-img,
-picture
-  margin: 0
-  max-width: 100%
