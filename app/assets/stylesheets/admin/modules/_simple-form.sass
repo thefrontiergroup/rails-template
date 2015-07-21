@@ -2,9 +2,10 @@
   margin-bottom: $base-spacing
 
   .error, .hint
+    display: block
+    font-size: em(14)
     position: relative
     top: ($base-spacing / -3)
-    font-size: em(14)
 
   .error
     color: darken($form-error-color, 70)
@@ -106,8 +107,11 @@ aside[role="complementary"] + main
   +media($medium-screen-down)
     .form-horizontal
       > .input
+
         &:after
-          display: none // remove clearfix added by +row() on desktop
+          // remove clearfix added by +row() on desktop
+          display: none
+
         > label
           +fill-parent()
           margin-right: 0

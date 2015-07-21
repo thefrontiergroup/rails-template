@@ -1,46 +1,32 @@
-$brand-black: #333
+// ----- Brand Colours -----
 
-$accent-color: #79C4EC
+// ----- Brand Shades -----
+$brand-black: #0f1e25
+$brand-grey: #333
+$brand-grey-dark: #111
 
-$copy-color: $brand-black
+// ----- App Colours that work with the Brand -----
+$negative-color: #fbe3e4
+$warning-color: #f68823
+$positive-color: #10c469
+$accent-color: #477dca
 
-$link-color: darken($accent-color, 30%)
-$link-hover-color: darken($accent-color, 37%)
+// ----- Typography -----
+$body-fonts: "Helvetica", "Arial", sans-serif
+$body-color: $brand-grey
+$heading-fonts: $body-fonts
+$heading-color: $brand-grey-dark
+$link-color: $accent-color
+$link-hover-color: darken($accent-color, 15%)
 
-$input-border-color: #ccc
+// ----- Flash -----
+$flash-notice-color: #e6efc2
+$flash-alert-color: $negative-color
 
-$button-background-color: darken($accent-color, 25%)
-$button-color: #fff
-$button-hover-color: darken($accent-color, 30%)
-
-$form-error-color: #911
-$form-hint-color: #666
-
-$table-odd-row-background-color: #fff
-$table-even-row-background-color: #f3f3f3
-$table-row-hover-background-color: darken($table-even-row-background-color, 4%)
-$table-border-color: #ddd
-
-$nav-background-color: #fcfcfc
-$nav-border-color: darken($nav-background-color, 10%)
-
+// ----- Pannel -----
 $panel-background-color: #f3f3f3
 $panel-border-color: #d8d8d8
 
-$flash-notice-color: lightblue
-$flash-alert-color: red
-$flash-alert-copy-color: #000
-
-$tab-background-color: #f3f3f3
-$tab-active-background-color: #fff
-$tab-border-color: #ddd
-$tab-link-color: $brand-black
-
-$sidebar-background-color: #fefefe
-$sidebar-border-color: darken(#fcfcfc, 10%)
-
-$gutter: 20px
-
-$sidebar-width: 250px
-
-$default-timing: 250ms
+// ----- Forms -----
+$form-error-color: $negative-color
+$form-hint-color: whiten($brand-grey, 0.10)

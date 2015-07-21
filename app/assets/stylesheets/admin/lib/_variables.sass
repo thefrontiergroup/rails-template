@@ -1,5 +1,4 @@
 // Colors
-$blue: #477dca
 $dark-gray: #333
 $medium-gray: #999
 $light-gray: #ddd
@@ -29,7 +28,7 @@ $base-border: 1px solid $base-border-color
 // Font Colors
 $base-background-color: #fff
 $base-font-color: $dark-gray
-$action-color: $blue
+$action-color: $accent-color
 
 // Main Navigation
 $nav-background-color: #fcfcfc
@@ -37,21 +36,6 @@ $nav-border-color: darken($nav-background-color, 10%)
 $nav-height: 60px
 $nav-mobile-background: $dark-gray
 $nav-mobile-width: em(240)
-
-// Tabs
-$tabs-bottom-border-color: $medium-gray
-$tabs-active-tab-background: $base-background-color
-$tabs-active-tab-mobile-background: lighten($light-gray, 10%)
-$tabs-active-tab-border-color: $medium-gray
-
-// Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06)
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3)
-$form-hint-color: $medium-gray
-$form-error-color: $light-red
-
-// Tables
-$table-row-hover-background-color: lighten($light-gray, 10%)
 
 // Sidebar
 $sidebar-background: lighten($light-gray, 10)
@@ -65,9 +49,18 @@ $pagination-background: $light-gray
 $pagination-border: $light-gray
 $pagination-hover-background: #fff
 
-// Flash messages
-$flash-alert-color: $light-red
-$flash-notice-color: #e6efc2
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06)
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3)
+
+// Tabs
+$tabs-bottom-border-color: $medium-gray
+$tabs-active-tab-background: $base-background-color
+$tabs-active-tab-mobile-background: lighten($light-gray, 10%)
+$tabs-active-tab-border-color: $medium-gray
+
+// Tables
+$table-row-hover-background-color: lighten($light-gray, 10%)
 
 // Easy sign-in
 $easy-sign-in-background: lighten($light-gray, 10)
