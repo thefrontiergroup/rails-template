@@ -7,7 +7,7 @@
     = f.input :email, autofocus: true
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %p Currently waiting confirmation for: #{resource.unconfirmed_email}
-    = f.input :password, autocomplete: "off", hint: "leave blank if you don't want to change it"
+    = f.input :password, autocomplete: "off", hint: "Minimum is 8 characters. Leave blank if you don't want to change it."
     = f.input :password_confirmation, autocomplete: "off"
     = f.input :current_password, autocomplete: "off", hint: "Required to confirm your changes"
     = f.button :submit, "Update"

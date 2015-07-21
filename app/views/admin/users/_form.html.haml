@@ -2,7 +2,8 @@
 
   = f.input :email
   = f.input :role, collection: User.roles.collect {|k,v| [k.titleize, k]}
-  = f.input :password
+  = f.input :password, hint: "Minimum is 8 characters"
+
   .form-actions
     = f.button :submit
     %span.or or
