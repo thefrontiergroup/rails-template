@@ -1,12 +1,6 @@
 // Styles for site admin
 
-@import "normalize-rails"
-@import "bourbon"
-
-@import "lib/functions"
-@import "lib/variables"
-@import "lib/mixins"
-@import "lib/extends"
+@import "global"
 
 // variables & grid-settings need to be imported before neat
 @import "admin/lib/variables"
@@ -16,8 +10,6 @@
 @import "neat"
 
 // Order of global imports is important (order of appearance on the page)
-@import "global/**/*"
-
 @import "admin/global/base"
 @import "admin/global/typography"
 @import "admin/global/navigation"
