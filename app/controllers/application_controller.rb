@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
 
+  layout "public/layout"
+
   include Pundit
   respond_to :html
   # Prevent CSRF attacks by raising an exception.

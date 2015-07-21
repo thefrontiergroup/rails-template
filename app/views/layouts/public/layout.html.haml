@@ -1,11 +1,11 @@
 - content_for :javascripts do
-  = javascript_include_tag 'member'
+  = javascript_include_tag 'public'
 
 - content_for :stylesheets do
-  = stylesheet_link_tag 'member', media: 'all'
+  = stylesheet_link_tag 'public', media: 'all'
 
 - content_for :content do
-  %h1 MEMBER
+  %h1 PUBLIC
   = yield
 
 = render template: "layouts/application"
