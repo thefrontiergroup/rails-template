@@ -2,7 +2,7 @@
 
   = f.input :email
   = f.input :role, collection: User.roles.collect {|k,v| [k.titleize, k]}
-  = f.input :password, hint: "Minimum is 8 characters"
+  = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters"
 
   .form-actions
     = f.button :submit
