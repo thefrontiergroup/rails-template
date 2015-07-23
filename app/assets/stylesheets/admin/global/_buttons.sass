@@ -4,7 +4,7 @@
   color: #fff
   cursor: pointer
   display: inline-block
-  font-family: $base-font-family
+  font-family: $body-fonts
   font-size: $base-font-size
   font-weight: 600
   line-height: 1
@@ -18,10 +18,10 @@
     color: #fff
 
 %button-destructive
-  background-color: darken($light-red, 50)
+  background-color: darken($negative-color, 50)
   &:hover,
   &:focus
-    background-color: darken($light-red, 60)
+    background-color: darken($negative-color, 60)
 
 #{$all-button-inputs},
 button
