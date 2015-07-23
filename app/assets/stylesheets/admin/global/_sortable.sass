@@ -2,18 +2,17 @@
   color: inherit
   position: relative
   -webkit-tap-highlight-color: transparent
+  white-space: nowrap
 
   &:after
-    $height: 14px
     background: image-url("ico-sortable.svg") no-repeat 0 0
     content: "\0020" // space
     display: inline-block
-    height: $height
+    height: 14px
     margin-left: 3px
-    margin-top: ($height / -2)
     position: relative
     outline: none
-    top: 50%
+    top: 2px
     width: 17px
     .no-svg &
       background-image: image-url("ico-sortable.png")
