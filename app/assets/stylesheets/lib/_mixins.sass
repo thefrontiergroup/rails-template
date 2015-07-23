@@ -4,14 +4,18 @@
     @content
 
 // display retina images/spritesheets
-=retinafy($filename, $inline: false)
+=retinafy($filename, $retina-filename, $background-size, $svg-filename: null)
   background-image: image-url($filename)
-  @if $inline
-    background-image: inline-image($filename)
-  +background-size(image-width($filename)/2 image-height($filename)/2)
+  +media-retina
+    background-image: image-url($retina-filename)
+    background-size: $background-size
+
+  @if $svg-filename
+    .svg &
+      background-image: image-url($svg-filename)
 
 // hide something from view but not from screenreaders
-=visuallyhidden
+=visually-hidden
   border: 0
   clip: rect(0 0 0 0)
   height: 1px
@@ -31,11 +35,3 @@
     @content
   \:-ms-input-placeholder
     @content
-
-=default-panel
-  background-color: $panel-background-color
-  border: 1px solid $panel-border-color
-  padding: ($gutter / 2)
-
-  > :first-child
-    margin-top: 0

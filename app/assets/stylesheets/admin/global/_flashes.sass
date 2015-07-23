@@ -1,3 +1,6 @@
+$flash-notice-color: $positive-color
+$flash-alert-color: $negative-color
+
 =flash($color)
   background-color: $color
   color: darken($color, 60%)
@@ -20,10 +23,10 @@
     padding: $small-spacing
     text-align: center
     &-notice
-      @include flash($flash-notice-color)
+      +flash($flash-notice-color)
 
     &-alert
-      @include flash($flash-alert-color)
+      +flash($flash-alert-color)
 
     +media($medium-screen-down)
       padding: 0.75em 1em

@@ -1,3 +1,12 @@
+$nav-background-color: #fcfcfc
+$nav-border-color: darken($nav-background-color, 10%)
+$nav-height: 60px
+$nav-mobile-background: lighten($brand-grey-dark, 15%)
+$nav-mobile-item-separator-color: rgba($brand-grey, 0.15)
+$nav-mobile-width: em(240)
+$nav-drawer-border-color: $brand-grey
+$nav-drawer-color: $brand-grey-dark
+
 header[role="banner"]
   background-color: $nav-background-color
   border-bottom: 1px solid darken($nav-background-color, 10)
@@ -17,7 +26,7 @@ header[role="banner"]
 
   .mobile-nav
     background-color: transparent
-    border: 1px solid $medium-gray
+    border: 1px solid $nav-drawer-border-color
     cursor: pointer
     display: inline-block
     float: right
@@ -29,8 +38,8 @@ header[role="banner"]
     &:before
       $width: 24px
       $height: 15px
-      border-bottom: 3px solid $dark-gray
-      border-top: 9px double $dark-gray
+      border-bottom: 3px solid $nav-drawer-color
+      border-top: 9px double $nav-drawer-color
       content: "\0020" // space
       display: block
       height: $height
@@ -72,14 +81,17 @@ nav[role='navigation']
     @extend %visually-hidden
 
   li
-    border-bottom: 2px solid rgba($medium-gray, 0.15)
+    border-bottom: 2px solid $nav-mobile-item-separator-color
+
+    &.active a
+      text-decoration: underline
 
   a
     color: white
     display: block
     padding: $small-spacing
     &:hover, &:focus
-      background-color: rgba($medium-gray, 0.15)
+      background-color: $nav-mobile-item-separator-color
       text-decoration: none
 
   +media($large-screen-up)
@@ -88,7 +100,7 @@ nav[role='navigation']
     background: none
     overflow: visible
     &.is-collapsed
-      +transform(translateX(0))
+      +transform(none)
       .no-csstransforms &
         display: block
 

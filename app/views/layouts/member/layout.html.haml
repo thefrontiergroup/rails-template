@@ -1,4 +1,10 @@
-- content_for :navigation_items do
-  %li= link_to "My Profile", edit_user_registration_path
+- content_for :javascripts do
+  = javascript_include_tag 'member'
+
+- content_for :stylesheets do
+  = stylesheet_link_tag 'member', media: 'all'
+
+- content_for :content do
+  = yield
 
 = render template: "layouts/application"

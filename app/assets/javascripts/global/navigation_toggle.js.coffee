@@ -1,3 +1,6 @@
+# So far, the requestAnimationFrame polyfill is only used in this file
+#= require requestAnimationFrame.polyfill
+
 defaults =
   breakpoint: 860
 

@@ -2,13 +2,7 @@
 %html
   %head
     %title TfgTemplate
-    - if content_for?(:stylesheets)
-      = yield(:stylesheets)
-    - else
-      = stylesheet_link_tag 'public', media: 'all'
-
-    = javascript_include_tag 'application'
-    = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login
+    = yield(:stylesheets)
     = csrf_meta_tags
     = favicon_link_tag "favicon.ico"
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
@@ -20,6 +14,7 @@
       .container
         = link_to root_path, class: "logo", rel: "home" do
           = image_tag 'create-glyph-logo.svg', size: '34x34'
+
         .navigation-wrapper
           %button.mobile-nav.js-nav-toggle{aria: {label: "Toggle Navigation"}, data: {navigation_toggle_target: '#site-nav', requires_modal: 'true'}}
             %span Menu
@@ -27,16 +22,13 @@
           %nav#site-nav.is-collapsed{role: 'navigation'}
             %h1 Navigation
 
-            - user_policy = UserPolicy.new(current_user, User)
-            - logged_in = user_policy.admin_dashboard? || user_policy.member_dashboard?
-
-            - if logged_in
+            - if current_user.present?
               %ul.site-nav
-                - if user_policy.admin_dashboard?
-                  %li= link_to "Dashboard", admin_dashboard_index_path
-                - if user_policy.member_dashboard?
-                  %li= link_to "Dashboard", member_dashboard_index_path
-                = yield(:navigation_items)
+                - if policy(User).member_dashboard?
+                  = render "layouts/member/navigation"
+                - if policy(User).admin_dashboard?
+                  = render "layouts/admin/navigation"
+
             %ul.session
               - if current_user
                 %li= link_to "Sign out", destroy_user_session_path, method: :delete
@@ -52,3 +44,5 @@
       = content_for?(:content) ? yield(:content) : yield
 
     #js-fade-screen
+    = yield(:javascripts)
+    = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login

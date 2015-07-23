@@ -2,15 +2,16 @@
   margin-bottom: $base-spacing
 
   .error, .hint
+    display: block
+    font-size: em(14)
     position: relative
     top: ($base-spacing / -3)
-    font-size: em(14)
 
   .error
     color: darken($form-error-color, 70)
 
   .hint
-    color: darken($form-hint-color, 10)
+    color: $form-hint-color
 
   .or
     padding: 0 5px
@@ -28,8 +29,7 @@
     input
       width: auto
 
-  #{$all-button-inputs},
-  button
+  #{$all-buttons}
     vertical-align: top
     padding: 0.6em 1em
 
@@ -106,8 +106,11 @@ aside[role="complementary"] + main
   +media($medium-screen-down)
     .form-horizontal
       > .input
+
         &:after
-          display: none // remove clearfix added by +row() on desktop
+          // remove clearfix added by +row() on desktop
+          display: none
+
         > label
           +fill-parent()
           margin-right: 0

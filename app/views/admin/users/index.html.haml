@@ -1,6 +1,6 @@
 %h1 User Management
 
-%p= link_to "Add new User", new_admin_user_path, class: "button"
+%p= link_to "Add new User", new_admin_user_path, class: "btn"
 
 %ul.tabs
   = users_index_tab_for "Members", admin_users_path
@@ -17,7 +17,7 @@
       %tr
         %td= user.email
         %td.actions
-          = link_to "Edit", edit_admin_user_path(user), class: "button"
-          = link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "button"
+          = link_to "Edit", edit_admin_user_path(user), class: "btn btn-small"
+          = link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small"
 
 = paginate @users

@@ -1,6 +1,13 @@
-// Styles for back end
+// Styles for site admin
 
-@import "application"
+@import "global"
+
+// variables & grid-settings need to be imported before neat
+@import "admin/lib/variables"
+@import "admin/lib/grid-settings"
+
+// Only actual css output from neat is `box-sizing: border-box`
+@import "neat"
 
 // Order of global imports is important (order of appearance on the page)
 @import "admin/global/base"
@@ -16,7 +23,8 @@
 
 @import "admin/modules/**/*"
 
-/* Vendor styles should be added below this comment,
- * unless they need to be further up the cascade
- */
+////
+//  Vendor styles should be added below this comment,
+//  unless they need to be further up the cascade
+////
 @import "pikaday"
