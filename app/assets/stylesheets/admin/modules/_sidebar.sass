@@ -1,3 +1,5 @@
+$sidebar-padding: 1em
+
 aside[role="complementary"]
   +span-columns(3)
   padding-left: 1em
@@ -6,7 +8,7 @@ aside[role="complementary"]
   background: $sidebar-background
   border-top: 2px solid $sidebar-border-top-color
   +border-bottom-radius($base-border-radius)
-  +pad(1em)
+  +pad($sidebar-padding)
 
   > h1
     margin: 0
@@ -16,20 +18,20 @@ aside[role="complementary"]
     margin-top: $small-spacing
     margin-bottom: 0
 
-  li.active
-    list-style-type: none
-    position: relative
+  li
+    padding-top: 6px
+    padding-bottom: 6px
+    &.active
+      list-style-type: none
+      background-color: $accent-color
+      position: relative
+      margin-left: (-$base-spacing - $sidebar-padding)
+      margin-right: (-$sidebar-padding)
+      padding-left: ($base-spacing + $sidebar-padding)
+      padding-right: $sidebar-padding
 
-    &:before
-      content: ">"
-      display: block
-      font-weight: 700
-      left: -18px
-      top: -1px
-      position: absolute
-
-    a
-      color: $body-color
+      a
+        color: #fff
 
   .mobile-nav
     background-color: transparent
@@ -41,6 +43,7 @@ aside[role="complementary"]
     width: 30px
     &:hover, &:focus
       background-color: transparent
+
     &:before
       border-left: em(8px) solid transparent
       border-right: em(8px) solid transparent
@@ -52,8 +55,10 @@ aside[role="complementary"]
       margin-top: -1px
       width: 0
       +transition(transform 100ms linear)
+
     &.expanded:before
       +transform(rotate(180deg))
+
       .no-csstransforms &
         border-bottom: 0 none
         border-top: em(8px) solid $sidebar-arrow-color
@@ -95,12 +100,21 @@ aside[role="complementary"] + main
     ul
       list-style: none
       margin-bottom: 0
+      margin-left: (-$sidebar-padding)
+      margin-right: (-$sidebar-padding)
       padding-left: 0
 
     li
       border-top: 1px solid $sidebar-item-separator-color
+      padding-bottom: 0
+      padding-top: 0
       &:first-child
         border-top: none
+
+      &.active
+        margin-left: 0
+        margin-right: 0
+        padding-left: 0
     a
       display: block
-      padding: ($small-spacing / 2) 0
+      padding: ($small-spacing / 2) $base-spacing
