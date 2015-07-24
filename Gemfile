@@ -31,6 +31,7 @@ group :development do
   gem 'seed_helper'
   gem 'spring'
   gem 'letter_opener'
+  gem 'tfg_cap', git: 'git@github.com:thefrontiergroup/tfg-cap.git', require: nil
 end
 
 group :development, :test do
