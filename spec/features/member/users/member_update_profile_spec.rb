@@ -22,6 +22,6 @@ feature 'Member can update their profile' do
     fill_in("Email", with: "")
     click_button("Update")
 
-    expect(page).to have_content("can't be blank")
+    expect(page).to have_error_message("user_email", "can't be blank")
   end
 end

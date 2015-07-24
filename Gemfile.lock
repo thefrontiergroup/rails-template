@@ -51,6 +51,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.9)
+      capybara (>= 1.0, < 3)
+      launchy
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -237,6 +240,7 @@ DEPENDENCIES
   bourbon
   byebug
   capybara
+  capybara-screenshot
   coffee-rails
   devise
   email_spec
