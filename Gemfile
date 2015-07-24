@@ -42,6 +42,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'capybara'
+  gem 'capybara-screenshot'
   # Generate fake data for seeds and tests
   gem 'factory_girl_rails'
   gem 'ffaker'

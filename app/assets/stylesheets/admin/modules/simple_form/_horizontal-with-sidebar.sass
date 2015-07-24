@@ -1,0 +1,99 @@
+aside[role="complementary"] + main
+  .form-horizontal
+    .input > label
+      +span-columns(2 of 9)
+
+    .control
+      +span-columns(5 of 9)
+
+    .inline-label .control
+      +shift-in-context(2)
+
+    .form-actions
+      +shift(2 of 9)
+
+    +media($large-screen-up)
+      .row
+        &.sized-2-1
+          .input:first-child
+            +span-columns(4 of 9)
+            > label
+              +span-columns(2 of 4)
+            > .control
+              +span-columns(2 of 4)
+          .input + .input
+            +span-columns(4 of 9)
+            > label
+              +span-columns(2 of 4)
+            > .control
+              +span-columns(1 of 4)
+
+        &.sized-1-2
+          .input:first-child
+            +span-columns(3 of 9)
+            > label
+              +span-columns(2 of 3)
+            > .control
+              +span-columns(1 of 3)
+          .input + .input
+            +span-columns(4 of 9)
+            > label
+              +span-columns(2 of 4)
+            > .control
+              +span-columns(2 of 4)
+
+        &.sized-2-2
+          .input:first-child
+            +span-columns(4 of 9)
+            > label
+              +span-columns(2 of 4)
+            > .control
+              +span-columns(2 of 4)
+          .input + .input
+            +span-columns(5 of 9)
+            > label
+              +span-columns(1 of 5)
+            > .control
+              +span-columns(2 of 5)
+
+    +media($large-screen-down)
+      legend
+        padding-left: 0
+
+      .input > label
+        +span-columns(2 of 8)
+
+
+      .control
+        +span-columns(3 of 8)
+
+      .inline-label .control
+        +shift-in-context(2)
+        +span-columns(6 of 8)
+
+      .form-actions
+        +shift(2 of 8)
+
+    +media($medium-screen-down)
+      > fieldset
+        padding: $small-spacing 0 0
+
+      legend
+        margin-left: 0
+
+      .input
+        &:after
+          display: none // remove clearfix added by +row() on desktop
+        > label
+          +fill-parent()
+          float: none
+          margin-right: 0
+
+      .control, .inline-label .control
+        +fill-parent()
+        +shift(0)
+        float: none
+
+      .form-actions
+        +fill-parent()
+        +shift(0)

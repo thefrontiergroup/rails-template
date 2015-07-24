@@ -25,8 +25,9 @@ feature 'A visitor can sign up' do
     submit_form
     within("form") do
       # Errors show below the inputs, Capybara will show the error as follows
-      expect(page).to have_content("Emailcan't be blank")
-      expect(page).to have_content("Passwordcan't be blank")
+      expect(page).to have_error_message("user_email", "can't be blank")
+      expect(page).to have_error_message("user_password", "can't be blank")
+      expect(page).to have_hint_message("user_password", "Minimum is #{Rails.configuration.devise.password_length.min} characters")
     end
   end
 end

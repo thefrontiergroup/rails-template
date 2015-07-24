@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'spec_helper'
 require 'simplecov'
 require 'simplecov-rcov'
+require 'capybara-screenshot/rspec'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails'
@@ -16,6 +17,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+
+Capybara::Screenshot.prune_strategy = :keep_last_run
+Capybara::Screenshot.autosave_on_failure = true
 
 RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
