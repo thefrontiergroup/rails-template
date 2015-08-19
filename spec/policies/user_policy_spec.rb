@@ -65,8 +65,22 @@ describe UserPolicy do
     it { should_not permit_access_to(:member_dashboard) }
 
     # CRUD actions
-    it_behaves_like "Policy with access to CRUD actions"
+    it { should permit_access_to(:index) }
+    it { should permit_access_to(:new) }
+    it { should permit_access_to(:create) }
+    it { should permit_access_to(:edit) }
+    it { should permit_access_to(:update) }
     it { should permit_access_to(:index_admins) }
+
+    context "when the user in question is the admin" do
+      let(:target_user) { user }
+      it { should_not permit_access_to(:destroy) }
+    end
+
+    context "when the user in question is another admin" do
+      let(:target_user) { FactoryGirl.create(:user, :admin) }
+      it { should permit_access_to(:destroy) }
+    end
   end
 
   context "for a member" do
