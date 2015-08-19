@@ -8,6 +8,19 @@ describe ModelSorter::UriConstructor do
     let(:path) { "www.google.com" }
     let(:query_params) { {"jordan" => "rules"}.merge(sorting_parameters) }
 
+    describe "not changing the contents of the provided query_params" do
+      let(:sorting_parameters) { {"sort_attribute" => "jordan", "sort_direction" => "asc"} }
+
+      it "doesn't change the content of the existing query parameters" do
+        subject
+        expect(query_params).to eq({
+          "jordan" => "rules",
+          "sort_attribute" => "jordan",
+          "sort_direction" => "asc"
+        })
+      end
+    end
+
     # www.google.com
     context "with no existing sorting parameters" do
       let(:sorting_parameters) { {} }

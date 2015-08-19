@@ -17,9 +17,11 @@ class ModelSorter::UriConstructor
   def build_uri_with_cycled_sorting_params(attribute, path, query_params)
     uri = URI(path)
     sortable_query_params = ModelSorter::QueryString.new.hash_with_cycled_sorting_params(attribute, query_params)
-    query_params.delete_if {|key, value| key == "sort_direction" || key == "sort_attribute" }
-    query_params = query_params.merge(sortable_query_params)
-    uri.query = query_params.to_query
+    # Clone the parameters so that we do not change the actual page parameters
+    full_params = query_params.clone
+    # Remove any sorting options from the parameters so that we can replace them with nil if required.
+    full_params.delete_if {|key, value| key == "sort_direction" || key == "sort_attribute"}
+    uri.query = full_params.merge(sortable_query_params).to_query
     uri
   end
 
