@@ -1,16 +1,12 @@
 en:
   date:
     formats:
-      # EG: 19/07/2015
-      concise: "%d/%m/%Y"
-      # EG: Tuesday Saturday 18 Jul 2015
-      default: "%A %d %b %Y"
+      concise: "%d/%m/%Y"    # 19/07/2015
+      default: "%A %d %b %Y" # Tuesday Saturday 18 Jul 2015
   time:
     formats:
-      # EG: 11:37am
-      concise_time: "%-l:%M%P"
-      # EG: 08 Jul 2015 at 11:37am (AWST)
-      default: "%d %b %Y at %l:%M%P (%Z)"
+      concise: "%-l:%M%P"                 # 11:37am
+      default: "%d %b %Y at %l:%M%P (%Z)" # 08 Jul 2015 at 11:37am (AWST)
   views:
     pagination:
       first: "&laquo;"

@@ -12,7 +12,7 @@ class DatePickerInput < SimpleForm::Inputs::StringInput
     input_html_options[:autocomplete] = "off"
 
     if object.send(attribute_name).present?
-      input_html_options[:value] = I18n.l(object.send(attribute_name), format: :concise)
+      input_html_options[:value] = I18n.l(object.send(attribute_name).to_date, format: :concise)
     end
 
     merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
