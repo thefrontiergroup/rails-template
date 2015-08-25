@@ -29,6 +29,11 @@ class UserPolicy < ApplicationPolicy
 
 # CRUD
 
+  # Admins can't delete themselves.
+  def destroy?
+    is_admin? && user != record
+  end
+
   alias :index_admins? :is_admin?
   def update?
     is_admin? || (user.present? && user == record)
