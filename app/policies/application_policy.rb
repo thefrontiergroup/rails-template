@@ -25,11 +25,34 @@ class ApplicationPolicy
 
 # CRUD
 
-  alias :index?   :is_admin?
-  alias :new?     :is_admin?
-  alias :create?  :is_admin?
-  alias :edit?    :is_admin?
-  alias :update?  :is_admin?
-  alias :destroy? :is_admin?
+  def index?
+    can_crud?
+  end
+
+  def new?
+    can_crud?
+  end
+
+  def create?
+    can_crud?
+  end
+
+  def edit?
+    can_crud?
+  end
+
+  def update?
+    can_crud?
+  end
+
+  def destroy?
+    can_crud?
+  end
+
+protected
+
+  def can_crud?
+    is_admin?
+  end
 
 end
