@@ -74,13 +74,7 @@ describe Admin::UsersController do
     authenticated_as(:admin) do
 
       context "with valid parameters" do
-        let(:params) do
-          {
-            email: "jordan@example.com",
-            role: "member",
-            password: "password"
-          }
-        end
+        let(:params) { parameters_for(:user).merge(password: "password") }
 
         it "creates a User object with the given attributes" do
           create_user
