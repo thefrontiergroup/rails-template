@@ -3,8 +3,9 @@ require 'rails_helper'
 describe ApplicationHelper do
 
   describe "#sortable_heading_for" do
-    subject { helper.sortable_heading_for(attribute) }
+    subject { helper.sortable_heading_for(attribute, name) }
     let(:attribute) { "dongle" }
+    let(:name) { "Dingle" }
 
     before do
       stub_request = instance_double(ActionDispatch::Request)
@@ -23,8 +24,18 @@ describe ApplicationHelper do
         should include("href=\"#{expected_uri}\"")
       end
 
-      it "includes the titleized attribute" do
-        should include(">Dongle</a>")
+      context "when link name is not provided" do
+        let(:name) { nil }
+        it "includes the titleized attribute" do
+          should include(">Dongle</a>")
+        end
+      end
+
+      context "when link name is provided" do
+        let(:name) { "Dingle" }
+        it "includes the customised link name" do
+          should include(">Dingle</a>")
+        end
       end
 
       it "includes the sort direction as a class" do
@@ -42,8 +53,18 @@ describe ApplicationHelper do
         should include("href=\"#{expected_uri}\"")
       end
 
-      it "includes the titleized attribute" do
-        should include(">Dongle</a>")
+      context "when link name is not provided" do
+        let(:name) { nil }
+        it "includes the titleized attribute" do
+          should include(">Dongle</a>")
+        end
+      end
+
+      context "when link name is provided" do
+        let(:name) { "Dingle" }
+        it "includes the customised link name" do
+          should include(">Dingle</a>")
+        end
       end
 
       it "includes the sort direction as a class" do
