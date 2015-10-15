@@ -1,7 +1,7 @@
 # Include any general purpose helper functions in this file, that would be applicable for
 # any project they were dropped into.
 #
-module FeatureHelper
+module FeatureSupport
 
   def submit_form
     find('input[name="commit"]').click

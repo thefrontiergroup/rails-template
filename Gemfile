@@ -49,6 +49,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'email_spec'
   gem 'shoulda-matchers', '~> 2.8.0'
 end

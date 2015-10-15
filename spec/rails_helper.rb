@@ -6,6 +6,7 @@ require 'spec_helper'
 require 'simplecov'
 require 'simplecov-rcov'
 require 'capybara-screenshot/rspec'
+require 'database_cleaner'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails'
@@ -53,13 +54,13 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerAuthenticationSupport, type: :controller
   config.include ControllerParameterSupport, type: :controller
-  config.extend ControllerDescribeAssignsHelper, type: :controller
+  config.extend ControllerDescribeAssignsSupport, type: :controller
 
   # Features
-  config.include FeatureHelper, type: :feature
+  config.include FeatureSupport, type: :feature
   config.include FeatureAttributesSupport, type: :feature
-  config.include FeatureAuthenticationHelper, type: :feature
-  config.include FeatureNavigationHelper, type: :feature
+  config.include FeatureAuthenticationSupport, type: :feature
+  config.include FeatureNavigationSupport, type: :feature
   config.extend FeatureAuthenticationMacros, type: :feature
   config.include Warden::Test::Helpers
 end

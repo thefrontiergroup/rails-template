@@ -1,4 +1,4 @@
-module FeatureAuthenticationHelper
+module FeatureAuthenticationSupport
 
   def sign_in_as(role_or_user = :public_user)
     if role_or_user.is_a?(User)
