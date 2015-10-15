@@ -80,6 +80,7 @@ GEM
     coffee-script-source (1.9.1.1)
     colored (1.2)
     colorize (0.7.7)
+    database_cleaner (1.5.0)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -270,6 +271,7 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   coffee-rails
+  database_cleaner
   devise
   email_spec
   factory_girl_rails

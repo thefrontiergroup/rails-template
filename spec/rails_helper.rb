@@ -6,6 +6,7 @@ require 'spec_helper'
 require 'simplecov'
 require 'simplecov-rcov'
 require 'capybara-screenshot/rspec'
+require 'database_cleaner'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails'
