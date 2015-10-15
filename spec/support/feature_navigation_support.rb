@@ -1,4 +1,4 @@
-module FeatureNavigationHelper
+module FeatureNavigationSupport
 
   def click_header_option(option)
     within("nav") do

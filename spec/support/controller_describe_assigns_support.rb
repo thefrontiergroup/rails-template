@@ -1,4 +1,4 @@
-module ControllerDescribeAssignsHelper
+module ControllerDescribeAssignsSupport
   def describe_assign(var_name, options={}, &block)
     describe "@#{var_name}" do
 
