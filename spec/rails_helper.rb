@@ -57,7 +57,7 @@ RSpec.configure do |config|
   config.extend Controller::DescribeAssignsSupport, type: :controller
 
   # Features
-  config.include FeatureSupport, type: :feature
+  config.include Feature::Support, type: :feature
   config.include Feature::AttributesSupport, type: :feature
   config.include Feature::AuthenticationSupport, type: :feature
   config.include Feature::NavigationSupport, type: :feature
