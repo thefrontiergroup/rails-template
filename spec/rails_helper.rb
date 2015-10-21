@@ -52,15 +52,15 @@ RSpec.configure do |config|
 
   # Controllers
   config.include Devise::TestHelpers, type: :controller
-  config.extend ControllerAuthenticationSupport, type: :controller
-  config.include ControllerParameterSupport, type: :controller
-  config.extend ControllerDescribeAssignsSupport, type: :controller
+  config.extend Controller::AuthenticationSupport, type: :controller
+  config.include Controller::ParameterSupport, type: :controller
+  config.extend Controller::DescribeAssignsSupport, type: :controller
 
   # Features
   config.include FeatureSupport, type: :feature
-  config.include FeatureAttributesSupport, type: :feature
-  config.include FeatureAuthenticationSupport, type: :feature
-  config.include FeatureNavigationSupport, type: :feature
-  config.extend FeatureAuthenticationMacros, type: :feature
+  config.include Feature::AttributesSupport, type: :feature
+  config.include Feature::AuthenticationSupport, type: :feature
+  config.include Feature::NavigationSupport, type: :feature
+  config.extend Feature::AuthenticationMacros, type: :feature
   config.include Warden::Test::Helpers
 end
