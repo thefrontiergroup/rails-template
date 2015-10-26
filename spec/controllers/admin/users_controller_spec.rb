@@ -29,33 +29,6 @@ describe Admin::UsersController do
     it_behaves_like "action authorizes roles", [:admin]
   end
 
-  describe 'GET index_admins' do
-    subject(:get_index) { get :index_admins }
-
-    authenticated_as(:admin) do
-      it { should be_success }
-
-      describe_assign(:users) do
-        subject(:users) { get_index; assigns(:users) }
-
-        describe "filtering" do
-          it { should include(FactoryGirl.create(:user, :admin)) }
-          it { should_not include(FactoryGirl.create(:user, :member)) }
-        end
-
-        describe "sorting" do
-          it "sorts by query parameters" do
-            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything, {id: :desc}).and_call_original
-            subject
-          end
-        end
-      end
-    end
-
-    it_behaves_like "action requiring authentication"
-    it_behaves_like "action authorizes roles", [:admin]
-  end
-
   describe 'GET new' do
     subject { get :new }
 

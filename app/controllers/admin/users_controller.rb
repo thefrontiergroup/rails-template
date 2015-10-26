@@ -5,12 +5,6 @@ class Admin::UsersController < Admin::BaseController
     @users = sort(policy_scope(User.member)).page(params[:page])
   end
 
-  def index_admins
-    authorize(User)
-    @users = sort(policy_scope(User.admin)).page(params[:page])
-    render :index
-  end
-
   def new
     @user = User.new
     authorize(@user)

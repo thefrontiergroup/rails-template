@@ -2,10 +2,6 @@
 
 %p= link_to "Add new User", new_admin_user_path, class: "btn"
 
-%ul.tabs
-  = users_index_tab_for "Members", admin_users_path
-  = users_index_tab_for "Admins", admins_admin_users_path
-
 %table
   %col{style: 'width: 50%'}
   %thead
