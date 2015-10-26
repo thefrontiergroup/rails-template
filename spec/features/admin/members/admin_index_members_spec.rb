@@ -7,7 +7,7 @@ feature 'Admin can view an index of users' do
 
     before do
       click_header_option("Dashboard")
-      click_sidemenu_option("Users")
+      click_sidemenu_option("Members")
     end
 
     scenario "Showing members" do

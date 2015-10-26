@@ -8,7 +8,7 @@ feature 'Admin can sort an index of users' do
 
     before do
       click_header_option("Dashboard")
-      click_sidemenu_option("Users")
+      click_sidemenu_option("Members")
     end
 
     scenario "Using tabs to show different types of users" do

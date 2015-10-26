@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::BaseController
+class Admin::MembersController < Admin::BaseController
 
   def index
     authorize(User)
@@ -15,7 +15,7 @@ class Admin::UsersController < Admin::BaseController
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 
-    respond_with(@user, location: admin_users_path)
+    respond_with(@user, location: admin_members_path)
   end
 
   def edit
@@ -28,14 +28,14 @@ class Admin::UsersController < Admin::BaseController
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 
-    respond_with(@user, location: admin_users_path)
+    respond_with(@user, location: admin_members_path)
   end
 
   def destroy
     @user = find_user
     authorize(@user)
     @user.destroy
-    redirect_to(admin_users_path, notice: "'#{@user}' deleted")
+    redirect_to(admin_members_path, notice: "'#{@user}' deleted")
   end
 
 private

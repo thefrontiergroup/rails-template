@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Admin::UsersController do
+describe Admin::MembersController do
 
   describe 'GET index' do
     subject(:get_index) { get :index }
@@ -57,7 +57,7 @@ describe Admin::UsersController do
           expect(user).to have_attributes(params.slice(:email, :role))
         end
 
-        it { should redirect_to(admin_users_path) }
+        it { should redirect_to(admin_members_path) }
       end
 
       context "with invalid parameters" do
@@ -105,7 +105,7 @@ describe Admin::UsersController do
           expect(target_user.email).to eq("jordan@example.com")
         end
 
-        it { should redirect_to(admin_users_path) }
+        it { should redirect_to(admin_members_path) }
       end
 
       context "with invalid parameters" do
@@ -135,7 +135,7 @@ describe Admin::UsersController do
         subject
         expect(target_user.reload.deleted_at).to be_present
       end
-      it { should redirect_to(admin_users_path) }
+      it { should redirect_to(admin_members_path) }
     end
 
     it_behaves_like "action requiring authentication"

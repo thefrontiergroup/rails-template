@@ -7,7 +7,7 @@ feature 'Admin can delete an existing User' do
 
     before do
       click_header_option("Dashboard")
-      click_sidemenu_option("Users")
+      click_sidemenu_option("Members")
     end
 
     scenario 'Admin can delete user' do
