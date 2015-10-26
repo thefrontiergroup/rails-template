@@ -11,7 +11,6 @@ feature 'Admin can create a new User' do
 
     scenario 'Admin creates user with valid data' do
       fill_in("Email", with: "valid@example.com")
-      select("Member", from: "Role")
       fill_in("Password", with: "password")
       click_button("Create")
 
@@ -26,7 +25,6 @@ feature 'Admin can create a new User' do
 
     scenario 'Admin creates user with invalid data' do
       fill_in("Email", with: "")
-      select("Member", from: "Role")
       fill_in("Password", with: "")
       click_button("Create")
 

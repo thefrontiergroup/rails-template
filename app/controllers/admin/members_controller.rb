@@ -11,7 +11,7 @@ class Admin::MembersController < Admin::BaseController
   end
 
   def create
-    @user = User.new
+    @user = User.member.new
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 

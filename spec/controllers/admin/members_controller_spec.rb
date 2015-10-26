@@ -47,14 +47,20 @@ describe Admin::MembersController do
     authenticated_as(:admin) do
 
       context "with valid parameters" do
-        let(:params) { parameters_for(:user).merge(password: "password") }
+        let(:params) do
+          {
+            email: "email@example.com",
+            password: "password"
+          }
+        end
 
         it "creates a User object with the given attributes" do
           create_user
 
           user = User.order(:created_at).last
           expect(user).to be_present
-          expect(user).to have_attributes(params.slice(:email, :role))
+          expect(user).to have_attributes(params.slice(:email))
+          expect(user).to be_member
         end
 
         it { should redirect_to(admin_members_path) }
