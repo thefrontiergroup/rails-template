@@ -29,8 +29,8 @@ feature 'Admin can create a new User' do
       click_button("Create")
 
       # Ensure no user is created
-      expect(User.count).to eq(1)
       expect(page).to have_error_message("user_email", "can't be blank")
+      expect(User.count).to eq(1)
     end
   end
 end
