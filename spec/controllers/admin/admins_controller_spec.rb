@@ -1,36 +1,9 @@
 require 'rails_helper'
 
-describe Admin::UsersController do
+describe Admin::AdminsController do
 
   describe 'GET index' do
     subject(:get_index) { get :index }
-
-    authenticated_as(:admin) do
-      it { should be_success }
-
-      describe_assign(:users) do
-        subject(:users) { get_index; assigns(:users) }
-
-        describe "filtering" do
-          it { should include(FactoryGirl.create(:user, :member)) }
-          it { should_not include(FactoryGirl.create(:user, :admin)) }
-        end
-
-        describe "sorting" do
-          it "sorts by query parameters" do
-            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything, {id: :desc}).and_call_original
-            subject
-          end
-        end
-      end
-    end
-
-    it_behaves_like "action requiring authentication"
-    it_behaves_like "action authorizes roles", [:admin]
-  end
-
-  describe 'GET index_admins' do
-    subject(:get_index) { get :index_admins }
 
     authenticated_as(:admin) do
       it { should be_success }
@@ -74,17 +47,23 @@ describe Admin::UsersController do
     authenticated_as(:admin) do
 
       context "with valid parameters" do
-        let(:params) { parameters_for(:user).merge(password: "password") }
+        let(:params) do
+          {
+            email: "email@example.com",
+            password: "password"
+          }
+        end
 
         it "creates a User object with the given attributes" do
           create_user
 
           user = User.order(:created_at).last
           expect(user).to be_present
-          expect(user).to have_attributes(params.slice(:email, :role))
+          expect(user).to have_attributes(params.slice(:email))
+          expect(user).to be_admin
         end
 
-        it { should redirect_to(admin_users_path) }
+        it { should redirect_to(admin_admins_path) }
       end
 
       context "with invalid parameters" do
@@ -132,7 +111,7 @@ describe Admin::UsersController do
           expect(target_user.email).to eq("jordan@example.com")
         end
 
-        it { should redirect_to(admin_users_path) }
+        it { should redirect_to(admin_admins_path) }
       end
 
       context "with invalid parameters" do
@@ -162,7 +141,7 @@ describe Admin::UsersController do
         subject
         expect(target_user.reload.deleted_at).to be_present
       end
-      it { should redirect_to(admin_users_path) }
+      it { should redirect_to(admin_admins_path) }
     end
 
     it_behaves_like "action requiring authentication"

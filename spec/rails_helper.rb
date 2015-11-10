@@ -61,6 +61,8 @@ RSpec.configure do |config|
   config.include Feature::AttributesSupport, type: :feature
   config.include Feature::AuthenticationSupport, type: :feature
   config.include Feature::NavigationSupport, type: :feature
-  config.extend Feature::AuthenticationMacros, type: :feature
+  config.include Feature::TableSupport, type: :feature
   config.include Warden::Test::Helpers
+
+  config.extend Feature::AuthenticationMacros, type: :feature
 end
