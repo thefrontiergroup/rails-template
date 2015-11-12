@@ -3,6 +3,14 @@ class Admin::UsersController < Admin::BaseController
   def index
     authorize(User)
     @users = sort(policy_scope(User.public_send(user_role))).page(params[:page])
+
+    if params[:search].present?
+      if params[:search][:search_term].size >= 3
+        @users = @users.email_search(params[:search][:search_term])
+      else
+        flash.now[:alert] = "Unable to search, require 3 or more characters."
+      end
+    end
   end
 
   def new
