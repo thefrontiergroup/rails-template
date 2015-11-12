@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   # Non-devise validations
   validates :role, presence: true
 
+  scope :email_search, -> (email) { where("email ILIKE ?", "%#{email}%") }
+
   def to_s
     email
   end

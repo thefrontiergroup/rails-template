@@ -2,20 +2,4 @@
 
 %p= link_to "Add new member", new_admin_member_path, class: "btn"
 
-%table
-  %col{style: 'width: 50%'}
-  %thead
-    %tr
-      %th= sortable_heading_for(:email)
-      %th.actions Actions
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.email
-        %td.actions
-          - if policy(user).edit?
-            = link_to "Edit", edit_admin_member_path(user), class: "btn btn-small"
-          - if policy(user).destroy?
-            = link_to "Delete", admin_member_path(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small"
-
-= paginate @users
+= render partial: "user_results", locals: {delete_url: -> (user) { admin_admin_path(user) }, edit_url: -> (user) { edit_admin_admin_path(user) } }

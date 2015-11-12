@@ -3,7 +3,8 @@ require 'rails_helper'
 describe Admin::MembersController do
 
   describe 'GET index' do
-    subject(:get_index) { get :index }
+    subject(:get_index) { get :index, params }
+    let(:params) { {} }
 
     authenticated_as(:admin) do
       it { should be_success }
@@ -14,6 +15,13 @@ describe Admin::MembersController do
         describe "filtering" do
           it { should include(FactoryGirl.create(:user, :member)) }
           it { should_not include(FactoryGirl.create(:user, :admin)) }
+        end
+
+        describe "filtering by email" do
+          let(:params) { {search: {search_term: "whatever"}} }
+
+          it { should include(FactoryGirl.create(:user, :member, email: "whatever@example.com")) }
+          it { should_not include(FactoryGirl.create(:user, :member, email: "whatnot@example.com")) }
         end
 
         describe "sorting" do

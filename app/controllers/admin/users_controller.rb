@@ -3,6 +3,10 @@ class Admin::UsersController < Admin::BaseController
   def index
     authorize(User)
     @users = sort(policy_scope(User.public_send(user_role))).page(params[:page])
+
+    if params[:search]
+      @users = @users.email_search(params[:search][:search_term])
+    end
   end
 
   def new
