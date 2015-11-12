@@ -3,7 +3,9 @@
 %p= link_to "Add new admin", new_admin_admin_path, class: "btn"
 
 %table
-  %col{style: 'width: 50%'}
+  %colgroup
+    %col{width: "80%"}
+    %col{width: "20%"}
   %thead
     %tr
       %th= sortable_heading_for(:email)
