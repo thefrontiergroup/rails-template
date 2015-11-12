@@ -1,6 +1,6 @@
 = simple_form_for :search, method: :get do |s|
-  = s.input :search_term, label: "User email search", placeholder: "type email here", input_html: { value: (params[:search][:search_term] unless params[:search].blank?) }
-  = s.button :submit, "SEARCH"
+  = s.input :search_term, label: "Email", placeholder: "Type email here", input_html: { value: (params[:search][:search_term] unless params[:search].blank?) }
+  = s.button :submit, "Search"
 
 - if @users.present?
   %table

@@ -18,10 +18,24 @@ describe Admin::MembersController do
         end
 
         describe "filtering by email" do
-          let(:params) { {search: {search_term: "whatever"}} }
+          let(:params) { {search: {search_term: search_term}} }
 
-          it { should include(FactoryGirl.create(:user, :member, email: "whatever@example.com")) }
-          it { should_not include(FactoryGirl.create(:user, :member, email: "whatnot@example.com")) }
+          context "when search term is 3 or more characters" do
+            let(:search_term) { "whatever" }
+
+            it { should include(FactoryGirl.create(:user, :member, email: "whatever@example.com")) }
+            it { should_not include(FactoryGirl.create(:user, :member, email: "whatnot@example.com")) }
+          end
+
+          context "when search term is fewer than 3 characters" do
+            let(:search_term) { "cd" }
+            it "returns an error message to the user" do
+              subject
+              expect(request.flash[:alert]).to include("Unable to search, require 3 or more characters.")
+            end
+            it { should include(FactoryGirl.create(:user, :member, email: "ab@example.com")) }
+          end
+
         end
 
         describe "sorting" do
