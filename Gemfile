@@ -5,6 +5,7 @@ gem 'rails'
 # Database & ORM
 gem 'paranoia'
 gem 'pg'
+gem 'rails_sort', github: "thefrontiergroup/rails_sort", branch: "initial"
 
 # Authentication & Authorization
 gem 'devise'
@@ -29,7 +30,6 @@ gem 'responders'
 group :development do
   gem 'quiet_assets'
   gem 'seed_helper'
-  gem 'spring'
   gem 'letter_opener'
   gem 'tfg_cap', git: 'git@github.com:thefrontiergroup/tfg-cap.git', require: nil
 end

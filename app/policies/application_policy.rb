@@ -37,6 +37,10 @@ class ApplicationPolicy
     can_crud?
   end
 
+  def show?
+    can_crud?
+  end
+
   def edit?
     can_crud?
   end
