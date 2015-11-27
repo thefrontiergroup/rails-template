@@ -5,6 +5,7 @@ shared_examples_for "Policy with access to CRUD actions" do
   it { should permit_access_to(:edit) }
   it { should permit_access_to(:update) }
   it { should permit_access_to(:destroy) }
+  it { should permit_access_to(:show) }
 end
 
 shared_examples_for "Policy without access to CRUD actions" do
@@ -14,4 +15,5 @@ shared_examples_for "Policy without access to CRUD actions" do
   it { should_not permit_access_to(:edit) }
   it { should_not permit_access_to(:update) }
   it { should_not permit_access_to(:destroy) }
+  it { should_not permit_access_to(:show) }
 end
