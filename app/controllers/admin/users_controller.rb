@@ -2,13 +2,16 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize(User)
-    @users = sort(policy_scope(User.public_send(user_role))).page(params[:page])
+    @users = User.public_send(user_role)
+                 .sort(params, default_sort_options)
+                 .page(params[:page])
+    @users = policy_scope(@users)
 
     if params[:search].present?
       if params[:search][:search_term].size >= 3
         @users = @users.email_search(params[:search][:search_term])
       else
-        flash.now[:alert] = "Unable to search, require 3 or more characters."
+        flash.now[:alert] = "Unable to search, requires 3 or more characters."
       end
     end
   end
@@ -48,6 +51,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
 private
+
   def user_role
     "user"
   end

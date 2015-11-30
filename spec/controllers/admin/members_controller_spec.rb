@@ -31,7 +31,7 @@ describe Admin::MembersController do
             let(:search_term) { "cd" }
             it "returns an error message to the user" do
               subject
-              expect(request.flash[:alert]).to include("Unable to search, require 3 or more characters.")
+              expect(request.flash[:alert]).to include("Unable to search, requires 3 or more characters.")
             end
             it { should include(FactoryGirl.create(:user, :member, email: "ab@example.com")) }
           end
@@ -40,7 +40,7 @@ describe Admin::MembersController do
 
         describe "sorting" do
           it "sorts by query parameters" do
-            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything, {id: :desc}).and_call_original
+            expect_any_instance_of(User::ActiveRecord_Relation).to receive(:sort).with(anything, {id: :desc}).and_call_original
             subject
           end
         end

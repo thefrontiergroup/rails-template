@@ -18,7 +18,7 @@ describe Admin::AdminsController do
 
         describe "sorting" do
           it "sorts by query parameters" do
-            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything, {id: :desc}).and_call_original
+            expect_any_instance_of(User::ActiveRecord_Relation).to receive(:sort).with(anything, {id: :desc}).and_call_original
             subject
           end
         end
