@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thefrontiergroup/rails_sort.git
-  revision: 46986c837a9cfc1cb380b240fd5b61c57f064400
+  revision: 232434647490e7ae25cb045fd8ebdc44c24de1b0
   branch: initial
   specs:
     rails_sort (0.1.0)

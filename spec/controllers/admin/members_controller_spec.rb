@@ -12,7 +12,7 @@ describe Admin::MembersController do
       describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
 
-        describe "filtering" do
+        describe "filtering by role" do
           it { should include(FactoryGirl.create(:user, :member)) }
           it { should_not include(FactoryGirl.create(:user, :admin)) }
         end
@@ -35,13 +35,30 @@ describe Admin::MembersController do
             end
             it { should include(FactoryGirl.create(:user, :member, email: "ab@example.com")) }
           end
-
         end
 
         describe "sorting" do
-          it "sorts by query parameters" do
-            expect_any_instance_of(User::ActiveRecord_Relation).to receive(:sort).with(anything, {id: :desc}).and_call_original
-            subject
+          let(:params) { {sort_direction: direction, sort_attribute: "email"} }
+
+          let!(:beta)  { FactoryGirl.create(:user, :member, email: "beta@example.com") }
+          let!(:alpha) { FactoryGirl.create(:user, :member, email: "alpha@example.com") }
+
+          describe "sorting by asc" do
+            let(:direction) { "asc" }
+
+            it "sorts by query parameters" do
+              expect(users[0]).to eq(alpha)
+              expect(users[1]).to eq(beta)
+            end
+          end
+
+          describe "sorting by desc" do
+            let(:direction) { "desc" }
+
+            it "sorts by query parameters" do
+              expect(users[0]).to eq(beta)
+              expect(users[1]).to eq(alpha)
+            end
           end
         end
       end
