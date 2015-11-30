@@ -22,8 +22,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new
-    @user.role = user_role
+    @user = User.new(role: user_role)
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 
