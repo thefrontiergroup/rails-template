@@ -5,7 +5,7 @@ gem 'rails'
 # Database & ORM
 gem 'paranoia'
 gem 'pg'
-gem 'rails_sort', github: "thefrontiergroup/rails_sort", branch: "initial"
+gem 'rails_sort', github: "thefrontiergroup/rails_sort"
 
 # Authentication & Authorization
 gem 'devise'

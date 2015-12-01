@@ -1,9 +1,8 @@
 GIT
   remote: git://github.com/thefrontiergroup/rails_sort.git
-  revision: 232434647490e7ae25cb045fd8ebdc44c24de1b0
-  branch: initial
+  revision: 1ffd4b7671879538207555b6a8d4725e9851adfb
   specs:
-    rails_sort (0.1.0)
+    rails_sort (1.0.0)
 
 GIT
   remote: git@github.com:thefrontiergroup/tfg-cap.git
