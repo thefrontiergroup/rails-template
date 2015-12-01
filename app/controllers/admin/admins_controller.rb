@@ -1,4 +1,5 @@
 class Admin::AdminsController < Admin::UsersController
+
   def user_role
     "admin"
   end
@@ -6,4 +7,5 @@ class Admin::AdminsController < Admin::UsersController
   def redirect_path
     admin_admins_path
   end
+
 end

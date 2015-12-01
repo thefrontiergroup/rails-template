@@ -3,7 +3,10 @@ require 'rails_helper'
 describe Admin::AdminsController do
 
   describe 'GET index' do
-    subject(:get_index) { get :index }
+    subject(:get_index) { get :index, params }
+    let(:params) { {} }
+    let(:admin) { beta }
+    let(:beta)  { FactoryGirl.create(:user, :admin, email: "beta@example.com") }
 
     authenticated_as(:admin) do
       it { should be_success }
@@ -11,15 +14,32 @@ describe Admin::AdminsController do
       describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
 
-        describe "filtering" do
+        describe "filtering by role" do
           it { should include(FactoryGirl.create(:user, :admin)) }
           it { should_not include(FactoryGirl.create(:user, :member)) }
         end
 
         describe "sorting" do
-          it "sorts by query parameters" do
-            expect(ModelSorter).to receive(:sort).with(instance_of(User::ActiveRecord_Relation), anything, {id: :desc}).and_call_original
-            subject
+          let(:params) { {sort_direction: direction, sort_attribute: "email"} }
+
+          let!(:alpha) { FactoryGirl.create(:user, :admin, email: "alpha@example.com") }
+
+          describe "sorting by asc" do
+            let(:direction) { "asc" }
+
+            it "sorts by query parameters" do
+              expect(users[0]).to eq(alpha)
+              expect(users[1]).to eq(beta)
+            end
+          end
+
+          describe "sorting by desc" do
+            let(:direction) { "desc" }
+
+            it "sorts by query parameters" do
+              expect(users[0]).to eq(beta)
+              expect(users[1]).to eq(alpha)
+            end
           end
         end
       end
