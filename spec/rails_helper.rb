@@ -24,10 +24,8 @@ Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot.autosave_on_failure = true
 
 RSpec.configure do |config|
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  # Must be false for DatabaseCleaner
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
