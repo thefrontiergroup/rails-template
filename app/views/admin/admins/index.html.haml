@@ -1,5 +1,6 @@
 %h1 Admin Management
 
 %p= link_to "Add new admin", new_admin_admin_path, class: "btn"
+%p= link_to "Download CSV", admin_admins_path(format: :csv), class: "btn"
 
 = render partial: "user_results", locals: {delete_url: -> (user) { admin_admin_path(user) }, edit_url: -> (user) { edit_admin_admin_path(user) } }
