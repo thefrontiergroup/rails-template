@@ -50,7 +50,7 @@ protected
   end
 
   def sort(collection)
-    ModelSorter.sort(collection, params, default_sort_options)
+    RailsSort.sort(collection, params, default_sort_options)
   end
 
 private
