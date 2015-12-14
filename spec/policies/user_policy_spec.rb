@@ -5,37 +5,6 @@ describe UserPolicy do
   let(:policy) { UserPolicy.new(user, target_user) }
   let(:target_user) { user }
 
-  describe UserPolicy::Scope do
-    let(:policy_scope) { UserPolicy::Scope.new(user, scope) }
-    let(:scope) { User.all }
-
-    describe "#resolve" do
-      subject { policy_scope.resolve }
-
-      context "for an anonymous user" do
-        let(:user) { nil }
-
-        it "cannot see any users" do
-          should be_empty
-        end
-      end
-
-      context "for an admin" do
-        let(:user) { FactoryGirl.build(:user, :admin) }
-
-        it { should include(FactoryGirl.create(:user, :admin)) }
-        it { should include(FactoryGirl.create(:user, :member)) }
-      end
-
-      context "for a member" do
-        let(:user) { FactoryGirl.build(:user, :member) }
-
-        it { should include(FactoryGirl.create(:user, :admin)) }
-        it { should include(FactoryGirl.create(:user, :member)) }
-      end
-    end
-  end
-
   context "for an anonymous user" do
     let(:user) { nil }
 

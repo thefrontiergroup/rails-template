@@ -1,13 +1,4 @@
 class UserPolicy < ApplicationPolicy
-  class Scope < ApplicationPolicy::Scope
-    def resolve
-      if user.present? && (user.admin? || user.member?)
-        scope
-      else
-        scope.none
-      end
-    end
-  end
 
   def permitted_attributes
     if is_admin?
