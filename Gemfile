@@ -28,9 +28,10 @@ gem 'neat'
 gem 'responders'
 
 group :development do
+  gem 'better_errors'
+  gem 'letter_opener'
   gem 'quiet_assets'
   gem 'seed_helper'
-  gem 'letter_opener'
   gem 'tfg_cap', git: 'git@github.com:thefrontiergroup/tfg-cap.git', require: nil
   gem 'web-console'
 end
