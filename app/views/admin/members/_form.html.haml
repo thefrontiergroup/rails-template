@@ -4,6 +4,6 @@
   = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters"
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn-primary"
     %span.or or
     = link_to "Cancel", admin_members_path
