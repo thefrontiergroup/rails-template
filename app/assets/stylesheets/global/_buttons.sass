@@ -1,0 +1,88 @@
+// -----  Buttons -----
+$btn-fonts: $heading-fonts
+$btn-default-bg: $brand-purple-grey
+$btn-primary-bg: $brand-blue-grey
+$btn-cta-bg: $brand-blue // call to action
+$btn-add-content-color: dim($brand-grey, 0.60)
+
+.btn, %button
+  background-color: $btn-default-bg
+  border-radius: $border-radius
+  border: none
+  color: #fff
+  cursor: pointer
+  display: inline-block
+  font-family: $body-fonts
+  font-size: $body-font-size
+  font-weight: 600
+  line-height: 1
+  padding: 0.75em 1em
+  text-decoration: none
+  vertical-align: middle
+  white-space: nowrap
+  text-shadow: 0 1px 1px dim($btn-default-bg, 0.15)
+  +transition(background $duration linear)
+  &:hover
+    background-color: dim($btn-default-bg, 0.08)
+    color: #fff
+  &:focus, &:active
+    background: whiten($btn-default-bg, 0.08)
+
+  &.disabled, &[disabled]
+    cursor: not-allowed
+    opacity: 0.5
+
+// stands out from a group of buttons
+.btn-primary, %btn-primary
+  background: $btn-primary-bg
+  text-shadow: 0 1px 1px dim($btn-primary-bg, 0.15)
+  &:hover
+    background: dim($btn-primary-bg, 0.08)
+  &:focus, &:active
+    background: whiten($btn-primary-bg, 0.08)
+
+// call to action; used in relation to conversions
+.btn-cta, %btn-cta
+  background: $btn-cta-bg
+  text-shadow: 0 1px 1px dim($btn-cta-bg, 0.15)
+  &:hover
+    background: dim($btn-cta-bg, 0.08)
+  &:focus, &:active
+    background: whiten($btn-cta-bg, 0.08)
+
+.btn-danger
+  background-color: $negative-color
+  text-shadow: 0 1px 1px dim($negative-color, 0.15)
+  &:hover
+    background-color: dim($negative-color, 0.15)
+  &:focus, &:active
+    background: whiten($negative-color, 0.10)
+
+.btn-small
+  font-size: 0.7em
+  padding: 0.3em 1em
+  margin-left: 0.5em
+  line-height: $body-line-height
+
+// a button that displays only as an icon
+.btn-ico
+  width: 25px
+  height: 25px
+  span
+    @extend %visually-hidden
+  .ico
+    top: 0
+
+button.btn-ico
+  border: none
+  background-color: transparent
+  padding: 0
+  vertical-align: top
+
+/// The below is only for buttons coming from the OS, not links that are made to look like buttons
+#{$all-buttons}
+  @extend %button
+  @include appearance(none)
+  -webkit-font-smoothing: antialiased
+  border: none
+  user-select: none

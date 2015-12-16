@@ -2,3 +2,55 @@
   %h1 Home
   = image_tag 'create-glyph-logo.svg', size: '336x336'
   %span Create
+
+  %button{ type: "submit", class: "btn"} Default Button
+  %button{ type: "submit", class: "btn btn-primary"} Primary Button
+  %button{ type: "submit", class: "btn btn-cta"} Call to Action Button
+
+  .line-break
+  = link_to "Default link/btn", "#", class: "btn"
+  = link_to "Primary link/btn", "#", class: "btn btn-primary"
+  = link_to "Call to Action link/btn", "#", class: "btn btn-cta"
+  = link_to "Destructive link/btn", "#", class: "btn btn-danger"
+
+  .line-break
+  = link_to "Default link/btn", "#", class: "btn btn-small"
+  = link_to "Primary link/btn", "#", class: "btn btn-primary btn-small"
+  = link_to "Call to Action link/btn", "#", class: "btn btn-cta btn-small"
+  = link_to "Destructive link/btn", "#", class: "btn btn-danger btn-small"
+
+  .line-break
+  = link_to "#", class: "btn btn-primary" do
+    %i.ico.ico-pencil-white.ico-small{aria: {hidden: "true"}}
+    Primary link/btn
+  = link_to "#", class: "btn btn-cta" do
+    %i.ico.ico-tick-white.ico-small{aria: {hidden: "true"}}
+    Call to Action link/btn
+  = link_to "#", class: "btn btn-danger" do
+    %i.ico.ico-cross-white.ico-small{aria: {hidden: "true"}}
+    Destructive link/btn
+
+  .line-break
+  = link_to "#", class: "btn btn-small btn-primary" do
+    %i.ico.ico-pencil-white.ico-small{aria: {hidden: "true"}}
+    Primary link/btn
+  = link_to "#", class: "btn btn-small btn-cta" do
+    %i.ico.ico-tick-white.ico-small{aria: {hidden: "true"}}
+    Call to Action link/btn
+  = link_to "#", class: "btn btn-small btn-danger" do
+    %i.ico.ico-cross-white.ico-small{aria: {hidden: "true"}}
+    Destructive link/btn
+
+  .line-break
+  = link_to "#", class: "btn-ico" do
+    %i.ico.ico-pencil-white{aria: {hidden: "true"}}
+    %span Edit
+  %button{ type: "submit", class: "btn-ico"}
+    %i.ico.ico-pencil-white{aria: {hidden: "true"}}
+    %span Edit
+  = link_to "#", class: "btn-ico" do
+    %i.ico.ico-cross-white{aria: {hidden: "true"}}
+    %span Delete
+  = link_to "#", class: "btn-ico" do
+    %i.ico.ico-plus-white{aria: {hidden: "true"}}
+    %span Add
