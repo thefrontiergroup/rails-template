@@ -1,0 +1,6 @@
+%h1 Members Management
+
+%p= link_to "Add new member", new_admin_member_path, class: "btn"
+%p= link_to_csv(request)
+
+= render partial: "user_results"

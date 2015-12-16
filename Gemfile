@@ -5,6 +5,7 @@ gem 'rails'
 # Database & ORM
 gem 'paranoia'
 gem 'pg'
+gem 'rails_sort', github: "thefrontiergroup/rails_sort"
 
 # Authentication & Authorization
 gem 'devise'
@@ -27,11 +28,12 @@ gem 'neat'
 gem 'responders'
 
 group :development do
+  gem 'better_errors'
+  gem 'letter_opener'
   gem 'quiet_assets'
   gem 'seed_helper'
-  gem 'spring'
-  gem 'letter_opener'
   gem 'tfg_cap', git: 'git@github.com:thefrontiergroup/tfg-cap.git', require: nil
+  gem 'web-console'
 end
 
 group :development, :test do
@@ -49,8 +51,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'email_spec'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 2.8.0'
 end
 
 group :staging do

@@ -6,6 +6,8 @@ require 'spec_helper'
 require 'simplecov'
 require 'simplecov-rcov'
 require 'capybara-screenshot/rspec'
+require 'database_cleaner'
+require 'database_cleaner_helper'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails'
@@ -22,10 +24,8 @@ Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot.autosave_on_failure = true
 
 RSpec.configure do |config|
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  # Must be false for DatabaseCleaner
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -51,15 +51,17 @@ RSpec.configure do |config|
 
   # Controllers
   config.include Devise::TestHelpers, type: :controller
-  config.extend ControllerAuthenticationSupport, type: :controller
-  config.include ControllerParameterSupport, type: :controller
-  config.extend ControllerDescribeAssignsHelper, type: :controller
+  config.extend Controller::AuthenticationSupport, type: :controller
+  config.include Controller::ParameterSupport, type: :controller
+  config.extend Controller::DescribeAssignsSupport, type: :controller
 
   # Features
-  config.include FeatureHelper, type: :feature
-  config.include FeatureAttributesSupport, type: :feature
-  config.include FeatureAuthenticationHelper, type: :feature
-  config.include FeatureNavigationHelper, type: :feature
-  config.extend FeatureAuthenticationMacros, type: :feature
+  config.include Feature::Support, type: :feature
+  config.include Feature::AttributesSupport, type: :feature
+  config.include Feature::AuthenticationSupport, type: :feature
+  config.include Feature::NavigationSupport, type: :feature
+  config.include Feature::TableSupport, type: :feature
   config.include Warden::Test::Helpers
+
+  config.extend Feature::AuthenticationMacros, type: :feature
 end

@@ -2,13 +2,18 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize(User)
-    @users = sort(policy_scope(User.member)).page(params[:page])
-  end
+    @users = User.public_send(user_role)
+                 .sort(params, default_sort_options)
+                 .page(params[:page])
+    @users = policy_scope(@users)
 
-  def index_admins
-    authorize(User)
-    @users = sort(policy_scope(User.admin)).page(params[:page])
-    render :index
+    if params[:search].present?
+      if params[:search][:search_term].size >= 3
+        @users = @users.email_search(params[:search][:search_term])
+      else
+        flash.now[:alert] = "Unable to search, requires 3 or more characters."
+      end
+    end
   end
 
   def new
@@ -17,11 +22,11 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new
+    @user = User.new(role: user_role)
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 
-    respond_with(@user, location: admin_users_path)
+    respond_with(@user, location: redirect_path)
   end
 
   def edit
@@ -34,17 +39,25 @@ class Admin::UsersController < Admin::BaseController
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 
-    respond_with(@user, location: admin_users_path)
+    respond_with(@user, location: redirect_path)
   end
 
   def destroy
     @user = find_user
     authorize(@user)
     @user.destroy
-    redirect_to(admin_users_path, notice: "'#{@user}' deleted")
+    redirect_to(redirect_path, notice: "'#{@user}' deleted")
   end
 
 private
+
+  def user_role
+    "user"
+  end
+
+  def redirect_path
+    admin_users_path
+  end
 
   def find_user
     User.find(params[:id])

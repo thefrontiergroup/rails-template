@@ -5,7 +5,7 @@ describe PageNavigationHelper do
   describe "#page_navigation_link_to" do
     subject { helper.page_navigation_link_to(title, path) }
     let(:title) { "Users" }
-    let(:path)  { admin_users_path }
+    let(:path)  { admin_members_path }
 
     before do
       request_double = double
@@ -14,18 +14,18 @@ describe PageNavigationHelper do
     end
 
     context "when url matches the provided path" do
-      let(:url) { "/admin/users" }
-      it { should eq("<li class=\"active\"><a href=\"/admin/users\">Users</a></li>") }
+      let(:url) { "/admin/members" }
+      it { should eq("<li class=\"active\"><a href=\"/admin/members\">Users</a></li>") }
     end
 
     context "when url is a subpath that includes provided path" do
-      let(:url) { "/admin/users/1/edit" }
-      it { should eq("<li class=\"active\"><a href=\"/admin/users\">Users</a></li>") }
+      let(:url) { "/admin/members/1/edit" }
+      it { should eq("<li class=\"active\"><a href=\"/admin/members\">Users</a></li>") }
     end
 
     context "when url doesn't matches the provided path" do
       let(:url) { "/admin/dogs" }
-      it { should eq("<li><a href=\"/admin/users\">Users</a></li>") }
+      it { should eq("<li><a href=\"/admin/members\">Users</a></li>") }
     end
   end
 

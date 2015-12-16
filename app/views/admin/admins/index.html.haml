@@ -1,0 +1,6 @@
+%h1 Admin Management
+
+%p= link_to "Add new admin", new_admin_admin_path, class: "btn"
+%p= link_to_csv(request)
+
+= render partial: "user_results"

@@ -1,8 +1,3 @@
-$form-error-color: $negative-color
-$form-hint-color: whiten($brand-grey, 0.10)
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06)
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3)
-
 form
   .input, .row
     margin-bottom: $small-spacing
@@ -25,57 +20,23 @@ fieldset
     +media($large-screen-down)
       padding: 0
 
-input,
-label,
-select
-  display: block
-  font-family: $body-fonts
-  font-size: $body-font-size
-
-label
-  font-weight: 600
-  margin-bottom: ($small-spacing / 2)
-  &.required::after
-    content: "*"
-
-  abbr
-    display: none
-
 #{$all-text-inputs},
 select[multiple=multiple],
 textarea
-  background-color: #fff
-  border: $border
-  border-radius: $border-radius
-  box-shadow: $form-box-shadow
-  box-sizing: border-box
-  font-family: $body-fonts
-  font-size: $body-font-size
   margin-bottom: ($base-spacing / 2)
   padding: ($base-spacing / 3)
-  transition: border-color
-  width: 100%
-  &:hover
-    border-color: darken($border-color, 10%)
+  font-size: $body-font-size
 
-  &:focus
-    border-color: $action-color
-    box-shadow: $form-box-shadow-focus
-    outline: none
-
-  .field_with_errors &
-    border-color: darken($form-error-color, 60)
+input,
+label,
+select
+  font-size: $body-font-size
 
 textarea
   resize: vertical
 
 input[type="search"]
-  @include appearance(none)
-
-input[type="checkbox"],
-input[type="radio"]
-  display: inline
-  margin-right: ($small-spacing / 2)
+  +appearance(none)
 
 input[type="file"]
   padding-bottom: $small-spacing
