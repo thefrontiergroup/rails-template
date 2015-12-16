@@ -1,12 +1,24 @@
 body
   padding: 0
+
   > h1
     @extend %visually-hidden
 
+body,
+input,
+textarea,
+select,
+button
+  -webkit-font-smoothing: antialiased
+  color: $body-text-color
+  font: 400 #{$body-font-size}/$body-line-height $body-fonts
+
 a
+  -webkit-font-smoothing: antialiased
   color: $link-color
   text-decoration: none
   +transition(color 150ms ease)
+  font-weight: 600
   &:hover
     color: blacken($link-color, 0.15)
 

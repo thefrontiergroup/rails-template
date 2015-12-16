@@ -1,9 +1,7 @@
 // ----- Brand Colours -----
-$brand-green: #10c469
-$brand-red: #ff6163
-$brand-blue: #0da5c1
-$brand-blue-grey: #58899a
-$brand-purple-grey: #817688
+$brand-blue: #11adc8
+$brand-blue-grey: #497a8f
+$brand-purple-grey: #63586a
 
 // ----- Brand Shades -----
 $brand-grey-light: #d2d1da
@@ -21,18 +19,19 @@ $active-color: $accent-color
 // -----  Typography  -----
 $body-font-size: 16px
 $body-line-height: 1.5
-$body-fonts: $helvetica
-$body-color: $brand-grey
-
-$heading-fonts: $body-fonts
-$heading-color: $brand-grey-dark
+$body-fonts: Helvetica, Arial, sans-serif
+$body-text-color: whiten($brand-grey-dark, 0.10)
+$body-text-minor-color: whiten($body-text-color, 0.15)
+$heading-fonts: Helvetica, Arial, sans-serif
+$heading-color: dim($body-text-color, 0.20)
 
 $link-color: $accent-color
 
 // -----  Borders  -----
 $border-color: $brand-grey-light
 $border: 1px solid $border-color
-$border-radius: 3px
+$border-radius: 4px
+$input-border-color: $brand-grey-light
 
 // -----  Defaults  -----
 $duration: 250ms
