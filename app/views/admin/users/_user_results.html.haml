@@ -14,7 +14,9 @@
     %tbody
       - @users.each do |user|
         %tr
-          %td= user.email
+          %td
+            = link_to edit_path_for_user(user) do
+              = user.email
           %td.actions
             - if policy(user).edit?
               = link_to edit_path_for_user(user), class: "btn btn-small btn-primary" do

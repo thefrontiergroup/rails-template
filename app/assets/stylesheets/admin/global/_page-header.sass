@@ -1,13 +1,17 @@
 .page-header
   +clearfix
-  margin-bottom: $base-spacing
-  padding-bottom: $small-spacing
+  margin-bottom: $large-spacing
+  padding-bottom: $base-spacing
   border-bottom: 1px solid $line-break-color
   h1
     float: left
     display: inline-block
     margin: 0px
     max-width: 455px
+    font-size: em(32)
+    +media($medium-screen-down)
+      font-size: em(24)
+      +word-wrap
   .header-actions
     float: right
 
@@ -18,4 +22,3 @@
     margin-left: 0.5em
     &:first-child
       margin-left: 0
-
