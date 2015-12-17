@@ -271,6 +271,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uri_query_merger (1.0.0)
+      rails (> 3.0.0)
     version_sorter (2.0.0)
     warden (1.2.3)
       rack (>= 1.0)
@@ -323,6 +325,7 @@ DEPENDENCIES
   simplecov-rcov
   tfg_cap!
   uglifier
+  uri_query_merger
   web-console
 
 BUNDLED WITH

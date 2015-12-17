@@ -25,7 +25,9 @@ gem 'uglifier'
 gem 'bourbon'
 gem 'neat'
 
+# Misc
 gem 'responders'
+gem 'uri_query_merger'
 
 group :development do
   gem 'better_errors'
