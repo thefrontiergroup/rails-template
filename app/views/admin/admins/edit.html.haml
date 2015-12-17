@@ -1,3 +1,5 @@
-%h1 Edit #{@user}
+.section-header
+  %h1 Edit #{@user}
 
-= render partial: "form", locals: {url: admin_admin_path(@user)}
+.section-content
+  = render partial: "form", locals: {url: admin_admin_path(@user)}

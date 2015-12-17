@@ -1,0 +1,27 @@
+.ico
+  @extend %hide-text
+  background-image: image-url('sprites.svg')
+  width: 25px
+  height: 25px
+  background-repeat: no-repeat
+  padding: 0px
+
+.ico-accept
+  background-position: 0px 0px
+  &.btn-ico:before
+    background-position: 0px 0px
+
+.ico-delete
+  background-position: -25px 0px
+  &.btn-ico:before
+    background-position: -25px 0px
+
+.ico-edit
+  background-position: -50px 0px
+  &.btn-ico:before
+    background-position: -50px 0px
+
+.ico-new
+  background-position: -75px 0px
+  &.btn-ico:before
+    background-position: -75px 0px

@@ -1,32 +1,34 @@
-= simple_form_for :search, method: :get do |s|
-  = s.input :search_term, label: "Email", placeholder: "Type email here", input_html: { value: (params[:search][:search_term] unless params[:search].blank?) }
-  = s.button :submit, "Search"
+.section-header
+  = simple_form_for :search, method: :get do |s|
+    %fieldset
+      %legend Search for Users
+      = s.input :search_term, label: "Email", placeholder: "User Email address", input_html: { value: (params[:search][:search_term] unless params[:search].blank?) }
+      = s.button :submit, "Search"
 
-- if @users.present?
-  %table
-    %colgroup
-      %col{style: 'width: 80%'}
-      %col{style: 'width: 20%'}
-    %thead
-      %tr
-        %th= sortable_heading_for(:email)
-        %th.actions Actions
-    %tbody
-      - @users.each do |user|
+.section-content
+  - if @users.present?
+    %table
+      %thead
         %tr
-          %td
-            = link_to edit_path_for_user(user) do
-              = user.email
-          %td.actions
-            - if policy(user).edit?
-              = link_to edit_path_for_user(user), class: "btn btn-small btn-primary" do
-                %i.ico.ico-small.ico-pencil-white
-                Edit
-            - if policy(user).destroy?
-              = link_to delete_path_for_user(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small btn-danger" do
-                %i.ico.ico-small.ico-cross-white
-                Delete
-  = paginate @users
+          %th= sortable_heading_for(:email)
+          %th.actions Actions
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td
+              = link_to edit_path_for_user(user) do
+                = user.email
+            %td.actions
+              - if policy(user).edit?
+                = link_to edit_path_for_user(user), class: "btn btn-small btn-primary" do
+                  %i.ico.ico-small.ico-pencil-white
+                  Edit
+              - if policy(user).destroy?
+                = link_to delete_path_for_user(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small btn-danger" do
+                  %i.ico.ico-small.ico-cross-white
+                  Delete
+    = paginate @users
 
-- else
-  %p= "No users matched that search"
+  - else
+    %p.no-results
+      = "No users matched that search"
