@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ApplicationPolicy do
+RSpec.describe ApplicationPolicy do
   subject { policy }
   let(:policy) { ApplicationPolicy.new(user, target_user) }
   let(:target_user) { user }

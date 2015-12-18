@@ -16,8 +16,8 @@ gem 'coffee-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-timepicker-rails'
-gem 'momentjs-rails'
 gem 'kaminari'
+gem 'momentjs-rails'
 gem 'normalize-rails'
 gem 'sass-rails'
 gem 'simple_form'
@@ -40,16 +40,14 @@ end
 
 group :development, :test do
   gem 'byebug'
-  # RSpec for unit and integration tests
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  # Generate fake data for seeds and tests
-  gem 'factory_girl_rails'
-  gem 'ffaker'
 end
 
 group :test do
