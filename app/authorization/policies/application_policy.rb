@@ -47,6 +47,7 @@ class ApplicationPolicy
 
 protected
 
+  # Override this method if you want to change the default authorization rules for the CRUD actions
   def can_crud?
     is_admin?
   end
