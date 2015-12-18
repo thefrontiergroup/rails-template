@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ApplicationPolicyScope do
+RSpec.describe ApplicationPolicyScope do
   let(:policy_scope) { ApplicationPolicyScope.new(user, scope) }
   let(:user)  { User.new }
   let(:scope) { User.all }
