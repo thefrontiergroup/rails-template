@@ -25,9 +25,9 @@
 
             - if current_user.present?
               %ul.site-nav
-                - if policy(User).member_dashboard?
+                - if policy(:dashboard).member_dashboard?
                   = render "layouts/member/navigation"
-                - if policy(User).admin_dashboard?
+                - if policy(:dashboard).admin_dashboard?
                   = render "layouts/admin/navigation"
 
             %ul.session

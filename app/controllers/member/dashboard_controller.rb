@@ -1,7 +1,7 @@
 class Member::DashboardController < Member::BaseController
 
   def index
-    authorize(User, :member_dashboard?)
+    authorize(:dashboard, :member_dashboard?)
   end
 
 end

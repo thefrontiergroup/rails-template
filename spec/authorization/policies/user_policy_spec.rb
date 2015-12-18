@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe UserPolicy do
+RSpec.describe UserPolicy do
   subject { policy }
   let(:policy) { UserPolicy.new(user, target_user) }
   let(:target_user) { user }
@@ -12,9 +12,6 @@ describe UserPolicy do
       subject { policy.permitted_attributes }
       it { should be_empty }
     end
-
-    it { should_not permit_access_to(:admin_dashboard) }
-    it { should_not permit_access_to(:member_dashboard) }
 
     it_behaves_like "Policy without access to CRUD actions"
     it { should_not permit_access_to(:index_admins) }
@@ -29,9 +26,6 @@ describe UserPolicy do
       it { should include(:role) }
       it { should include(:password) }
     end
-
-    it { should permit_access_to(:admin_dashboard) }
-    it { should_not permit_access_to(:member_dashboard) }
 
     # CRUD actions
     it { should permit_access_to(:index) }
@@ -61,9 +55,6 @@ describe UserPolicy do
       it { should_not include(:role) }
       it { should     include(:password) }
     end
-
-    it { should_not permit_access_to(:admin_dashboard) }
-    it { should     permit_access_to(:member_dashboard) }
 
     # CRUD actions
     it { should_not permit_access_to(:index) }
