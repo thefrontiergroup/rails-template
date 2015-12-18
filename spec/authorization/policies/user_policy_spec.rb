@@ -8,24 +8,12 @@ RSpec.describe UserPolicy do
   context "for an anonymous user" do
     let(:user) { nil }
 
-    describe '#permitted_attributes' do
-      subject { policy.permitted_attributes }
-      it { should be_empty }
-    end
-
     it_behaves_like "Policy without access to CRUD actions"
     it { should_not permit_access_to(:index_admins) }
   end
 
   context "for an admin" do
     let(:user) { FactoryGirl.build(:user, :admin) }
-
-    describe '#permitted_attributes' do
-      subject { policy.permitted_attributes }
-      it { should include(:email) }
-      it { should include(:role) }
-      it { should include(:password) }
-    end
 
     # CRUD actions
     it { should permit_access_to(:index) }
@@ -48,13 +36,6 @@ RSpec.describe UserPolicy do
 
   context "for a member" do
     let(:user) { FactoryGirl.build(:user, :member) }
-
-    describe '#permitted_attributes' do
-      subject { policy.permitted_attributes }
-      it { should     include(:email) }
-      it { should_not include(:role) }
-      it { should     include(:password) }
-    end
 
     # CRUD actions
     it { should_not permit_access_to(:index) }

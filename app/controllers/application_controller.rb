@@ -27,12 +27,11 @@ protected
 
   def strong_params_for(resource, params_key=nil)
     params_key = infer_params_key(resource) unless params_key.present?
-    permitted_attributes = permitted_attributes_for(resource)
-    params.require(params_key).permit(*permitted_attributes)
+    params.require(params_key).permit(*permitted_attributes_for(resource))
   end
 
   def permitted_attributes_for(klass_or_instance)
-    policy(klass_or_instance).permitted_attributes
+    StrongParamsGenerator.new(current_user, klass_or_instance).permitted_attributes
   end
 
   def infer_params_key(resource)
