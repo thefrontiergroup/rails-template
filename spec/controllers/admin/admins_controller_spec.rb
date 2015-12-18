@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Admin::AdminsController do
+RSpec.describe Admin::AdminsController do
 
   describe 'GET index' do
     subject(:get_index) { get :index, params }

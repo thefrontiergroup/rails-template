@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe ApplicationHelper do
+RSpec.describe ApplicationHelper do
 
 end
