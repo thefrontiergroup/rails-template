@@ -17,6 +17,16 @@ form.search
     float: left
     width: 320px
     margin-bottom: 0px
-    margin-right: $gutter
+    padding-right: $gutter
   input
     margin-bottom: 0px
+
+  +media($medium-screen-down)
+    legend
+      display: block
+      float: none
+      margin-bottom: $small-spacing
+    .input
+      width: 70%
+    .btn
+      width: 30%
