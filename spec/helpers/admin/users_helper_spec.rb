@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Admin::UsersHelper do
+RSpec.describe Admin::UsersHelper do
 
   describe "#edit_path_for_user" do
     subject { helper.edit_path_for_user(user) }

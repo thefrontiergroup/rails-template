@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe PageNavigationHelper do
+RSpec.describe PageNavigationHelper do
 
   describe "#page_navigation_link_to" do
     subject { helper.page_navigation_link_to(title, path) }

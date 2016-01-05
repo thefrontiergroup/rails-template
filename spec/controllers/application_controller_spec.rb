@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ApplicationController do
+RSpec.describe ApplicationController do
 
   describe "Pundit::NotAuthorizedError" do
     controller do
