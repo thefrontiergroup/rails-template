@@ -20,7 +20,10 @@ class User < ActiveRecord::Base
   # Non-devise validations
   validates :role, presence: true
 
+  # User.email_search("jordan")
   scope :email_search, -> (email) { where("email ILIKE ?", "%#{email}%") }
+
+  scope :created_at_between, -> (start_date, end_date) { where(created_at: start_date.beginning_of_day..end_date.end_of_day) }
 
   def to_s
     email

@@ -34,14 +34,41 @@ RSpec.describe User do
     it { should validate_presence_of(:role) }
   end
 
-  describe "user search by email" do
+  User.email_search("x").created_at_between("a", "b")
+
+  describe ".email_search" do
     subject { User.email_search("xyz") }
-    
+
     it { should include(FactoryGirl.create(:user, email: "abc@xyz.com")) }
     it { should include(FactoryGirl.create(:user, email: "xyz@abc.com")) }
     it { should include(FactoryGirl.create(:user, email: "XyZ@ABC.cOm")) }
     it { should_not include(FactoryGirl.create(:user, email: "xyc@abz.com")) }
     it { should_not include(FactoryGirl.create(:user, email: "abc@abc.com")) }
+  end
+
+  # .created_at_between(start_date, end_date)
+  describe ".created_at_between", :focus do
+    subject { User.created_at_between(start_date, end_date) }
+
+    context "when start_date is before end_date" do
+      let(:start_date) { Date.new(2016, 5, 19) }
+      let(:end_date)   { Date.new(2016, 5, 20) }
+
+      it { should_not include(FactoryGirl.create(:user, created_at: start_date - 1.day)) }
+      it { should     include(FactoryGirl.create(:user, created_at: start_date)) }
+      it { should     include(FactoryGirl.create(:user, created_at: end_date)) }
+      it { should_not include(FactoryGirl.create(:user, created_at: end_date + 1.day)) }
+    end
+
+    context "when start_date and end_date are the same" do
+      let(:start_date) { Date.new(2016, 5, 20) }
+      let(:end_date)   { Date.new(2016, 5, 20) }
+
+      it { should_not include(FactoryGirl.create(:user, created_at: start_date - 1.day)) }
+      it { should     include(FactoryGirl.create(:user, created_at: start_date.beginning_of_day)) }
+      it { should     include(FactoryGirl.create(:user, created_at: end_date.end_of_day)) }
+      it { should_not include(FactoryGirl.create(:user, created_at: end_date + 1.day)) }
+    end
   end
 
   describe '#to_s' do
