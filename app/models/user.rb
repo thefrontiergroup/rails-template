@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   scope :created_at_between, -> (start_date, end_date) { where(created_at: start_date.beginning_of_day..end_date.end_of_day) }
 
-  scope :with_site_named, -> (name) { joins(:site).where(sites: {name: name}) }
+  scope :with_site_named, -> (site_name) { joins(:site).where("sites.name ILIKE ?", "%#{site_name}%") }
 
   def to_s
     email

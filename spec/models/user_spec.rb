@@ -72,12 +72,18 @@ RSpec.describe User do
   describe ".with_site_named", :focus do
     subject { User.with_site_named("xyz") }
 
-    let!(:matching_site)     { FactoryGirl.create(:site, name: "xyz") }
-    let!(:non_matching_site) { FactoryGirl.create(:site, name: "dong") }
+    let!(:site_that_matches_exactly)         { FactoryGirl.create(:site, name: "xyz") }
+    let!(:site_that_is_suffixed_with_match)  { FactoryGirl.create(:site, name: "abc@xyz") }
+    let!(:site_that_is_prefixed_with_match)  { FactoryGirl.create(:site, name: "xyz@abc") }
+    let!(:site_matching_with_different_case) { FactoryGirl.create(:site, name: "ABc@xYZ") }
+    let!(:site_that_doesnt_match)            { FactoryGirl.create(:site, name: "dong") }
 
-    it { should include(FactoryGirl.create(:user, site: matching_site)) }
-    it { should_not include(FactoryGirl.create(:user, site: non_matching_site)) }
-  end
+    it { should include(FactoryGirl.create(:user, site: site_that_matches_exactly)) }
+    it { should include(FactoryGirl.create(:user, site: site_that_is_suffixed_with_match)) }
+    it { should include(FactoryGirl.create(:user, site: site_that_is_prefixed_with_match)) }
+    it { should include(FactoryGirl.create(:user, site: site_matching_with_different_case)) }
+    it { should_not include(FactoryGirl.create(:user, site: site_that_doesnt_match)) }
+ end
 
   describe '#to_s' do
     specify { expect(User.new(email: "yolo").to_s).to eq("yolo") }
