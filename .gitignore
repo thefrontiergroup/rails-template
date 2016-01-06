@@ -9,6 +9,7 @@
 /log/*.log
 /tmp
 /.sass-cache
+.byebug_history
 
 # Ignore spec files
 results/rspec.xml
