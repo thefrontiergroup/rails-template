@@ -5,6 +5,8 @@ FactoryGirl.define do
     password "password"
     role User.roles["member"]
 
+    site
+
     trait :admin do
       role User.roles["admin"]
     end

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   enum role: {admin: 0, member: 1}
 
+  belongs_to :site
+
   # In order to override the devise validations, I have to remove the validatable module
   # and re-implement it with some changes
   validates :email, presence: true
@@ -24,6 +26,8 @@ class User < ActiveRecord::Base
   scope :email_search, -> (email) { where("email ILIKE ?", "%#{email}%") }
 
   scope :created_at_between, -> (start_date, end_date) { where(created_at: start_date.beginning_of_day..end_date.end_of_day) }
+
+  scope :with_site_named, -> (name) { joins(:site).where(sites: {name: name}) }
 
   def to_s
     email

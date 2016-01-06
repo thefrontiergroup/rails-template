@@ -34,8 +34,6 @@ RSpec.describe User do
     it { should validate_presence_of(:role) }
   end
 
-  User.email_search("x").created_at_between("a", "b")
-
   describe ".email_search" do
     subject { User.email_search("xyz") }
 
@@ -47,7 +45,7 @@ RSpec.describe User do
   end
 
   # .created_at_between(start_date, end_date)
-  describe ".created_at_between", :focus do
+  describe ".created_at_between" do
     subject { User.created_at_between(start_date, end_date) }
 
     context "when start_date is before end_date" do
@@ -69,6 +67,16 @@ RSpec.describe User do
       it { should     include(FactoryGirl.create(:user, created_at: end_date.end_of_day)) }
       it { should_not include(FactoryGirl.create(:user, created_at: end_date + 1.day)) }
     end
+  end
+
+  describe ".with_site_named", :focus do
+    subject { User.with_site_named("xyz") }
+
+    let!(:matching_site)     { FactoryGirl.create(:site, name: "xyz") }
+    let!(:non_matching_site) { FactoryGirl.create(:site, name: "dong") }
+
+    it { should include(FactoryGirl.create(:user, site: matching_site)) }
+    it { should_not include(FactoryGirl.create(:user, site: non_matching_site)) }
   end
 
   describe '#to_s' do
