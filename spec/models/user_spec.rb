@@ -69,7 +69,7 @@ RSpec.describe User do
     end
   end
 
-  describe ".with_site_named", :focus do
+  describe ".with_site_named" do
     subject { User.with_site_named("xyz") }
 
     let!(:site_that_matches_exactly)         { FactoryGirl.create(:site, name: "xyz") }
