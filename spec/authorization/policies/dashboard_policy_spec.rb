@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe DashboardPolicy do
   subject { policy }
-  let(:policy) { DashboardPolicy.new(user, target_user) }
-  let(:target_user) { user }
+  let(:policy) { DashboardPolicy.new(user, unused_object) }
+  #target object is not used in the policy, however pundit requires two objects to be passed in
+  let(:unused_object) { "unsed object" }
 
   context "for an anonymous user" do
     let(:user) { nil }
