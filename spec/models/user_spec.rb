@@ -85,6 +85,36 @@ RSpec.describe User do
     it { should_not include(FactoryGirl.create(:user, site: site_that_doesnt_match)) }
  end
 
+  describe ".in_state", focus: true do
+    subject { User.in_state(state.id) }
+
+    # Caveman Method
+    # let(:state)   { FactoryGirl.create(:state) }
+    # let(:address) { FactoryGirl.create(:address, state: state) }
+    # let(:site)    { FactoryGirl.create(:site, address: address) }
+    # it { should include(FactoryGirl.create(:user, site: site)) }
+
+    # let!(:other_state)   { FactoryGirl.create(:state) }
+    # let(:other_address) { FactoryGirl.create(:address, state: other_state) }
+    # let(:other_site)    { FactoryGirl.create(:site, address: other_address) }
+    # it { should_not include(FactoryGirl.create(:user, site: other_site)) }
+
+    # More organised Caveman Method
+    let(:state)   { FactoryGirl.create(:state) }
+    let(:address) { FactoryGirl.create(:address, state: address_state) }
+    let(:site)    { FactoryGirl.create(:site, address: address) }
+
+    context "with a matching state" do
+      let(:address_state) { state }
+      it { should include(FactoryGirl.create(:user, site: site)) }
+    end
+
+    context "with a different state" do
+      let(:address_state) { FactoryGirl.create(:state) }
+      it { should_not include(FactoryGirl.create(:user, site: site)) }
+    end
+  end
+
   describe '#to_s' do
     specify { expect(User.new(email: "yolo").to_s).to eq("yolo") }
   end

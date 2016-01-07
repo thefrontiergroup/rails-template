@@ -1,5 +1,7 @@
 class Address < ActiveRecord::Base
 
+  belongs_to :state
+
   # Ensure that an address has a line_1, a state, and a post_code
   validates :line_1,  presence: true
   validates :state_id, presence: true

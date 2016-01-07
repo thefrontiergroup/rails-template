@@ -29,6 +29,18 @@ class User < ActiveRecord::Base
 
   scope :with_site_named, -> (site_name) { joins(:site).merge(Site.named(site_name)) }
 
+  # Search for user state
+  # User.in_state(33)
+  scope :in_state, -> (state_id) { joins(site: :address).where(addresses: {state_id: state_id}) }
+
+  # Search for user postcode
+
+  # Search for updates from date
+
+  # Search for updates to date
+
+  #search for updates between two dates
+
   def to_s
     email
   end
