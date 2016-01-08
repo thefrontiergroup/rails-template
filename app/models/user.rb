@@ -34,12 +34,16 @@ class User < ActiveRecord::Base
   scope :in_state, -> (state_id) { joins(site: :address).where(addresses: {state_id: state_id}) }
 
   # Search for user postcode
+  scope :in_post_code, -> (post_code) { joins(site: :address).where(addresses: {post_code: post_code}) }
 
-  # Search for updates from date
+  #search for updates between two dates, before a date, after a date.
+  scope :updated_at_between, -> (start_date, end_date) { where(updated_at: start_date.beginning_of_day..end_date.end_of_day) }
 
-  # Search for updates to date
+  scope :updated_at_before, -> (end_date) { where('updated_at <= ?', end_date.end_of_day) }
 
-  #search for updates between two dates
+  scope :updated_at_after, -> (start_date) { where('updated_at >= ?', start_date.beginning_of_day) }
+  # Search for rural users
+  scope :in_rural_area, -> (rural) { joins(:site).where(sites: {rural: rural})}
 
   def to_s
     email

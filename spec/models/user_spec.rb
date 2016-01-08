@@ -85,7 +85,7 @@ RSpec.describe User do
     it { should_not include(FactoryGirl.create(:user, site: site_that_doesnt_match)) }
  end
 
-  describe ".in_state", focus: true do
+  describe ".in_state"  do
     subject { User.in_state(state.id) }
 
     # Caveman Method
@@ -112,6 +112,82 @@ RSpec.describe User do
     context "with a different state" do
       let(:address_state) { FactoryGirl.create(:state) }
       it { should_not include(FactoryGirl.create(:user, site: site)) }
+    end
+  end
+
+  describe ".in_post_code" do
+    subject { User.in_post_code(matching_post_code) }
+    let(:matching_post_code) { "6025" }
+
+    let(:site)    { FactoryGirl.create(:site, address: address) }
+    let(:address) { FactoryGirl.create(:address, post_code: address_post_code) }
+
+    context "with matching post_code" do
+      let(:address_post_code) { matching_post_code }
+      it { should include(FactoryGirl.create(:user, site: site)) }
+    end
+
+    context "with a different post_code" do
+      let(:address_post_code) { "6023" }
+      it { should_not include(FactoryGirl.create(:user, site: site)) }
+    end
+  end
+  # Updated_at_between, updated_at from start_date, updated_at to end_date
+  describe ".updated_at_between" do
+    subject { User.updated_at_between(start_date, end_date) }
+
+    context "when start_date is before end_date" do
+      let(:start_date) { Date.new(2016, 5, 19) }
+      let(:end_date)   { Date.new(2016, 5, 20) }
+
+      it { should_not include(FactoryGirl.create(:user, updated_at: start_date - 1.day)) }
+      it { should     include(FactoryGirl.create(:user, updated_at: start_date)) }
+      it { should     include(FactoryGirl.create(:user, updated_at: end_date)) }
+      it { should_not include(FactoryGirl.create(:user, updated_at: end_date + 1.day)) }
+    end
+
+    context "when start_date and end_date are the same" do
+      let(:start_date) { Date.new(2016, 5, 20) }
+      let(:end_date)   { Date.new(2016, 5, 20) }
+
+      it { should_not include(FactoryGirl.create(:user, updated_at: start_date - 1.day)) }
+      it { should     include(FactoryGirl.create(:user, updated_at: start_date.beginning_of_day)) }
+      it { should     include(FactoryGirl.create(:user, updated_at: end_date.end_of_day)) }
+      it { should_not include(FactoryGirl.create(:user, updated_at: end_date + 1.day)) }
+    end
+  end
+
+  describe ".updated_at_after" do
+    subject { User.updated_at_after(start_date) }
+
+     context "when start_date is only field" do
+       let(:start_date) { Date.new(2016, 5, 19) }
+
+       it { should_not include(FactoryGirl.create(:user, updated_at: start_date - 1.day)) }
+       it { should     include(FactoryGirl.create(:user, updated_at: start_date.beginning_of_day)) }
+     end
+  end
+
+  describe ".updated_at_before" do
+    subject {User.updated_at_before(end_date) }
+
+    context "when end_date is only field" do
+      let(:end_date) {Date.new(2016, 5, 20) }
+
+      it { should     include(FactoryGirl.create(:user, updated_at: end_date.end_of_day)) }
+      it { should_not include(FactoryGirl.create(:user, updated_at: end_date + 1.day)) }
+    end
+  end
+
+  describe ".in_rural_area" do
+    subject {User.in_rural_area(true)}
+
+    context "when rural is true" do
+      let!  (:site)       { FactoryGirl.create(:site, rural: true) }
+      let!(:rural_false)  { FactoryGirl.create(:site, rural: false) }
+
+      it { should include(FactoryGirl.create(:user, site: site)) }
+      it { should_not include(FactoryGirl.create(:user, site: rural_false)) }
     end
   end
 
