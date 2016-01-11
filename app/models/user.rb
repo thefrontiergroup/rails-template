@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   scope :updated_at_before, -> (end_date) { where('updated_at <= ?', end_date.end_of_day) }
 
   scope :updated_at_after, -> (start_date) { where('updated_at >= ?', start_date.beginning_of_day) }
+
   # Search for rural users
   scope :in_rural_area, -> (rural) { joins(:site).where(sites: {rural: rural})}
 
