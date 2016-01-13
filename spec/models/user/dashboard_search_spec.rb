@@ -129,9 +129,5 @@ RSpec.describe User::DashboardSearch do
         it { should_not include(FactoryGirl.create(:user, updated_at: updated_until + 1.day)) }
       end
     end
-
-
-
   end
-
 end
