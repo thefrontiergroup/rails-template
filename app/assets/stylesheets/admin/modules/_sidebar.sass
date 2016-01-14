@@ -1,5 +1,4 @@
 $sidebar-background: #fff
-$sidebar-border-top-color: $brand-grey-light
 $sidebar-arrow-color: $brand-grey-dark
 $sidebar-item-separator-color: $brand-grey-light
 $sidebar-padding: 1em
@@ -10,17 +9,17 @@ aside[role="complementary"]
 
 .sidebar-pages
   background: $sidebar-background
-  border-top: 2px solid $sidebar-border-top-color
   +border-bottom-radius($border-radius)
   +pad($sidebar-padding)
 
   > h1
-    margin: 0
+    margin: (-$sidebar-padding) (-$sidebar-padding) 10px
+    padding: $sidebar-padding
+    background: $section-bg-color-alt2
+
 
   ul
-    @extend %default-ul
-    margin-top: $small-spacing
-    margin-bottom: 0
+    margin: $small-spacing 0 0 1.5em
 
   li
     padding-top: 6px
