@@ -4,6 +4,7 @@ FactoryGirl.define do
     email    { FFaker::Internet.email }
     password "password"
     role User.roles["member"]
+    # birth_date { rand(20..50).years.ago }
 
     site
 

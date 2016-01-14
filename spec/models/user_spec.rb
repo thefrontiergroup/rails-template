@@ -180,7 +180,7 @@ RSpec.describe User do
   end
 
   describe ".in_rural_area" do
-    subject {User.in_rural_area(true)}
+    subject {User.in_rural_area(true) }
 
     context "when rural is true" do
       let!  (:site)       { FactoryGirl.create(:site, rural: true) }
@@ -188,6 +188,22 @@ RSpec.describe User do
 
       it { should include(FactoryGirl.create(:user, site: site)) }
       it { should_not include(FactoryGirl.create(:user, site: rural_false)) }
+    end
+  end
+
+  describe ".leap_year_users", focus: true do
+    subject {User.leap_year_users }
+
+    context "user birth_date is leap year" do
+      before { FactoryGirl.create(:user, email: "member@random.com", birth_date: "1996/01/14") }
+
+      it { should include("member 14/01/1996") }
+    end
+
+    context 'user birth_date is not leap year' do
+      before {FactoryGirl.create(:user, birth_date: "1997/01/14") }
+
+      it {should eq( [] ) }
     end
   end
 
