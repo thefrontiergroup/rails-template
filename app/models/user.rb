@@ -46,8 +46,6 @@ class User < ActiveRecord::Base
   # Search for rural users
   scope :in_rural_area, -> (rural) { joins(:site).where(sites: {rural: rural})}
 
-
-
   def to_s
     email
   end

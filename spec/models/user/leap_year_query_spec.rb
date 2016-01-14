@@ -17,4 +17,5 @@ RSpec.describe User::LeapYearQuery do
       it {should eq( [] ) }
     end
   end
+
 end
