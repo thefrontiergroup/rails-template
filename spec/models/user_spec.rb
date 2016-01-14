@@ -191,21 +191,7 @@ RSpec.describe User do
     end
   end
 
-  describe ".leap_year_users", focus: true do
-    subject {User.leap_year_users }
 
-    context "user birth_date is leap year" do
-      before { FactoryGirl.create(:user, email: "member@random.com", birth_date: "1996/01/14") }
-
-      it { should include("member 14/01/1996") }
-    end
-
-    context 'user birth_date is not leap year' do
-      before {FactoryGirl.create(:user, birth_date: "1997/01/14") }
-
-      it {should eq( [] ) }
-    end
-  end
 
   describe '#to_s' do
     specify { expect(User.new(email: "yolo").to_s).to eq("yolo") }
