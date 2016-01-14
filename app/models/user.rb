@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   scope :updated_at_after, -> (start_date) { where('updated_at >= ?', start_date.beginning_of_day) }
 
   # Search for rural users
-  scope :in_rural_area, -> (rural) { joins(:site).where(sites: {rural: rural})}
+  scope :in_rural_area, -> (rural) { joins(:site).where(sites: {rural: rural}) }
 
   def to_s
     email

@@ -1,4 +1,4 @@
-class Leap_Year
+class LeapYear
 
   def is_leap_year(year)
     year % 4 == 0 &&

@@ -2,20 +2,33 @@ require 'rails_helper'
 
 RSpec.describe User::LeapYearQuery do
 
-  describe ".leap_year_users", focus: true do
-    subject { User::LeapYearQuery.new.leap_year_users }
+  # describe "users between date range" do
+  #   subject { User::LeapYearQuery.new.leap_year_users(start_date, end_date)}
+  #   let(:start_date) { "1993/01/13" }
+  #   let(:end_date) { "1999/01/13" }
 
-    context "user birth_date is leap year" do
-      before { FactoryGirl.create(:user, email: "member@random.com", birth_date: "1996/01/14") }
+  #   # it { should     include(FactoryGirl.create(:user, birth_date: "1996")) }
+  #   # it { should_not include(FactoryGirl.create(:user, birth_date: "2000")) }
+  #   # it { should_not include(FactoryGirl.create(:user, birth_date: "1992")) }
+  #   # it { should_not include(FactoryGirl.create(:user, birth_date: "1995")) }
+  # end
 
-      it { should include("member 14/01/1996") }
+  describe ".leap_year_users" do
+    subject { User::LeapYearQuery.new.leap_year_users(start_date, end_date) }
+
+    let(:start_date) { Date.new(1995, 1, 13) }
+    let(:end_date)   { Date.new(1999, 1, 13) }
+
+    def user_with_birth_date(birth_date)
+      FactoryGirl.create(:user, birth_date: birth_date, email: "jordan@example.com")
+      "jordan #{birth_date}"
     end
 
-    context 'user birth_date is not leap year' do
-      before {FactoryGirl.create(:user, birth_date: "1997/01/14") }
-
-      it {should eq( [] ) }
-    end
+    it { should include(user_with_birth_date("14/01/1996")) }
+    it { should_not include(user_with_birth_date("14/01/1994")) }
+    it { should_not include(user_with_birth_date("14/01/2000")) }
+    it { should_not include(user_with_birth_date("14/01/1997")) }
   end
+
 
 end
