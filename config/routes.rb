@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: :index
+    # This route will show all the members pages
     resources :members
     resources :admins
+    resources :sites
   end
 
   namespace :member do
