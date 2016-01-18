@@ -7,7 +7,7 @@ RSpec.describe Admin::MembersController do
     let(:params) { {} }
 
     authenticated_as(:admin) do
-      it { should be_success }
+      it { should render_template(:index) }
 
       describe_assign(:users) do
         subject(:users) { get_index; assigns(:users) }
