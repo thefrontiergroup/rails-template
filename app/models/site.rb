@@ -9,4 +9,8 @@ class Site < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true
 
+  def to_s
+    name
+  end
+
 end

@@ -44,7 +44,10 @@ class Admin::SitesController < Admin::BaseController
   end
 
   def destroy
-
+    @site = Site.find(params[:id])
+    authorize(@site)
+    @site.destroy
+    respond_with(@site, location: admin_sites_path)
   end
 
 private
