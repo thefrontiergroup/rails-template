@@ -26,6 +26,25 @@ class Admin::SitesController < Admin::BaseController
 
   def edit
      @site = Site.find(params[:id])
+     authorize(@site)
+     @site.save
+
+     respond_with(@site, location: admin_sites_path)
+  end
+
+  def update
+    @site = Site.find(params[:id])
+
+    if @site.update(site_params)
+      respond_with(@site, location: admin_sites_path)
+      authorize(@site)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+
   end
 
 private

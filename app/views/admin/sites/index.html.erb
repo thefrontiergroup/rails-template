@@ -9,7 +9,7 @@
   <% @site.each do |site| %>
     <tr>
       <td><%= site.name %></td>
-      <td><%= link_to 'Edit', edit_sites_path(site) %></td>
+      <td><%= link_to 'Edit', edit_admin_site_path(site) %></td>
     </tr>
   <% end %>
 </table>
