@@ -1,15 +1,15 @@
-<%= form_for :article do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+<%= link_to 'New site', new_admin_site_path %>
 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th colspan="2"></th>
+  </tr>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <% @site.each do |site| %>
+    <tr>
+      <td><%= site.name %></td>
+      <td><%= link_to 'Edit', edit_sites_path(site) %></td>
+    </tr>
+  <% end %>
+</table>

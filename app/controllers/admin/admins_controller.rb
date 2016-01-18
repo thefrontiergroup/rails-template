@@ -1,5 +1,6 @@
 class Admin::AdminsController < Admin::UsersController
 
+
   def user_role
     "admin"
   end
