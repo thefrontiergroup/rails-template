@@ -8,7 +8,7 @@ APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
 def copy_sample_files
   [
     "config/secrets.yml",
-    "config/database.yml"
+    "config/database.yml",
   ].each do |config|
     sample = config + ".sample"
     unless File.exist?(config)
@@ -17,28 +17,40 @@ def copy_sample_files
   end
 end
 
+def run_task(name)
+  puts "== #{name} =="
+  yield
+  puts
+end
+
 Dir.chdir APP_ROOT do
-  puts "== Installing dependencies =="
-  system "gem install bundler --conservative"
-  system "bundle check || bundle install"
-
-  puts "\n== Copying sample files =="
-  copy_sample_files
-
-  puts "\n== Randomizing secrets =="
-  system "bin/rake setup:randomize_secrets"
-
-  puts "\n== Preparing database =="
-  if ENV['RAILS_ENV'] == "test"
-    system "bin/rake db:test:prepare"
-  else
-    system "bin/rake db:setup"
+  run_task("Installing dependencies") do
+    system "gem install bundler --conservative"
+    system "bundle check || bundle install"
   end
 
-  puts "\n== Removing old logs and tempfiles =="
-  system "rm -f log/*"
-  system "rm -rf tmp/cache"
+  run_task("Copying sample files") do
+    copy_sample_files
+  end
 
-  puts "\n== Restarting application server =="
-  system "touch tmp/restart.txt"
+  run_task("Randomizing secrets") do
+    system "bin/rake setup:randomize_secrets"
+  end
+
+  run_task("Preparing database") do
+    if ENV['RAILS_ENV'] == "test"
+      system "bin/rake db:test:prepare"
+    else
+      system "bin/rake db:setup"
+    end
+  end
+
+  run_task("Removing old logs and tempfiles") do
+    system "rm -f log/*"
+    system "rm -rf tmp/cache"
+  end
+
+  run_task("Restarting application server") do
+    system "touch tmp/restart.txt"
+  end
 end
