@@ -1,0 +1,15 @@
+default: &DEFAULT
+  address: localhost
+  port: 1025
+
+development:
+  <<: *DEFAULT
+
+test:
+  <<: *DEFAULT
+
+staging:
+  <<: *DEFAULT
+
+production:
+  <<: *DEFAULT

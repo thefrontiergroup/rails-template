@@ -1,6 +1,6 @@
 module PageNavigationHelper
 
-  def page_navigation_link_to(title, path)
+  def page_navigation_list_item(title, path)
     args = {}
     # This requires that an index path is passed through to work. If path is: /admin/users/
     # then the following paths will return active:

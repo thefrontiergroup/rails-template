@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe PageNavigationHelper do
 
-  describe "#page_navigation_link_to" do
-    subject { helper.page_navigation_link_to(title, path) }
+  describe "#page_navigation_list_item" do
+    subject { helper.page_navigation_list_item(title, path) }
     let(:title) { "Users" }
     let(:path)  { admin_members_path }
 
