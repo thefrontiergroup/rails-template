@@ -52,6 +52,7 @@ Dir.chdir APP_ROOT do
   end
 
   run_task("Restarting application server") do
+    system "mkdir -p tmp"
     system "touch tmp/restart.txt"
   end
 end
