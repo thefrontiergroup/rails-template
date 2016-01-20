@@ -9,6 +9,7 @@ def copy_sample_files
   [
     "config/secrets.yml",
     "config/database.yml",
+    "config/smtp.yml"
   ].each do |config|
     sample = config + ".sample"
     unless File.exist?(config)
