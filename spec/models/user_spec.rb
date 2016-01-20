@@ -36,7 +36,7 @@ RSpec.describe User do
 
   describe "user search by email" do
     subject { User.email_search("xyz") }
-    
+
     it { should include(FactoryGirl.create(:user, email: "abc@xyz.com")) }
     it { should include(FactoryGirl.create(:user, email: "xyz@abc.com")) }
     it { should include(FactoryGirl.create(:user, email: "XyZ@ABC.cOm")) }
