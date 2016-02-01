@@ -1,14 +1,54 @@
-- content_for :javascripts do
-  = javascript_include_tag 'admin'
+!!! 5
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %title TfgTemplate: Admin
+    = stylesheet_link_tag 'admin', media: 'all'
+    = csrf_meta_tags
+    = favicon_link_tag "favicon.ico"
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
 
-- content_for :stylesheets do
-  = stylesheet_link_tag 'admin', media: 'all'
+  %body
+    %h1 TfgTemplate
 
-- content_for :content do
-  %aside{role: 'complementary'}
-    = render 'layouts/admin/sidebar'
+    %header{role: 'banner'}
+      .container
+        = link_to root_path, class: "logo", rel: "home" do
+          = image_tag 'create-glyph-logo.svg', size: '34x34'
 
-  %main{role: 'main'}
-    = yield
+        .navigation-wrapper
+          %button.mobile-nav.js-nav-toggle{aria: {label: "Toggle Navigation"}, data: {navigation_toggle_target: '#site-nav', requires_modal: 'true'}}
+            %span Menu
 
-= render template: "layouts/application"
+          %nav#site-nav.is-collapsed{role: 'navigation'}
+            %h1 Navigation
+
+            - if current_user.present?
+              %ul.site-nav
+                - if policy(:dashboard).member_dashboard?
+                  = render "layouts/member/navigation"
+                - if policy(:dashboard).admin_dashboard?
+                  = render "layouts/admin/navigation"
+
+            %ul.session
+              - if current_user
+                %li= link_to "Sign out", destroy_user_session_path, method: :delete
+              - else
+                %li= link_to "Sign in", new_user_session_path
+                %li= link_to "Sign up", new_user_registration_path
+
+    .container
+      - flash.each do |key, value|
+        .flash-wrapper
+          .flash{class: "flash-#{key}"}= value
+
+      %aside{role: 'complementary'}
+        = render 'layouts/admin/sidebar'
+
+      %main{role: 'main'}
+        = yield
+
+    #js-fade-screen
+    = javascript_include_tag 'admin'
+    = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login
+
