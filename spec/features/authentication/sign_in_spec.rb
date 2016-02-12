@@ -8,18 +8,18 @@ feature 'A user can sign in' do
   end
 
   context "As admin" do
-    background { FactoryGirl.create(:user, :admin, email: "email@example.com", password: "password") }
+    let!(:user) { FactoryGirl.create(:user, :admin) }
 
     scenario 'Admin signs in with valid credentials' do
-      expect_sign_in_to_redirect_to(admin_dashboard_index_path)
+      expect_sign_in_to_redirect_to(user, admin_dashboard_index_path)
     end
   end
 
   context "As member" do
-    background { FactoryGirl.create(:user, :member, email: "email@example.com", password: "password") }
+    let!(:user) { FactoryGirl.create(:user, :member) }
 
     scenario 'Member signs in with valid credentials' do
-      expect_sign_in_to_redirect_to(member_dashboard_index_path)
+      expect_sign_in_to_redirect_to(user, member_dashboard_index_path)
     end
   end
 
@@ -30,9 +30,9 @@ feature 'A user can sign in' do
 
 private
 
-  def expect_sign_in_to_redirect_to(path)
-    fill_in("Email", with: "email@example.com")
-    fill_in("Password", with: "password")
+  def expect_sign_in_to_redirect_to(user, path)
+    fill_in("Email", with: user.email)
+    fill_in("Password", with: user.password)
 
     submit_form
 
