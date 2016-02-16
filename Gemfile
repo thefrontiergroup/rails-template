@@ -53,7 +53,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'email_spec'
-  gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'shoulda-matchers'
 end
 
 group :staging do
