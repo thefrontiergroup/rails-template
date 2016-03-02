@@ -3,6 +3,7 @@
 #
 Rails.application.config.assets.precompile += %w(
   easy_sign_in.js
+  easy-sign-in.css
   public.js
   public.css
   member.js
