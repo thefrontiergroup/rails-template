@@ -2,14 +2,14 @@
 %html
   %head
     %meta{charset: "utf-8"}
-    %title TfgTemplate
+    %title= page_title
     = yield(:stylesheets)
     = csrf_meta_tags
     = favicon_link_tag "favicon.ico"
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
 
   %body
-    %h1 TfgTemplate
+    %h1= page_title
 
     %header{role: 'banner'}
       .container

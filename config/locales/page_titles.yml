@@ -1,0 +1,7 @@
+en:
+  app:
+    name: "Rails Template"
+
+  home:
+    index:
+      title: "Welcome"
