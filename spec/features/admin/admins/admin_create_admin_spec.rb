@@ -18,8 +18,8 @@ feature 'Admin can create a new User' do
       expect(current_path).to eq(admin_admins_path)
 
       # User should be saved
-      latest_user = User.order(:created_at).last
-      expect(latest_user.email).to eq("valid@example.com")
+      latest_user = User.find_by(email: "valid@example.com")
+      expect(latest_user).to be_present
       expect(latest_user).to be_admin
     end
 

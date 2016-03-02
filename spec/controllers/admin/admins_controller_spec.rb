@@ -77,9 +77,8 @@ RSpec.describe Admin::AdminsController do
         it "creates a User object with the given attributes" do
           create_user
 
-          user = User.order(:created_at).last
+          user = User.find_by(email: params[:email])
           expect(user).to be_present
-          expect(user).to have_attributes(params.slice(:email))
           expect(user).to be_admin
         end
 
