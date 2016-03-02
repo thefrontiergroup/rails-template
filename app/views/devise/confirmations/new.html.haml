@@ -1,6 +1,6 @@
 .authentication
 
-  %h2 Resend confirmation instructions
+  %h2= current_page_title
 
   = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { class: "authentication-form", method: :post }) do |f|
 
