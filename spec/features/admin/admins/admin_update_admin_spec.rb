@@ -21,9 +21,7 @@ feature 'Admin can update an existing User' do
       expect(current_path).to eq(admin_admins_path)
 
       # User should be saved
-      latest_user = User.order(:created_at).last
-      expect(latest_user.email).to eq("valid@example.com")
-      expect(latest_user).to be_admin
+      expect(target_user.reload.email).to eq("valid@example.com")
     end
 
     scenario 'Admin updates user with invalid data' do
