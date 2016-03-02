@@ -5,3 +5,29 @@ en:
   home:
     index:
       title: "Welcome"
+
+  member:
+    dashboard:
+      index:
+        title: "Member Dashboard"
+
+  admin:
+    dashboard:
+      index:
+        title: "Admin Dashboard"
+
+    admins:
+      index:
+        title: "Admin Management"
+      new:
+        title: "New Admin"
+      edit:
+        title: "Edit Admin: %{label}"
+
+    members:
+      index:
+        title: "Member Management"
+      new:
+        title: "New Member"
+      edit:
+        title: "Edit Member: %{label}"
