@@ -37,6 +37,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_link_to (1.0.3)
+      actionpack
     activejob (4.2.5.1)
       activesupport (= 4.2.5.1)
       globalid (>= 0.3.0)
@@ -171,6 +173,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
     orm_adapter (0.5.0)
+    page_title_helper (2.1.0)
+      rails (>= 3.0.0)
     paranoia (2.1.5)
       activerecord (~> 4.0)
     pg (0.18.4)
@@ -288,6 +292,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
   better_errors
   bourbon
   byebug
@@ -307,6 +312,7 @@ DEPENDENCIES
   momentjs-rails
   neat
   normalize-rails
+  page_title_helper
   paranoia
   pg
   pundit
