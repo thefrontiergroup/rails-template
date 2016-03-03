@@ -1,3 +1,9 @@
+@import "bourbon"
+@import "lib/variables"
+@import "admin/lib/variables"
+@import "admin/lib/grid-settings"
+@import "neat"
+
 $easy-sign-in-background: lighten($brand-grey-light, 10)
 
 .easy-sign-in
@@ -7,13 +13,14 @@ $easy-sign-in-background: lighten($brand-grey-light, 10)
   background: $easy-sign-in-background
   border-radius: $border-radius
 
+  ul
+    list-style-type: disc
+    padding-left: $base-spacing
+    margin-bottom: 0
+
   +media($large-screen-down)
     +span-columns(3)
     +shift(0)
 
   +media($medium-screen-down)
     +fill-parent
-
-  ul
-    @extend %default-ul
-    margin-bottom: 0

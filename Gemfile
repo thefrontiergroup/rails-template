@@ -24,6 +24,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'bourbon'
 gem 'neat'
+gem 'page_title_helper'
+gem 'active_link_to'
 
 # Misc
 gem 'responders'

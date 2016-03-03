@@ -1,6 +1,6 @@
 .authentication
 
-  %h2 Forgot your password?
+  %h2= current_page_title
 
   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "authentication-form", method: :post }) do |f|
 
