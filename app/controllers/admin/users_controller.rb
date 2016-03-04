@@ -2,10 +2,8 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize(User)
-    @users = User.public_send(user_role)
-                 .sort(params, default_sort_options)
-                 .page(params[:page])
-    @users = policy_scope(@users)
+    @users = users_scope.sort(params, default_sort_options)
+                        .page(params[:page])
 
     if params[:search].present?
       if params[:search][:search_term].size >= 3
@@ -17,12 +15,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def new
-    @user = User.new
+    @user = users_scope.new
     authorize(@user)
   end
 
   def create
-    @user = User.new(role: user_role)
+    @user = users_scope.new
     authorize(@user)
     @user.update_attributes(user_form_attributes(@user))
 
@@ -51,20 +49,20 @@ class Admin::UsersController < Admin::BaseController
 
 private
 
-  def user_role
-    "user"
+  def users_scope
+    raise(NotImplementedError, "#users_scope must be implemented. It should return a collection of Users scoped as the inheriting controller requires")
   end
 
   def redirect_path
-    admin_users_path
+    raise(NotImplementedError, "#redirect_path must be implemented. It should return a path to redirect to following a successful #create, #update, or #destroy")
   end
 
   def find_user
-    User.find(params[:id])
+    users_scope.find(params[:id])
   end
 
   def user_form_attributes(user)
-    params.require(:user).permit(policy(user).permitted_attributes).tap do |attributes|
+    params.require(:user).permit(:email, :password).tap do |attributes|
       attributes[:user].delete(:password) if attributes[:user].present? && attributes[:user][:password].blank?
     end
   end

@@ -1,7 +1,9 @@
 class Admin::AdminsController < Admin::UsersController
 
-  def user_role
-    "admin"
+protected
+
+  def users_scope
+    User.admin
   end
 
   def redirect_path
