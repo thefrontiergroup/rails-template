@@ -2,6 +2,10 @@
 @import "lib/variables"
 @import "admin/lib/variables"
 @import "admin/lib/grid-settings"
+
+// Tell Neat to not set box-sizing for this component, as it is already set on global level
+$border-box-sizing: false
+
 @import "neat"
 
 $easy-sign-in-background: lighten($brand-grey-light, 10)
