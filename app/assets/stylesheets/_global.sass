@@ -1,6 +1,6 @@
 // Shared Styles for the entire webapp
 
-@import "normalize-rails"
+// @import "normalize-rails"
 @import "bourbon"
 
 /*!
@@ -8,9 +8,12 @@
  * Author URI:   http://www.thefrontiergroup.com.au/
  */
 
-@import "lib/functions"
 @import "lib/variables"
-@import "lib/mixins"
-@import "lib/extends"
 
-@import "global/**/*"
+////
+//   # TEMPORARY
+//   The below has to be removed once we have actual design for pages outside admin
+//   There must not be any imports from the admin template in this file.
+////
+
+@import "admin"
