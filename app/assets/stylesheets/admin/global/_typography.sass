@@ -1,12 +1,10 @@
-body,
-input,
-textarea,
-select,
-button
-  @include font-feature-settings("kern", "liga", "pnum")
+body
+  +font-feature-settings("kern", "liga", "pnum")
   -webkit-font-smoothing: antialiased
   color: $base-font-color
-  font: 400 #{$body-font-size}/$body-line-height $body-fonts
+  font-family: $body-fonts
+  font-size: $body-font-size
+  line-height: $body-line-height
 
 h1,
 h2,
