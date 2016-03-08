@@ -9,7 +9,6 @@ $brand-black: #000 !default
 
 // -----  App Colours that work with the Brand  -----
 $negative-color: #fbe3e4 !default
-$warning-color: #f68823 !default
 $positive-color: #e6efc2 !default
 $accent-color: #477dca !default
 
@@ -17,13 +16,12 @@ $accent-color: #477dca !default
 $body-font-size: 1em !default
 $body-line-height: 1.5 !default
 $body-fonts: $helvetica !default
-$body-color: $brand-grey !default
+$base-font-color: $brand-grey-dark !default
 
 $heading-fonts: $body-fonts !default
 $heading-line-height: 1.2 !default
 $heading-color: $brand-grey-dark !default
 
-$base-font-color: $brand-grey-dark !default
 $action-color: $accent-color !default
 $link-color: $accent-color !default
 
@@ -51,6 +49,46 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($accent-color, $l
 $btn-text: 600 15px/1 $heading-fonts !default
 $btn-default-color: $accent-color !default
 $btn-danger-color: $negative-color !default
+
+// ----- Tables -----
+$table-row-hover-background-color: lighten($brand-grey-light, 10%) !default
+
+// ----- Navigation -----
+$nav-background-color: #fcfcfc !default
+$nav-border-color: darken($nav-background-color, 10%) !default
+$nav-height: 60px !default
+$nav-mobile-background: lighten($brand-grey-dark, 15%) !default
+$nav-mobile-item-separator-color: rgba($brand-grey, 0.15) !default
+$nav-mobile-width: em(240) !default
+$nav-drawer-border-color: $brand-grey !default
+$nav-drawer-color: $brand-grey-dark !default
+
+// ----- Sidebar ------
+$sidebar-background: lighten($brand-grey-light, 10) !default
+$sidebar-border-top-color: $brand-grey-light !default
+$sidebar-arrow-color: $brand-grey-dark !default
+$sidebar-item-separator-color: $brand-grey-light !default
+$sidebar-padding: 1em !default
+
+// ----- Pagination -----
+$pagination-color: $brand-grey-dark !default
+$pagination-background: $brand-grey-light !default
+$pagination-border: $brand-grey-light !default
+$pagination-hover-background: #fff !default
+
+// ----- Pikaday -----
+$pikaday-debug: false !default
+$pikaday-selected-background: $action-color !default
+$pikaday-day-background: #f5f5f5 !default
+$pikaday-day-color: #666 !default
+$pikaday-day-hover-background: #e5edf8 !default
+$pikaday-day-hover-color: darken($pikaday-day-hover-background, 60) !default
+
+// ----- Tabs -----
+$tabs-bottom-border-color: $brand-grey !default
+$tabs-active-tab-background: #fff !default
+$tabs-active-tab-mobile-background: lighten($brand-grey-light, 10%) !default
+$tabs-active-tab-border-color: $brand-grey !default
 
 // -----  Defaults  -----
 $duration: 250ms !default
