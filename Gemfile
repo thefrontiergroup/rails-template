@@ -9,7 +9,7 @@ gem 'ransack'
 
 # Authentication & Authorization
 gem 'devise'
-gem 'pundit'
+gem 'cancancan'
 
 # Presentation
 gem 'coffee-rails'

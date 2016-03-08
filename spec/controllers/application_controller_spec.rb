@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ApplicationController do
 
-  describe "Pundit::NotAuthorizedError" do
+  describe "CanCan::AccessDenied" do
     controller do
       def index
-        raise Pundit::NotAuthorizedError
+        raise CanCan::AccessDenied
       end
     end
 

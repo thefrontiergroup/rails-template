@@ -13,10 +13,9 @@ module Feature
     end
 
     def get_dashboard_path(user)
-      dashboard_policy = DashboardPolicy.new(user, :dashboard)
-      if dashboard_policy.admin_dashboard?
+      if user.admin?
         admin_dashboard_index_path
-      elsif dashboard_policy.member_dashboard?
+      elsif user.member?
         member_dashboard_index_path
       else
         root_path

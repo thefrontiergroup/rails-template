@@ -6,16 +6,20 @@ class ApplicationController < ActionController::Base
 
   layout "public/layout"
 
-  include Pundit
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from CanCan::AccessDenied, with: :user_not_authorized
 
 protected
 
 # Devise Overrides
+
+  # Override CanCanCan method that expects an Ability object to be returned
+  def current_ability
+    AbilityLocator.new(current_user).get_ability
+  end
 
   # Provided by Devise
   def after_sign_in_path_for(resource)
