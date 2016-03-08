@@ -1,6 +1,11 @@
-// Styles for site admin
+// -----------------------------------------------------------------------------
+// This file contains import and potential override of admin styles.
+// -----------------------------------------------------------------------------
 
-// Importing "global" variables before admin stylesheet in case we want to override admin styles
+// Importing application-wide variables before admin styles,
+// in case we want to override variables set in admin (eg. $positive-color)
 @import "lib/variables"
 
 @import "admin/admin"
+
+// Import any overrides and extensions of the admin stylesheet below
