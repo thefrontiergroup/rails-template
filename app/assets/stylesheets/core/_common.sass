@@ -1,16 +1,11 @@
-// Styles shared between public and member
+// -----------------------------------------------------------------------------
+// This file contains imports shared between public and member.
+// -----------------------------------------------------------------------------
 
 // @import "common/lib/functions"
 // @import "common/lib/variables"
 // @import "common/lib/mixins"
 
-@import "common/global/**/*"
-// @import "common/modules/**/*"
+// @import "common/global/**/*"
 
-////
-//   # TEMPORARY
-//   The below has to be removed once we have actual design for pages outside admin
-//   There must not be any imports from the admin directory in this file.
-////
-
-@import "../admin"
+@import "common/modules/authentication"

@@ -1,3 +1,8 @@
+body
+  padding: 0
+  > h1
+    @extend %visually-hidden
+
 main
   padding: 0 1em
   > h1
@@ -16,6 +21,18 @@ div.container
   span
     @extend %visually-hidden
 
+thead, h1, h2, h3, h4, h5, h6
+  color: $heading-color
+
+thead, h1, h2, h3
+  font-family: $heading-fonts
+
+h1, h2, h3, h4, h5, h6
+  margin-top: 0px
+
+h4, h5, h6
+  font-weight: 600
+
 p
   margin: 0 0 $small-spacing
 
@@ -31,6 +48,14 @@ picture
   margin: 0
   max-width: 100%
 
+a
+  color: $link-color
+  text-decoration: none
+  +transition(color 150ms ease)
+
+  &:hover
+    color: blacken($link-color, 0.15)
+
 .visually-hidden
   @extend %visually-hidden
 
@@ -41,3 +66,4 @@ picture
   margin: auto
   padding: $small-spacing
   width: auto
+

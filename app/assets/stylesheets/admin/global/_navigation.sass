@@ -1,12 +1,3 @@
-$nav-background-color: #fcfcfc
-$nav-border-color: darken($nav-background-color, 10%)
-$nav-height: 60px
-$nav-mobile-background: lighten($brand-grey-dark, 15%)
-$nav-mobile-item-separator-color: rgba($brand-grey, 0.15)
-$nav-mobile-width: em(240)
-$nav-drawer-border-color: $brand-grey
-$nav-drawer-color: $brand-grey-dark
-
 header[role="banner"]
   background-color: $nav-background-color
   border-bottom: 1px solid darken($nav-background-color, 10)
@@ -66,7 +57,7 @@ nav[role='navigation']
   // https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
   -webkit-overflow-scrolling: touch
   &.transitionable
-    +transition(transform 250ms ease-out)
+    +transition(transform $duration ease-out)
   &.is-expanded
     +transform(translateX(0))
     box-shadow: 2px 0 4px black(0.24), 2px 0 6px black(0.12)
