@@ -23,14 +23,44 @@ fieldset
 #{$all-text-inputs},
 select[multiple=multiple],
 textarea
+  background-color: #fff
+  border-radius: $border-radius
+  border: 1px solid $input-border-color
+  box-shadow: $form-box-shadow
+  box-sizing: border-box
+  font-family: $body-fonts
+  font-size: $body-font-size
   margin-bottom: ($base-spacing / 2)
   padding: ($base-spacing / 3)
-  font-size: $body-font-size
+  transition: border-color
+  width: 100%
+
+  &:hover
+    border-color: blacken($border-color, 0.10)
+
+  &:focus
+    border-color: $accent-color
+    box-shadow: $form-box-shadow-focus
+    outline: none
+
+  .field_with_errors &
+    border-color: blacken($form-error-color, 0.60)
 
 input,
 label,
 select
+  display: block
+  font-family: $body-fonts
   font-size: $body-font-size
+
+label
+  font-weight: 600
+  margin-bottom: 5px
+  &.required
+    &:after
+      content: "*"
+    abbr
+      display: none
 
 textarea
   resize: vertical
@@ -41,6 +71,11 @@ input[type="search"]
 input[type="file"]
   padding-bottom: $small-spacing
   width: 100%
+
+input[type="checkbox"],
+input[type="radio"]
+  display: inline
+  margin-right: 6px
 
 select
   margin-bottom: $base-spacing
