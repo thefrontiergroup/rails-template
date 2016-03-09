@@ -9,6 +9,7 @@ aside[role="complementary"]
   +pad($sidebar-padding)
 
   > h1
+    font-size: 1.3em
     margin: 0
 
   ul
@@ -30,6 +31,9 @@ aside[role="complementary"]
 
       a
         color: #fff
+
+  .sidebar-links
+    margin-top: $small-spacing
 
   .mobile-nav
     background-color: transparent
@@ -85,9 +89,11 @@ aside[role="complementary"] + main
       padding: 1em
 
     ul
-      display: none
       margin-top: $small-spacing
-      &.is-expanded
+    .sidebar-links
+      display: none
+    .is-expanded
+      .sidebar-links
         display: block
 
     .mobile-nav
