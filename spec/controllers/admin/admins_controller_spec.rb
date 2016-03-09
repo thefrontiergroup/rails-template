@@ -118,7 +118,6 @@ RSpec.describe Admin::AdminsController do
         let(:params) do
           {
             email: "jordan@example.com",
-            role: "member",
             password: ""
           }
         end
@@ -128,6 +127,7 @@ RSpec.describe Admin::AdminsController do
 
           target_user.reload
           expect(target_user.email).to eq("jordan@example.com")
+          expect(target_user).to be_admin
         end
 
         it { should redirect_to(admin_admins_path) }
