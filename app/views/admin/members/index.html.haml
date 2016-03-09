@@ -1,6 +1,7 @@
-%h1= current_page_title
-
-%p= link_to "Add new member", new_admin_member_path, class: "btn"
-%p= link_to_csv(request)
+.content-header
+  %h1= current_page_title
+  .collection-actions
+    = link_to "Add new member", new_admin_member_path, class: "btn"
+    = link_to_csv(request)
 
 = render partial: "user_results"
