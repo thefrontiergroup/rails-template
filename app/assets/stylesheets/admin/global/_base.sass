@@ -5,7 +5,7 @@ body
 
 main
   padding: 0 1em
-  > h1
+  h1
     font-size: em(28)
     margin-top: 0
 
@@ -47,6 +47,24 @@ img,
 picture
   margin: 0
   max-width: 100%
+
+.content-header
+  +clearfix
+  h1
+    float: left
+    +media($medium-screen-down)
+      float: none
+  // An example of a collection action is "New User" or "Export Users as CSV"
+  // It should sit to the right of the page header.
+  .collection-actions
+    float: right
+    +media($medium-screen-down)
+      float: none
+
+.content-body
+  +media($medium-screen-down)
+    margin-top: $small-spacing
+
 
 a
   color: $link-color
