@@ -47,7 +47,7 @@ class Admin::UsersController < Admin::BaseController
     redirect_to(redirect_path, notice: "'#{@user}' deleted")
   end
 
-private
+protected
 
   def users_scope
     raise(NotImplementedError, "#users_scope must be implemented. It should return a collection of Users scoped as the inheriting controller requires")
@@ -57,12 +57,18 @@ private
     raise(NotImplementedError, "#redirect_path must be implemented. It should return a path to redirect to following a successful #create, #update, or #destroy")
   end
 
+  def permitted_attributes
+    [:email, :password]
+  end
+
+private
+
   def find_user
     users_scope.find(params[:id])
   end
 
   def user_form_attributes(user)
-    params.require(:user).permit(:email, :password).tap do |attributes|
+    params.require(:user).permit(permitted_attributes).tap do |attributes|
       attributes[:user].delete(:password) if attributes[:user].present? && attributes[:user][:password].blank?
     end
   end
