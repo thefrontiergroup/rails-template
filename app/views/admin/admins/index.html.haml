@@ -3,4 +3,4 @@
   .collection-actions
     = link_to "Add new admin", new_admin_admin_path, class: "btn"
 
-= render partial: "user_results"
+= render partial: "user_results", locals: {new_path_for_user: new_admin_admin_path}

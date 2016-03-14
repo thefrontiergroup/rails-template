@@ -1,6 +1,8 @@
-= simple_form_for :search, method: :get do |s|
-  = s.input :search_term, label: "Email", placeholder: "Type email here", input_html: { value: (params[:search][:search_term] unless params[:search].blank?) }
-  = s.button :submit, "Search"
+- # Only show the search options if there are users to search for
+- if params[:search].present? || @users.present?
+  = simple_form_for :search, method: :get do |s|
+    = s.input :search_term, label: "Email", placeholder: "Type email here", input_html: { value: (params[:search][:search_term] unless params[:search].blank?) }
+    = s.button :submit, "Search"
 
 - if @users.present?
   %table
@@ -23,4 +25,9 @@
   = paginate @users
 
 - else
-  %p= "No users matched that search"
+  - if params[:search].present?
+    %p No users matched your search.
+  - else
+    %p
+      There are no users.
+      = link_to "Create a user now.", new_path_for_user

@@ -20,7 +20,7 @@ feature 'Admin can search for users by email' do
     scenario "Search with non-matching data" do
       fill_in('Email', with: current_user.email)
       click_button('Search')
-      expect(page).to have_content("No users matched that search")
+      expect(page).to have_content("No users matched your search")
       expect(page).not_to have_content(current_user.email)
     end
   end
