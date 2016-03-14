@@ -9,7 +9,9 @@ test:
   <<: *DEFAULT
 
 staging:
-  <<: *DEFAULT
+  address: jazz.thefrontiergroup.net.au
+  port: 25
 
+# Use SendGrid for production
 production:
   <<: *DEFAULT
