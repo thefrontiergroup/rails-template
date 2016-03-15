@@ -4,4 +4,7 @@
 - content_for :stylesheets do
   = stylesheet_link_tag 'member', media: 'all'
 
+- content_for :navigation do
+  = render "layouts/member/navigation"
+
 = render template: "layouts/application"

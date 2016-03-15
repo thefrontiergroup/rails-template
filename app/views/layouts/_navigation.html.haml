@@ -1,0 +1,4 @@
+- if policy(:dashboard).member_dashboard?
+  = active_link_to "Dashboard", member_dashboard_index_path, wrap_tag: :li
+- if policy(:dashboard).admin_dashboard?
+  = active_link_to "Administration", admin_dashboard_index_path, wrap_tag: :li

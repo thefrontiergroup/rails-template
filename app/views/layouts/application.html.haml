@@ -24,12 +24,11 @@
           %nav#site-nav.is-collapsed{role: "navigation"}
             %h1 Navigation
 
-            - if current_user.present?
-              %ul.site-nav
-                - if policy(:dashboard).member_dashboard?
-                  = render "layouts/member/navigation"
-                - if policy(:dashboard).admin_dashboard?
-                  = render "layouts/admin/navigation"
+            %ul.site-nav
+              - if content_for?(:navigation)
+                = yield(:navigation)
+              - else
+                = render "layouts/navigation"
 
             %ul.session
               - if current_user
