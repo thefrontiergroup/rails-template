@@ -24,19 +24,11 @@
           %nav#site-nav.is-collapsed{role: 'navigation'}
             %h1 Navigation
 
-            - if current_user.present?
-              %ul.site-nav
-                - if policy(:dashboard).member_dashboard?
-                  = render "layouts/member/navigation"
-                - if policy(:dashboard).admin_dashboard?
-                  = render "layouts/admin/navigation"
+            %ul.site-nav
+              = render "layouts/admin/navigation"
 
             %ul.session
-              - if current_user
-                %li= link_to "Sign out", destroy_user_session_path, method: :delete
-              - else
-                %li= link_to "Sign in", new_user_session_path
-                %li= link_to "Sign up", new_user_registration_path
+              %li= link_to "Sign out", destroy_user_session_path, method: :delete
 
     .container
       - flash.each do |key, value|
@@ -51,5 +43,4 @@
 
     #js-fade-screen
     = javascript_include_tag 'admin'
-    = javascript_include_tag 'easy_sign_in' if Rails.application.config.should_show_easy_login
 
