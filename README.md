@@ -18,32 +18,31 @@ The output of this script should give you the instructions you will need.
 
 ## What does the template include out of the box?
 
-- RVM Support via .ruby-gemset and .ruby-version
+### Configuration
+
+- Add in mailer defaults for staging, and production (jazz)
+- Mailer configuration for development environment
 - PostgreSQL with TFG SOE database.yml. No configuration required.
+- RVM Support via .ruby-gemset and .ruby-version
+- Seeds configuration via SeedHelper, including seeding some initial Users
+
+### Functionality
+
 - Script to spin up app (`bin/setup`)
+- Admin and Member Users with CRUD for both
+- Authorization with Pundit with full unit tests
+- Custom 404, 500, and maintenance pages
+- Custom favicon
+- Dashboard for admins and members
 - Devise implementation using User, includes feature specs for:
   - Resetting password
   - Signing in
   - Signing up
   - Signing out
-- Authorization with Pundit with full unit tests
-- Admin and Member Users
-- Dashboard and CRUD (including soft delete via the paranoia gem) for Users for Admins with full unit and feature tests
-- CRUD for users has swappable tabs per role
-- CRUD for users has sortable columns
-- Dashboard with update profile link for Members with full unit and feature tests
-- Seeds configuration via SeedHelper, including seeding some initial Users
 - Easy sign in functionality to speed up development
-- Basic set of desktop styles for all pages above
-- Responsive styles for all pages above
-- Custom 404, 500, and maintenance pages
-- Custom favicon
-- Basic mailer configuration for development environment
+- Responsive and Desktop styles
 
 ## TODO
 
 - (Possible) Add in rake task for adding build to CI
-- Add generators for CRUD
 - Use dropdown menu for user actions
-- Add in mailer defaults for staging, and production (jazz)
-- Validate format of email address
