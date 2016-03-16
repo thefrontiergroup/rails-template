@@ -4,17 +4,11 @@ if defined?(SeedHelper)
     def seed_user(role, additional_attributes={})
       primary_attributes = {email: "#{role}@example.com"}
 
-      if User.exists?(primary_attributes)
-        SeedHelper.resource_already_exists(primary_attributes[:email])
-      else
+      SeedHelper.find_or_create_resource(User, primary_attributes) do
         attributes = primary_attributes.merge({password: "password"})
                                        .merge(additional_attributes)
-        SeedHelper.create_resource(FactoryGirl.build(:user, role, attributes))
+        FactoryGirl.build(:user, role, attributes)
       end
-    end
-
-    def email_for_role(role)
-      "#{role}@example.com"
     end
 
     seed_user(:admin)
