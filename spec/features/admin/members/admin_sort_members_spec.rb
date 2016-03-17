@@ -14,7 +14,6 @@ feature 'Admin can sort an index of users' do
     scenario "Using tabs to show different types of users" do
       # Order by Ascending first
       click_link("Email")
-
       expect_users_to_be_ordered_as(alpha_member, beta_member)
 
       # Order by Descending next
@@ -28,18 +27,6 @@ private
   def expect_users_to_be_ordered_as(first, second)
     within(first_row) { expect(page).to have_content(first.email) }
     within(second_row) { expect(page).to have_content(second.email) }
-  end
-
-  def first_row
-    nth_row(1)
-  end
-
-  def second_row
-    nth_row(2)
-  end
-
-  def nth_row(num)
-    find("table tbody tr:nth-child(#{num})")
   end
 
 end
