@@ -8,9 +8,6 @@ require 'simplecov-rcov'
 require 'capybara-screenshot/rspec'
 require 'database_cleaner'
 
-require 'database_cleaner_helper'
-require 'shoulda_matchers_helper'
-
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails'
 
@@ -33,18 +30,7 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
-
   config.infer_spec_type_from_file_location!
-
-  # Warden test mode speeds up tests, since you no longer need to
-  # visit the login page to perform the authentication before feature tests
-  config.before(:suite) do
-    Warden.test_mode!
-  end
-
-  config.after(:each) do
-    Warden.test_reset!
-  end
 
   # General
   config.include(EmailSpec::Helpers)
