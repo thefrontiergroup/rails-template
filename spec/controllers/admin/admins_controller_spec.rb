@@ -5,8 +5,6 @@ RSpec.describe Admin::AdminsController do
   describe 'GET index' do
     subject(:get_index) { get :index, params }
     let(:params) { {} }
-    let(:admin) { beta }
-    let(:beta)  { FactoryGirl.create(:user, :admin, email: "beta@example.com") }
 
     authenticated_as(:admin) do
       it { should be_success }
@@ -17,30 +15,6 @@ RSpec.describe Admin::AdminsController do
         describe "filtering by role" do
           it { should include(FactoryGirl.create(:user, :admin)) }
           it { should_not include(FactoryGirl.create(:user, :member)) }
-        end
-
-        describe "sorting" do
-          let(:params) { {sort_direction: direction, sort_attribute: "email"} }
-
-          let!(:alpha) { FactoryGirl.create(:user, :admin, email: "alpha@example.com") }
-
-          describe "sorting by asc" do
-            let(:direction) { "asc" }
-
-            it "sorts by query parameters" do
-              expect(users[0]).to eq(alpha)
-              expect(users[1]).to eq(beta)
-            end
-          end
-
-          describe "sorting by desc" do
-            let(:direction) { "desc" }
-
-            it "sorts by query parameters" do
-              expect(users[0]).to eq(beta)
-              expect(users[1]).to eq(alpha)
-            end
-          end
         end
       end
     end
