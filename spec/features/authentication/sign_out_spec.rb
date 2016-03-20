@@ -8,6 +8,6 @@ feature 'Signed in users can sign out' do
     click_link 'Sign out'
 
     expect(current_path).to eq root_path
-    expect(page).to have_flash :notice, /Signed out/
+    expect(page).not_to have_flash :notice, /Signed out/
   end
 end

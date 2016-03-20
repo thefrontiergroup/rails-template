@@ -51,7 +51,7 @@ private
 
     submit_form
 
-    expect(page).to have_flash :notice, /Signed in/
+    expect(page).not_to have_flash :notice, /Signed in/
     expect(current_path).to eq(path)
   end
 end
