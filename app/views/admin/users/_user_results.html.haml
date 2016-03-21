@@ -1,7 +1,7 @@
 - # Only show the search options if there are users to search for
 - if params[:q].present? || @users.present?
   = search_form_for @ransack_query, method: :get, url: request.path do |s|
-    = s.input :email_cont, label: "Email", placeholder: "Type email here", as: :string, label_html: {class: "visually-hidden"}
+    = s.input :email_cont, label: "Search by email", placeholder: "Type email here: email@example.com", as: :string, label_html: {class: "visually-hidden"}
     = s.button :submit, "Search"
 
 - if @users.present?
