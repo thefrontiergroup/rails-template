@@ -2,16 +2,9 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize(User)
-    @users = users_scope.sort(params, default_sort_options)
+    @ransack_query = User.ransack(params[:q])
+    @users = users_scope.merge(@ransack_query.result)
                         .page(params[:page])
-
-    if params[:search].present?
-      if params[:search][:search_term].size >= 3
-        @users = @users.email_search(params[:search][:search_term])
-      else
-        flash.now[:alert] = "Unable to search, requires 3 or more characters."
-      end
-    end
   end
 
   def new
