@@ -34,16 +34,6 @@ RSpec.describe User do
     it { should validate_presence_of(:role) }
   end
 
-  describe "user search by email" do
-    subject { User.email_search("xyz") }
-
-    it { should include(FactoryGirl.create(:user, email: "abc@xyz.com")) }
-    it { should include(FactoryGirl.create(:user, email: "xyz@abc.com")) }
-    it { should include(FactoryGirl.create(:user, email: "XyZ@ABC.cOm")) }
-    it { should_not include(FactoryGirl.create(:user, email: "xyc@abz.com")) }
-    it { should_not include(FactoryGirl.create(:user, email: "abc@abc.com")) }
-  end
-
   describe '#to_s' do
     specify { expect(User.new(email: "yolo").to_s).to eq("yolo") }
   end
