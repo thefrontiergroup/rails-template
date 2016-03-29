@@ -11,14 +11,17 @@ feature 'Admin can sort an index of users' do
     click_sidemenu_option("Admins")
   end
 
-  scenario "Using tabs to show different types of users" do
-    # Order by Ascending first
-    click_link("Email")
+  scenario do
+    # Order by Ascending by default
     expect_users_to_be_ordered_as(alpha_admin, beta_admin)
 
     # Order by Descending next
     click_link("Email")
     expect_users_to_be_ordered_as(beta_admin, alpha_admin)
+
+    # Back to Ascending
+    click_link("Email")
+    expect_users_to_be_ordered_as(alpha_admin, beta_admin)
   end
 
 private
