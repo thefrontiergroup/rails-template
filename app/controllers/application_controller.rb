@@ -39,18 +39,6 @@ protected
     klass.name.underscore.to_sym
   end
 
-# Sorting
-
-  # Sort by :id by default, so there is a consistent order even when no order has been
-  # selected via the interface
-  def default_sort_options
-    {id: :desc}
-  end
-
-  def sort(collection)
-    RailsSort.sort(collection, params, default_sort_options)
-  end
-
 private
 
   def user_not_authorized
