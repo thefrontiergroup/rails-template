@@ -3,6 +3,7 @@ class Admin::UsersController < Admin::BaseController
   def index
     authorize(User)
     @ransack_query = User.ransack(params[:q])
+    @ransack_query.sorts = 'email ASC' if @ransack_query.sorts.empty?
     @users = users_scope.merge(@ransack_query.result)
                         .page(params[:page])
   end

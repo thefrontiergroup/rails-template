@@ -24,10 +24,11 @@
               = link_to "Delete", delete_path_for_user(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small"
   = paginate @users
 
+- elsif params[:q].present?
+  %p
+    No users matched your search.
+    = link_to "Show all users.", request.path
 - else
-  - if params[:q].present?
-    %p No users matched your search.
-  - else
-    %p
-      There are no users.
-      = link_to "Create a user.", new_path_for_user
+  %p
+    There are no users.
+    = link_to "Create a user.", new_path_for_user
