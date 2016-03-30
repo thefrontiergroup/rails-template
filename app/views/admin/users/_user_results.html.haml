@@ -25,7 +25,9 @@
   = paginate @users
 
 - elsif params[:q].present?
-  %p No users matched your search.
+  %p
+    No users matched your search.
+    = link_to "Show all users.", request.path
 - else
   %p
     There are no users.
