@@ -29,6 +29,7 @@ feature 'Admin can update an existing User' do
       click_button("Save Changes")
 
       # Ensure user is not updated
+      expect(page).to have_content("User could not be updated.")
       expect(target_user.reload.email).to eq("something@nothing.com")
       expect(page).to have_error_message("user_email", "can't be blank")
     end
