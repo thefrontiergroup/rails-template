@@ -1,7 +1,7 @@
 class Admin::DashboardController < Admin::BaseController
 
   def index
-    authorize(:dashboard, :admin_dashboard?)
+    authorize!(:show, :admin_dashboard)
   end
 
 end

@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
 
   def index
-    authorize(User)
+    authorize!(:index, User)
     @ransack_query = User.ransack(params[:q])
     @ransack_query.sorts = 'email ASC' if @ransack_query.sorts.empty?
     @users = users_scope.merge(@ransack_query.result)
@@ -10,12 +10,12 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = users_scope.new
-    authorize(@user)
+    authorize!(:new, @user)
   end
 
   def create
     @user = users_scope.new
-    authorize(@user)
+    authorize!(:create, @user)
     @user.update_attributes(user_form_attributes(@user))
 
     respond_with(@user, location: redirect_path)
@@ -23,12 +23,12 @@ class Admin::UsersController < Admin::BaseController
 
   def edit
     @user = find_user
-    authorize(@user)
+    authorize!(:edit, @user)
   end
 
   def update
     @user = find_user
-    authorize(@user)
+    authorize!(:update, @user)
     @user.update_attributes(user_form_attributes(@user))
 
     respond_with(@user, location: redirect_path)
@@ -36,7 +36,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     @user = find_user
-    authorize(@user)
+    authorize!(:destroy, @user)
     @user.destroy
     redirect_to(redirect_path, notice: "'#{@user}' deleted")
   end

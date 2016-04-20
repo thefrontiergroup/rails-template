@@ -18,9 +18,9 @@
         %tr
           %td= user.email
           %td.actions
-            - if policy(user).edit?
+            - if can?(:edit, user)
               = link_to "Edit", edit_path_for_user(user), class: "btn btn-small"
-            - if policy(user).destroy?
+            - if can?(:destroy, user)
               = link_to "Delete", delete_path_for_user(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small"
   = paginate @users
 

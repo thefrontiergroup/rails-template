@@ -1,6 +1,6 @@
 class Member::BaseController < ApplicationController
   before_action :authenticate_user!
-  after_action :verify_authorized
+  check_authorization
 
   layout "member/layout"
 end
