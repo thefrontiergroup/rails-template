@@ -18,5 +18,7 @@ module TfgTemplate
 
     config.should_seed_application_data = false
     config.should_show_easy_login = false
+
+    config.time_zone = "Australia/Perth"
   end
 end
