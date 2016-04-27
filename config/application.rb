@@ -12,9 +12,6 @@ module TfgTemplate
     config.app_generators.scaffold_controller :responders_controller
 
     config.autoload_paths << Rails.root.join('lib')
-    config.autoload_paths << Rails.root.join('app', 'authorization', 'params')
-    config.autoload_paths << Rails.root.join('app', 'authorization', 'policies')
-    config.autoload_paths << Rails.root.join('app', 'authorization', 'scopes')
 
     config.should_seed_application_data = false
     config.should_show_easy_login = false
