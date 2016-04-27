@@ -1,0 +1,10 @@
+en:
+  date:
+    formats:
+      concise: "%d/%m/%Y"    # 19/07/2015
+      default: "%A %d %b %Y" # Tuesday Saturday 18 Jul 2015
+  time:
+    formats:
+      concise: "%-l:%M%P"                     # 11:37am
+      default: "%d %b %Y at %l:%M%P (%Z)"     # 08 Jul 2015 at 11:37am (AWST)
+      full_date_and_time: "%d/%m/%Y %-l:%M%P" # 19/07/2015 11:37am
