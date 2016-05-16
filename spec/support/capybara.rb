@@ -5,11 +5,11 @@ module Capybara
     end
 
     def has_error_message?(field, message)
-      has_css?(".#{field}.field_with_errors .error", text: message)
+      has_css?("[class*='#{field}'].field_with_errors .error", text: message)
     end
 
     def has_hint_message?(field, message)
-      has_css?(".#{field} .hint", text: message)
+      has_css?("[class*='#{field}'] .hint", text: message)
     end
   end
 end
