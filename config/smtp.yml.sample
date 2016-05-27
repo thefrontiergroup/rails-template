@@ -17,4 +17,10 @@ staging:
 
 # Use SendGrid for production
 production:
-  <<: *JAZZ
+    :address              : "smtp.sendgrid.net"
+    :port                 : 587
+    :domain               : 'app+domain'
+    :user_name            : 'user@host'
+    :password             : 'changeme'
+    :authentication       : 'plain'
+    :enable_starttls_auto : true 

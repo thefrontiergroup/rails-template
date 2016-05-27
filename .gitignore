@@ -18,3 +18,4 @@ coverage/*
 config/database.yml
 config/secrets.yml
 config/smtp.yml
+config/settings.yml

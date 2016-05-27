@@ -17,5 +17,12 @@ module TfgTemplate
     config.should_show_easy_login = false
 
     config.time_zone = "Australia/Perth"
+
+    # Bring in custom configuration
+    config.x.globals = config_for(:settings)
+  end
+
+  def self.setting
+      Application.config.x.globals
   end
 end
