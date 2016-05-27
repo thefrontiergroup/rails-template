@@ -31,6 +31,9 @@ gem 'active_link_to'
 gem 'responders'
 gem 'uri_query_merger'
 
+# Monitoring & Ops
+gem 'health_check'
+
 group :development do
   gem 'better_errors'
   gem 'letter_opener'
