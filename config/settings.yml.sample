@@ -1,0 +1,22 @@
+# This file contains application specific settings
+
+# To access any of these, use them like this:
+#   <AppModule>.setting["first_key"]
+
+default: &DEFAULT
+  first_key: "first"
+  second_key: "second"
+  third_key:  "third"
+  flex_key:   "default"
+
+development:
+    <<: *DEFAULT
+
+test:
+    <<: *DEFAULT
+
+staging:
+    <<: *DEFAULT
+
+production:
+    <<: *DEFAULT
