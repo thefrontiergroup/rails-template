@@ -56,6 +56,7 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'shoulda-matchers'
+  gem 'timecop'
 end
 
 group :staging do
