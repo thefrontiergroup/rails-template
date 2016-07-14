@@ -8,9 +8,6 @@
     position: relative
     top: ($base-spacing / -3)
 
-  .error
-    color: $form-error-color
-
   .hint
     color: $form-hint-color
 
@@ -19,6 +16,19 @@
 
   .or
     padding: 0 5px
+
+.field_with_errors
+  label,
+  .hint,
+  .error
+    color: darken($negative-color, 50%)
+
+  .error
+    font-weight: bold
+
+  input, select
+    border-color: darken($negative-color, 50%)
+
 
 @import "simple_form/inline"
 @import "simple_form/horizontal"
