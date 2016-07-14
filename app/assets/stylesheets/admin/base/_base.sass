@@ -1,0 +1,82 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+body
+  padding: 0
+
+  > h1
+    @extend %visually-hidden
+
+main
+  padding: 0 1em
+
+  section, form[class$="search"]
+    margin-bottom: 2rem
+
+  h1
+    font-size: em(28)
+
+    +media($medium-screen-down)
+      +word-wrap
+      font-size: em(24)
+
+div.container
+  +clearfix
+
+.mobile-nav
+  display: none
+
+  span
+    @extend %visually-hidden
+
+p
+  margin: 0 0 $small-spacing
+
+hr
+  border-bottom: $border
+  border-left: 0
+  border-right: 0
+  border-top: 0
+  margin: $base-spacing 0
+
+img,
+picture
+  margin: 0
+  max-width: 100%
+
+.content-header
+  +clearfix
+
+  .content-title
+    float: left
+
+    +media($medium-screen-down)
+      float: none
+
+  .collection-actions
+    // An example of a collection action is "New User" or "Export Users as CSV"
+    // It should sit to the right of the page header.
+    float: right
+
+    +media($medium-screen-down)
+      float: none
+
+a
+  color: $link-color
+  text-decoration: none
+  transition: color 150ms ease
+
+  &:hover
+    color: blacken($link-color, 15%)
+
+.visually-hidden
+  @extend %visually-hidden
+
+[href="#skip-to-content"]:focus
+  background-color: #fff
+  clip: auto
+  height: auto
+  margin: auto
+  padding: $small-spacing
+  width: auto

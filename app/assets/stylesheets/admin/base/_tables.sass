@@ -1,0 +1,40 @@
+table
+  +font-feature-settings("kern", "liga", "tnum")
+  border-collapse: collapse
+  margin: $small-spacing 0
+  table-layout: fixed
+  width: 100%
+
+th
+  border-bottom: 1px solid darken($border-color, 15%)
+  font-weight: 600
+  padding: $small-spacing 0
+  text-align: left
+
+td
+  border-bottom: $border
+  padding: $small-spacing 0
+
+tr,
+td,
+th
+  vertical-align: middle
+
+td.actions,
+th.actions
+  text-align: right
+
++media($xlarge-screen-up)
+  tr:hover td
+    background-color: $table-row-hover-background-color
+
+// Controlling overflow if content does not fit into fixed table layout
+// More info: https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout
+tr > th,
+tr > td
+  overflow: hidden
+  padding-right: $small-spacing
+  text-overflow: ellipsis
+
+  &:last-child
+    padding-right: 0

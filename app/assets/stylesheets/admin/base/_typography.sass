@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// This file contains basic structural typographic rules.
+// -----------------------------------------------------------------------------
+
+/**
+ * Basic typography style for copy text
+ */
+body
+  +font-feature-settings("kern", "liga", "pnum")
+  -webkit-font-smoothing: antialiased
+  color: $base-font-color
+  font-family: $text-font-stack
+  font-size: $body-font-size
+  line-height: $body-line-height
+
+h1, h2, h3, h4, h5, h6
+  font-family: $heading-font-stack
+  line-height: $heading-line-height
+  margin: 0 0 $small-spacing
+
+.text-muted
+  color: #aaa
+
+thead, h1, h2, h3
+  font-family: $heading-font-stack
+
+h4, h5, h6
+  font-weight: 600
+
+thead,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  color: $heading-color

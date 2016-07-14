@@ -1,3 +1,5 @@
+@charset "UTF-8"
+
 // -----------------------------------------------------------------------------
 // This file contains all Admin styles.
 // -----------------------------------------------------------------------------
@@ -10,38 +12,48 @@
  * Author URI:   http://www.thefrontiergroup.com.au/
  */
 
-@import "lib/functions"
-@import "lib/variables"
-@import "lib/mixins"
-@import "lib/extends"
+/// 1. Configuration and helpers
+@import "abstracts/variables"
+@import "abstracts/functions"
+@import "abstracts/mixins"
+@import "abstracts/placeholders"
 
 // variables & grid-settings need to be imported before neat
-@import "lib/grid-settings"
+@import "abstracts/grid-settings"
 
-// Only actual css output from neat is `box-sizing: border-box`
+/// 2. Vendor code
 @import "neat"
-
-// Order of global imports is important (order of appearance on the page)
-@import "global/base"
-@import "global/typography"
-@import "global/navigation"
-@import "global/forms"
-@import "global/buttons"
-@import "global/lists"
-@import "global/tables"
-@import "global/flashes"
-@import "global/errors"
-@import "global/sortable"
-
-@import "modules/sidebar"
-@import "modules/datepicker"
-@import "modules/timepicker"
-@import "modules/pagination"
-@import "modules/simple-form"
-@import "modules/tabs"
-
-////
-//  Vendor styles should be added below this comment,
-//  unless they need to be further up the cascade
-////
 @import "pikaday"
+
+/// 3. Boilerplate styles for commonly used HTML elements
+// Order of global imports is important (order of appearance on the page)
+@import "base/base"
+@import "base/fonts"
+@import "base/typography"
+@import "base/helpers"
+@import "base/navigation"
+@import "base/forms"
+@import "base/buttons"
+@import "base/lists"
+@import "base/tables"
+@import "base/modals"
+
+/// 4. Layout related sections
+// @import "layout/..."
+
+/// 5. Components
+@import "components/flashes"
+@import "components/errors"
+@import "components/sortable"
+@import "components/sidebar"
+@import "components/datepicker"
+@import "components/timepicker"
+@import "components/pagination"
+@import "components/simple-form"
+@import "components/tabs"
+
+/// 6. Page-specific styles
+@import "pages/dashboard"
+
+/// 7. Vendor extensions/overrides
+@import "vendor-extensions/pikaday"

@@ -1,0 +1,37 @@
+.pika-title button
+  background-color: transparent
+
+.pika-table
+  margin: 0
+
+  tr:hover td
+    background-color: transparent
+
+  th,
+  td
+    border-bottom: 0
+
+  .pika-button,
+  .pika-button:hover,
+  .pika-button:focus
+    // both !important overwrite multiple vendor styles, including ones with !important
+    border-radius: 0 !important
+    box-shadow: none !important
+    font-weight: 400
+
+  .pika-button
+    background-color: $pikaday-day-background
+    color: $pikaday-day-color
+
+    &:hover
+      // overwriting !important vendor styles with
+      background: $pikaday-day-hover-background !important
+      color: $pikaday-day-hover-color !important
+
+  .is-selected .pika-button
+    background-color: $pikaday-selected-background
+    font-weight: bold
+
+@if $pikaday-debug
+  .pika-single.is-hidden
+    display: block !important

@@ -1,0 +1,25 @@
+.simple_form
+  margin-bottom: $base-spacing
+
+  .error,
+  .hint
+    display: block
+    font-size: em(14)
+    position: relative
+    top: ($base-spacing / -3)
+
+  .error
+    color: $form-error-color
+
+  .hint
+    color: $form-hint-color
+
+  .has-form-action-shortcut > div:not(.form-action-shortcut)
+    display: none
+
+  .or
+    padding: 0 5px
+
+@import "simple_form/inline"
+@import "simple_form/horizontal"
+@import "simple_form/horizontal-with-sidebar"

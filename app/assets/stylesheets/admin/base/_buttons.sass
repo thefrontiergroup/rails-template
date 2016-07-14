@@ -1,0 +1,44 @@
+.btn,
+%button
+  background-color: $btn-default-color
+  border-radius: $border-radius
+  color: #fff
+  cursor: pointer
+  display: inline-block
+  font: $btn-text
+  padding: 12px 25px
+  text-decoration: none
+  vertical-align: middle
+  white-space: nowrap
+
+  &:hover,
+  &:focus
+    background-color: blacken($btn-default-color, 15%)
+    color: #fff
+
+  &.disabled,
+  &[disabled]
+    cursor: not-allowed
+    opacity: 0.5
+
+  &.btn-danger,
+  &[data-method="delete"]
+    background-color: blacken($btn-danger-color, 50%)
+
+    &:hover,
+    &:focus
+      background-color: blacken($btn-danger-color, 60%)
+
+  &.btn-small
+    font-size: 0.7em
+    line-height: $body-line-height
+    margin-left: 0.5em
+    padding: 0.3em 1em
+
+/// The below is only for buttons coming from the OS, not links that are made to look like buttons
+#{$all-buttons}
+  @extend %button
+  -webkit-font-smoothing: antialiased
+  appearance: none
+  border: 0
+  user-select: none
