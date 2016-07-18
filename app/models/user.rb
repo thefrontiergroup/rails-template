@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
 
   enum role: {admin: 0, member: 1}
 
-  # In order to override the devise validations, I have to remove the validatable module
-  # and re-implement it with some changes
+  # In order to override the devise validations to scope by deleted_at, we have to remove
+  # the validatable module and re-implement it with our changes.
   validates :email, presence: true
   validates :email, format: {with: Devise.email_regexp, allow_blank: true}, if: :email_changed?
   validates :email, uniqueness: {scope: :deleted_at}, unless: :deleted?
