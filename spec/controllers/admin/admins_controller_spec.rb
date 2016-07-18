@@ -43,6 +43,8 @@ RSpec.describe Admin::AdminsController do
       context "with valid parameters" do
         let(:params) do
           {
+            given_names: "Jordan",
+            family_name: "Maguire",
             email: "email@example.com",
             password: "password"
           }
@@ -51,9 +53,12 @@ RSpec.describe Admin::AdminsController do
         it "creates a User object with the given attributes" do
           create_user
 
-          user = User.find_by(email: params[:email])
+          user = User.admin.find_by({
+            email: params[:email],
+            given_names: params[:given_names],
+            family_name: params[:family_name]
+          })
           expect(user).to be_present
-          expect(user).to be_admin
         end
 
         it { should redirect_to(admin_admins_path) }
@@ -91,6 +96,8 @@ RSpec.describe Admin::AdminsController do
       context "with valid parameters" do
         let(:params) do
           {
+            given_names: "Jordan",
+            family_name: "Maguire",
             email: "jordan@example.com",
             password: ""
           }
@@ -101,6 +108,8 @@ RSpec.describe Admin::AdminsController do
 
           target_user.reload
           expect(target_user.email).to eq("jordan@example.com")
+          expect(target_user.given_names).to eq("Jordan")
+          expect(target_user.family_name).to eq("Maguire")
           expect(target_user).to be_admin
         end
 

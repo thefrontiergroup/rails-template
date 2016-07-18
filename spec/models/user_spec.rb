@@ -26,12 +26,48 @@ RSpec.describe User do
     end
   end
 
+  describe '@family_name' do
+    it { should validate_length_of(:family_name).is_at_most(255) }
+    it { should validate_presence_of(:family_name) }
+  end
+
+  describe '@given_names' do
+    it { should validate_length_of(:given_names).is_at_most(255) }
+    it { should validate_presence_of(:given_names) }
+  end
+
   describe '@password' do
     it { should validate_presence_of(:password) }
   end
 
   describe '@role' do
     it { should validate_presence_of(:role) }
+  end
+
+  describe '#full_name' do
+    subject { user.full_name }
+    let(:user) do
+      FactoryGirl.build_stubbed(:user, {
+        given_names: given_names,
+        family_name: family_name
+      })
+    end
+    let(:given_names) { "Jordan" }
+    let(:family_name) { "Maguire" }
+
+    context "with both given_names and family_name" do
+      it { should eq("Jordan Maguire") }
+    end
+
+    context "with only given_names" do
+      let(:family_name) { nil }
+      it { should eq("Jordan") }
+    end
+
+    context "with only family_name" do
+      let(:given_names) { nil }
+      it { should eq("Maguire") }
+    end
   end
 
   describe '#to_s' do

@@ -4,7 +4,9 @@
 
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "authentication-form" }) do |f|
 
-    = f.input :email, autofocus: true
+    = f.input :given_names, autofocus: true, hint: "Maximum #{User::MAX_NAME_LENGTH} characters", input_html: {maxlength: User::MAX_NAME_LENGTH}
+    = f.input :family_name, hint: "Maximum #{User::MAX_NAME_LENGTH} characters", input_html: {maxlength: User::MAX_NAME_LENGTH}
+    = f.input :email
     = f.input :password, autocomplete: "off", hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters"
     = f.input :password_confirmation, autocomplete: "off"
     = f.button :submit, "Sign up"

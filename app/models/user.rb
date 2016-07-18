@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  MAX_NAME_LENGTH = 255
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,7 +21,12 @@ class User < ActiveRecord::Base
   validates :password, length: {within: Devise.password_length, allow_blank: true}
 
   # Non-devise validations
+  validates :given_names, :family_name, length: {maximum: MAX_NAME_LENGTH}, presence: true
   validates :role, presence: true
+
+  def full_name
+    [given_names, family_name].compact.join(" ")
+  end
 
   def to_s
     email

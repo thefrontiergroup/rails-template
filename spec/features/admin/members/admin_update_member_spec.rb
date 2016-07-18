@@ -14,6 +14,8 @@ feature 'Admin can update an existing User' do
     end
 
     scenario 'Admin updates user with valid data' do
+      fill_in("Given names", with: "Jordan")
+      fill_in("Family name", with: "Maguire")
       fill_in("Email", with: "valid@example.com")
       click_button("Save Changes")
 
@@ -21,16 +23,23 @@ feature 'Admin can update an existing User' do
       expect(current_path).to eq(admin_members_path)
 
       # User should be saved
-      expect(target_user.reload.email).to eq("valid@example.com")
+      target_user.reload
+      expect(target_user.email).to eq("valid@example.com")
+      expect(target_user.given_names).to eq("Jordan")
+      expect(target_user.family_name).to eq("Maguire")
     end
 
     scenario 'Admin updates user with invalid data' do
+      fill_in("Given names", with: "")
+      fill_in("Family name", with: "")
       fill_in("Email", with: "")
       click_button("Save Changes")
 
       # Ensure user is not updated
       expect(page).to have_content("User could not be updated.")
       expect(target_user.reload.email).to eq("something@nothing.com")
+      expect(page).to have_error_message(:given_names, "can't be blank")
+      expect(page).to have_error_message(:family_name, "can't be blank")
       expect(page).to have_error_message(:email, "can't be blank")
     end
   end

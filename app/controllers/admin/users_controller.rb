@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
   def index
     authorize!(:index, User)
     @ransack_query = User.ransack(params[:q])
-    @ransack_query.sorts = 'email ASC' if @ransack_query.sorts.empty?
+    @ransack_query.sorts = 'given_names ASC' if @ransack_query.sorts.empty?
     @users = users_scope.merge(@ransack_query.result)
                         .page(params[:page])
   end
@@ -52,7 +52,7 @@ protected
   end
 
   def permitted_attributes
-    [:email, :password]
+    [:given_names, :family_name, :email, :password]
   end
 
 private
