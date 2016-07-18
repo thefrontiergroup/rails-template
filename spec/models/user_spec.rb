@@ -44,6 +44,18 @@ RSpec.describe User do
     it { should validate_presence_of(:role) }
   end
 
+  describe '.ransack' do
+    describe '.full_name' do
+      subject { User.ransack({full_name_cont: "Jordan Maguire"}).result }
+
+      it { should include(FactoryGirl.create(:user, given_names: "Jordan", family_name: "Maguire")) }
+      it { should include(FactoryGirl.create(:user, given_names: "Jordan", family_name: "MAGUIRE")) }
+
+      it { should_not include(FactoryGirl.create(:user, given_names: "Jordan", family_name: "Tuesday")) }
+      it { should_not include(FactoryGirl.create(:user, given_names: "Tuesday", family_name: "Maguire")) }
+    end
+  end
+
   describe '#full_name' do
     subject { user.full_name }
     let(:user) do

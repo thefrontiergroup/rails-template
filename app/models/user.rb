@@ -24,6 +24,15 @@ class User < ActiveRecord::Base
   validates :given_names, :family_name, length: {maximum: MAX_NAME_LENGTH}, presence: true
   validates :role, presence: true
 
+  ransacker :full_name do |parent|
+    Arel::Nodes::InfixOperation.new('||',
+      Arel::Nodes::InfixOperation.new('||',
+        parent.table[:given_names], Arel::Nodes.build_quoted(' ')
+      ),
+      parent.table[:family_name]
+    )
+  end
+
   def full_name
     [given_names, family_name].compact.join(" ")
   end

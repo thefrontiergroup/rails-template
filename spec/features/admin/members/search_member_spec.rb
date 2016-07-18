@@ -23,17 +23,17 @@ feature 'Admin can search for members by email' do
       click_sidemenu_option("Members")
     end
 
-    scenario "Search with email" do
+    scenario "Search by email" do
       expect(page).to have_content(matching_member.email)
       expect(page).to have_content(other_member.email)
 
-      fill_in('Search by given names, family name, or email', with: matching_member.email)
+      fill_in('Search by name or email', with: matching_member.email)
       click_button('Search')
 
       expect(page).to have_content(matching_member.email)
       expect(page).not_to have_content(other_member.email)
 
-      fill_in('Search by given names, family name, or email', with: "Not a valid email for this individual")
+      fill_in('Search by name or email', with: "Not a valid email for this individual")
       click_button('Search')
 
       expect(page).to have_content("No users matched your search")
@@ -41,40 +41,30 @@ feature 'Admin can search for members by email' do
       expect(page).not_to have_content(other_member.email)
     end
 
-    scenario "Search with given_names" do
+    scenario "Search by name" do
       expect(page).to have_content(matching_member.given_names)
       expect(page).to have_content(other_member.given_names)
 
-      fill_in('Search by given names, family name, or email', with: matching_member.given_names)
+      # Only given_names
+      fill_in('Search by name or email', with: "Bob")
       click_button('Search')
 
       expect(page).to have_content(matching_member.given_names)
       expect(page).not_to have_content(other_member.given_names)
 
-      fill_in('Search by given names, family name, or email', with: "Not a valid given name for this individual")
+      # Only family_name
+      fill_in('Search by name or email', with: "Dob")
       click_button('Search')
 
-      expect(page).to have_content("No users matched your search")
-      expect(page).not_to have_content(matching_member.given_names)
+      expect(page).to have_content(matching_member.given_names)
       expect(page).not_to have_content(other_member.given_names)
-    end
 
-    scenario "Search with family_name" do
-      expect(page).to have_content(matching_member.family_name)
-      expect(page).to have_content(other_member.family_name)
-
-      fill_in('Search by given names, family name, or email', with: matching_member.family_name)
+      # Full name
+      fill_in('Search by name or email', with: "Bob Dob")
       click_button('Search')
 
-      expect(page).to have_content(matching_member.family_name)
-      expect(page).not_to have_content(other_member.family_name)
-
-      fill_in('Search by given names, family name, or email', with: "Not a valid family name for this individual")
-      click_button('Search')
-
-      expect(page).to have_content("No users matched your search")
-      expect(page).not_to have_content(matching_member.family_name)
-      expect(page).not_to have_content(other_member.family_name)
+      expect(page).to have_content(matching_member.given_names)
+      expect(page).not_to have_content(other_member.given_names)
     end
   end
 
