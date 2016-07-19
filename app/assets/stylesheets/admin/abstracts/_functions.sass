@@ -19,7 +19,7 @@
 /// @param {Number} $amount
 /// @return {color}
 @function whiten($color, $amount: 50%)
-  @if unitless($amount) == true or unit($amount) != "%"
+  @if unitless($amount) or unit($amount) != "%"
     @error "$amount expects a percentage. Value was: #{$amount}."
   @return mix(#fff, $color, $amount)
 
@@ -29,6 +29,6 @@
 /// @param {color} $color [$brand-black]
 /// @return {color}
 @function blacken($color, $amount: 0.5, $base-black-color: $brand-black)
-  @if unitless($amount) == true or unit($amount) != "%"
+  @if unitless($amount) or unit($amount) != "%"
     @error "$amount expects a percentage. Value was: #{$amount}."
   @return mix($base-black-color, $color, $amount)
