@@ -1,27 +1,30 @@
 - # Only show the search options if there are users to search for
 - if params[:q].present? || @users.present?
   = search_form_for @ransack_query, method: :get, url: request.path do |s|
-    = s.input :email_cont, label: "Search by email", placeholder: "Type email here: email@example.com", as: :string, label_html: {class: "visually-hidden"}
+    = s.input :full_name_or_email_cont, label: "Search by name or email", placeholder: "Search by name or email", as: :string, label_html: {class: "visually-hidden"}, required: false
     = s.button :submit, "Search"
 
 - if @users.present?
   %table
-    %colgroup
-      %col{style: 'width: 80%'}
-      %col{style: 'width: 20%'}
     %thead
       %tr
+        %th= sort_link(@ransack_query, :given_names)
+        %th= sort_link(@ransack_query, :family_name)
         %th= sort_link(@ransack_query, :email)
-        %th.actions Actions
+        - if can?(:manage, User)
+          %th.actions Actions
     %tbody
       - @users.each do |user|
         %tr
+          %td= user.given_names
+          %td= user.family_name
           %td= user.email
-          %td.actions
-            - if can?(:edit, user)
-              = link_to "Edit", edit_path_for_user(user), class: "btn btn-small"
-            - if can?(:destroy, user)
-              = link_to "Delete", delete_path_for_user(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user}?" }, class: "btn btn-small"
+          - if can?(:manage, user)
+            %td.actions
+              - if can?(:edit, user)
+                = link_to "Edit", edit_path_for_user(user), class: "btn btn-small"
+              - if can?(:destroy, user)
+                = link_to "Delete", delete_path_for_user(user), method: :delete, data: { confirm: "Are you sure you want to delete '#{user.full_name}'?" }, class: "btn btn-small"
   = paginate @users
 
 - elsif params[:q].present?
