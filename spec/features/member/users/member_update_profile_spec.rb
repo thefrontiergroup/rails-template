@@ -30,7 +30,6 @@ feature 'Member can update their profile' do
 
       expect(page).to have_error_message(:email, "can't be blank")
       expect(page).to have_error_message(:given_names, "can't be blank")
-      expect(page).to have_error_message(:family_name, "can't be blank")
     end
   end
 end

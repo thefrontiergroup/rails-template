@@ -21,7 +21,18 @@ class User < ActiveRecord::Base
   validates :password, length: {within: Devise.password_length, allow_blank: true}
 
   # Non-devise validations
-  validates :given_names, :family_name, length: {maximum: MAX_NAME_LENGTH}, presence: true
+  #
+  # We don't validate the presence of family_name because:
+  #
+  #    In cultures such as parts of Southern India, Malaysia and Indonesia, a large number
+  #    of people have names that consist of a given name only, with no patronym. If you
+  #    require family names, you may create significant problems in these cultures, as users
+  #    enter garbage data like "." or "Mr." in the family name field just to escape the form.
+  #
+  # From: https://www.w3.org/International/questions/qa-personal-names
+  #
+  validates :family_name, length: {maximum: MAX_NAME_LENGTH}
+  validates :given_names, length: {maximum: MAX_NAME_LENGTH}, presence: true
   validates :role, presence: true
 
   ransacker :full_name do |parent|

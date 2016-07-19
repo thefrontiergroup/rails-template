@@ -35,7 +35,6 @@ feature 'A visitor can sign up' do
     submit_form
     within("form") do
       expect(page).to have_error_message(:given_names, "can't be blank")
-      expect(page).to have_error_message(:family_name, "can't be blank")
       expect(page).to have_error_message(:email, "can't be blank")
       expect(page).to have_error_message(:password, "can't be blank")
       expect(page).to have_hint_message(:password, "Minimum is #{Rails.configuration.devise.password_length.min} characters")

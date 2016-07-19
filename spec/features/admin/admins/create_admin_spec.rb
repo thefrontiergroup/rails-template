@@ -37,7 +37,6 @@ feature 'Admin can create a new User' do
       # Ensure no user is created
       expect(page).to have_content("User could not be created.")
       expect(page).to have_error_message(:given_names, "can't be blank")
-      expect(page).to have_error_message(:family_name, "can't be blank")
       expect(page).to have_error_message(:email, "can't be blank")
       expect(User.count).to eq(1)
     end

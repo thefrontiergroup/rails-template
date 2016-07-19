@@ -28,7 +28,6 @@ RSpec.describe User do
 
   describe '@family_name' do
     it { should validate_length_of(:family_name).is_at_most(255) }
-    it { should validate_presence_of(:family_name) }
   end
 
   describe '@given_names' do
