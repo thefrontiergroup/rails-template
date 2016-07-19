@@ -6,7 +6,7 @@ APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
 
 # This can't be a rake task because the app won't spinup without these files.
 def copy_sample_files
-  system 'for filename in config/*.sample; do cp -n "$filename" "${filename/.sample/}"; done'
+  system 'for filename in config/*.sample; do cp -n "$filename" "${filename%.sample}"; done'
 end
 
 def run_task(name)
