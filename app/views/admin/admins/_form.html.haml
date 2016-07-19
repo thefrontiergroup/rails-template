@@ -1,7 +1,7 @@
 = simple_form_for [:admin, @user], wrapper: "horizontal", html: { class: "form-horizontal"}, url: url do |f|
 
-  = f.input :given_names, hint: "Maximum #{User::MAX_NAME_LENGTH} characters", input_html: {maxlength: User::MAX_NAME_LENGTH}
-  = f.input :family_name, hint: "Maximum #{User::MAX_NAME_LENGTH} characters", input_html: {maxlength: User::MAX_NAME_LENGTH}
+  = f.input :given_names, input_html: {maxlength: User::MAX_NAME_LENGTH}
+  = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
   = f.input :email
   = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters"
 
