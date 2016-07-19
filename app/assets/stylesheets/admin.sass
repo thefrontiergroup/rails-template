@@ -1,11 +1,16 @@
+@charset "UTF-8"
+
 // -----------------------------------------------------------------------------
 // This file contains import and potential override of admin styles.
 // -----------------------------------------------------------------------------
 
-// Importing application-wide variables before admin styles,
-// in case we want to override variables set in admin (eg. $positive-color)
-@import "lib/variables"
+@import "bourbon"
+
+/// Importing application-wide variables before admin styles,
+/// in case we want to override variables set in admin (eg. $positive-color)
+@import "abstracts/variables"
 
 @import "admin/admin"
 
-// Import any overrides and extensions of the admin stylesheet below
+/// Import any overrides and extensions of the admin stylesheet below
+@import "base/fonts"

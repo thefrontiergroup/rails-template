@@ -1,0 +1,34 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+/// Shortcut for alpha-transparent black
+/// @param {Number} $opacity
+/// @return {color}
+@function black($opacity)
+  @return rgba(0, 0, 0, $opacity)
+
+/// Shortcut for alpha-transparent white
+/// @param {Number} $opacity
+/// @return {color}
+@function white($opacity)
+  @return rgba(255, 255, 255, $opacity)
+
+/// Helper to mix given colour with white
+/// @param {color} $color
+/// @param {Number} $amount
+/// @return {color}
+@function whiten($color, $amount: 50%)
+  @if unitless($amount) or unit($amount) != "%"
+    @error "$amount expects a percentage. Value was: #{$amount}."
+  @return mix(#fff, $color, $amount)
+
+/// Helper to mix given colour with (brand) black
+/// @param {color} $color
+/// @param {Number} $amount
+/// @param {color} $color [$brand-black]
+/// @return {color}
+@function blacken($color, $amount: 0.5, $base-black-color: $brand-black)
+  @if unitless($amount) or unit($amount) != "%"
+    @error "$amount expects a percentage. Value was: #{$amount}."
+  @return mix($base-black-color, $color, $amount)

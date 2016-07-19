@@ -1,20 +1,50 @@
+@charset "UTF-8"
+
 // -----------------------------------------------------------------------------
 // This file contains imports for logged in members only.
 // -----------------------------------------------------------------------------
 
-@import "global"
-@import "core/common"
+@import 'normalize-rails'
+@import 'bourbon'
 
-// @import "core/member/lib/functions"
-// @import "core/member/lib/variables"
-// @import "core/member/lib/mixins"
-// @import "core/member/lib/extends"
+/*!
+ * Author:       The Frontier Group
+ * Author URI:   http://www.thefrontiergroup.com.au/
+ */
 
-// @import "core/member/global/**/*"
+/// 1. Configuration and helpers
+@import 'abstracts/variables'
+@import 'abstracts/functions'
+@import 'abstracts/mixins'
+@import 'abstracts/placeholders'
 
-// @import "core/member/modules/**/*"
+// variables & grid-settings need to be imported before neat
+@import 'abstracts/grid-settings'
+
+/// 2. Vendor code
 
 ////
-//  Vendor styles should be added below this comment,
-//  unless they need to be further up the cascade
+//   # TEMPORARY
+//   The below has to be removed once we have actual design for pages outside admin
+//   There must not be any imports from the admin template in this file.
 ////
+@import 'admin'
+
+/// 3. Boilerplate styles for commonly used HTML elements
+// Order of global imports is important (order of appearance on the page)
+@import 'base/base'
+@import 'base/fonts'
+@import 'base/typography'
+@import 'base/helpers'
+
+/// 4. Layout related sections
+// @import 'layout/...'
+
+/// 5. Components
+// @import 'components/...'
+
+/// 6. Page-specific styles
+// @import 'pages/...'
+
+/// 7. Vendor extensions/overrides
+// @import 'vendor-extensions/...'

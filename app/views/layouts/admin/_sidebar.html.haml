@@ -1,12 +1,12 @@
 .sidebar-pages
-  %h1.js-nav-toggle{data: {navigation_toggle_target: '#pages-nav'}} Administration
+  %h2.js-nav-toggle{data: {navigation_toggle_target: '#pages-nav'}} Administration
 
   %button.mobile-nav.js-nav-toggle{style: 'display: none;', aria: {label: 'Toggle Pages'}, data: {navigation_toggle_target: '#pages-nav'}}
     %span Menu
 
   #pages-nav.nav
     .sidebar-links
-      %h2 User Management
+      %h3 User Management
       %ul
         = active_link_to "Admins", admin_admins_path, wrap_tag: :li
         = active_link_to "Members", admin_members_path, wrap_tag: :li

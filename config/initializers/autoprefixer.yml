@@ -1,0 +1,9 @@
+# We will only use the current and tweener specification of flexbox
+flexbox: no-2009
+
+# Browsers that this rails application supports
+# See Browserslist docs for config format: https://github.com/ai/browserslist
+browsers:
+  - "> 1%"
+  - "last 2 versions"
+  - "IE > 9"
