@@ -16,6 +16,12 @@ RSpec.configure do |config|
     freeze_time = ex.example.metadata[:freeze_time]
 
     if freeze_time.present?
+      # If freeze_time is specifically set to true it means that freeze_time was passed with
+      # no args.
+      if freeze_time == true
+        freeze_time = Time.zone.now
+      end
+
       # Time and ActiveSupport::TimeWithZone will both return true here
       if freeze_time.kind_of?(Time)
         Timecop.freeze(freeze_time) { ex.run }
