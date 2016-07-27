@@ -16,9 +16,11 @@ RSpec.configure do |config|
     freeze_time = ex.example.metadata[:freeze_time]
 
     if freeze_time.present?
-      freeze_time_at = freeze_time.kind_of?(Time) ? freeze_time : Time.zone.now.change(nsec: 0)
-      Timecop.freeze(freeze_time_at) do
-        ex.run
+      # Time and ActiveSupport::TimeWithZone will both return true here
+      if freeze_time.kind_of?(Time)
+        Timecop.freeze(freeze_time) { ex.run }
+      else
+        raise(ArgumentError, "freeze_time must be a kind of Time, is a #{freeze_time.class.name}")
       end
     else
       ex.run
