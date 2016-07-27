@@ -12,7 +12,7 @@
 #
 RSpec.configure do |config|
 
-  config.around(:each) do |ex|
+  config.around(:each, freeze_time: true) do |ex|
     freeze_time = ex.example.metadata[:freeze_time]
 
     if freeze_time.present?
