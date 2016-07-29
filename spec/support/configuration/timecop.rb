@@ -23,10 +23,10 @@ RSpec.configure do |config|
       end
 
       # Time and ActiveSupport::TimeWithZone will both return true here
-      if freeze_time.kind_of?(Time)
+      if freeze_time.kind_of?(Time) || freeze_time.kind_of?(Date) || freeze_time.kind_of?(DateTime)
         Timecop.freeze(freeze_time) { ex.run }
       else
-        raise(ArgumentError, "freeze_time must be a kind of Time, is a #{freeze_time.class.name}")
+        raise(ArgumentError, "freeze_time value must be a kind of Date, DateTime, or Time. Value is a #{freeze_time.class.name}")
       end
     else
       ex.run
