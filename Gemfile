@@ -30,7 +30,6 @@ gem 'uglifier'
 
 # Misc
 gem 'responders'
-gem 'uri_query_merger'
 
 group :development do
   gem 'better_errors'
