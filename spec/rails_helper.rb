@@ -45,7 +45,6 @@ RSpec.configure do |config|
 
   # Features
   config.include Feature::Support, type: :feature
-  config.include Feature::AttributesSupport, type: :feature
   config.include Feature::AuthenticationSupport, type: :feature
   config.include Feature::NavigationSupport, type: :feature
   config.include Feature::PikadaySupport, type: :feature
