@@ -12,4 +12,10 @@ module Feature::TableSupport
     find("table tbody tr:nth-child(#{num})")
   end
 
+  def within_row(name)
+    # Ensure that " are used here since ' will fail when the name has a ' in it.
+    # For example, searching for a user named John O'Hanniganskivic
+    within(:xpath, "//tr[td[contains(., \"#{name}\")]]") { yield }
+  end
+
 end
