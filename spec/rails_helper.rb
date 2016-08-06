@@ -35,7 +35,6 @@ RSpec.configure do |config|
   # General
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
-  config.include(AttributesComparisonSupport)
 
   # Controllers
   config.include Devise::Test::ControllerHelpers, type: :controller
