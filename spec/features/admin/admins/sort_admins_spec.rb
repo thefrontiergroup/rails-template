@@ -9,10 +9,10 @@ feature 'Admin can sort an index of users' do
     navigate_to_admins_index(alpha_admin)
 
     click_link("Email")
-    expect_users_to_be_ordered_as(alpha_admin, beta_admin)
+    expect_objects_to_be_ordered(alpha_admin, beta_admin)
 
     click_link("Email")
-    expect_users_to_be_ordered_as(beta_admin, alpha_admin)
+    expect_objects_to_be_ordered(beta_admin, alpha_admin)
   end
 
   scenario "sorting by 'Given names'" do
@@ -22,13 +22,13 @@ feature 'Admin can sort an index of users' do
     navigate_to_admins_index(alpha_admin)
 
     # Ordered by given_names by default
-    expect_users_to_be_ordered_as(alpha_admin, beta_admin)
+    expect_objects_to_be_ordered(alpha_admin, beta_admin)
 
     click_link("Given names")
-    expect_users_to_be_ordered_as(beta_admin, alpha_admin)
+    expect_objects_to_be_ordered(beta_admin, alpha_admin)
 
     click_link("Given names")
-    expect_users_to_be_ordered_as(alpha_admin, beta_admin)
+    expect_objects_to_be_ordered(alpha_admin, beta_admin)
   end
 
   scenario "sorting by 'Family name'" do
@@ -38,18 +38,13 @@ feature 'Admin can sort an index of users' do
     navigate_to_admins_index(alpha_admin)
 
     click_link("Family name")
-    expect_users_to_be_ordered_as(alpha_admin, beta_admin)
+    expect_objects_to_be_ordered(alpha_admin, beta_admin)
 
     click_link("Family name")
-    expect_users_to_be_ordered_as(beta_admin, alpha_admin)
+    expect_objects_to_be_ordered(beta_admin, alpha_admin)
   end
 
 private
-
-  def expect_users_to_be_ordered_as(first, second)
-    within(first_row)  { expect(page).to have_content(first.email) }
-    within(second_row) { expect(page).to have_content(second.email) }
-  end
 
   def navigate_to_admins_index(user)
     sign_in_as(user)
