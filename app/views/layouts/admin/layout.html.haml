@@ -10,7 +10,7 @@
 
   %body
     = link_to "Skip to main content", "#skip-to-content", class: "visually-hidden"
-    %h1= page_title
+    %h1.visually-hidden= page_title
 
     %header{role: 'banner'}
       .container
@@ -19,7 +19,7 @@
 
         .navigation-wrapper
           %button.mobile-nav.js-nav-toggle{aria: {label: "Toggle Navigation"}, data: {navigation_toggle_target: '#site-nav', requires_modal: 'true'}}
-            %span Menu
+            %span.visually-hidden Menu
 
           %nav#site-nav.is-collapsed{role: 'navigation'}
             %h1 Navigation
