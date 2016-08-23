@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin can delete an existing User' do
+feature 'Admin can archive an existing User' do
 
   signed_in_as(:admin) do
     let!(:target_user) { FactoryGirl.create(:user, email: "something@nothing.com") }
@@ -10,9 +10,9 @@ feature 'Admin can delete an existing User' do
       click_sidemenu_option("Members")
     end
 
-    scenario 'Admin can delete user' do
+    scenario do
       within_row(target_user.email) do
-        click_link("Delete")
+        click_link("Archive")
       end
 
       # User should be deleted
