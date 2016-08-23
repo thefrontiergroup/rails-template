@@ -9,11 +9,7 @@ feature 'Admin can sort an index of users' do
 
       navigate_to_members_index
 
-      click_link("Email")
-      expect_objects_to_be_ordered(alpha, beta)
-
-      click_link("Email")
-      expect_objects_to_be_ordered(beta, alpha)
+      expect_heading_to_sort_objects("Email", [alpha, beta])
     end
 
     scenario "sorting by 'Given names'" do
@@ -23,13 +19,7 @@ feature 'Admin can sort an index of users' do
       navigate_to_members_index
 
       # Ordered by given_names by default
-      expect_objects_to_be_ordered(alpha, beta)
-
-      click_link("Given names")
-      expect_objects_to_be_ordered(beta, alpha)
-
-      click_link("Given names")
-      expect_objects_to_be_ordered(alpha, beta)
+      expect_heading_to_sort_objects("Given names", [alpha, beta], sorted_by_default: true)
     end
 
     scenario "sorting by 'Family name'" do
@@ -38,11 +28,7 @@ feature 'Admin can sort an index of users' do
 
       navigate_to_members_index
 
-      click_link("Family name")
-      expect_objects_to_be_ordered(alpha, beta)
-
-      click_link("Family name")
-      expect_objects_to_be_ordered(beta, alpha)
+      expect_heading_to_sort_objects("Family name", [alpha, beta])
     end
   end
 
