@@ -1,4 +1,4 @@
-- if can?(:show, :member_dashboard)
-  = active_link_to "Dashboard", member_dashboard_index_path, wrap_tag: :li
-- if can?(:show, :admin_dashboard)
-  = active_link_to "Administration", admin_dashboard_index_path, wrap_tag: :li
+- if current_user.try(:admin?)
+  = render "layouts/admin/navigation"
+- if current_user.try(:member?)
+  = render "layouts/member/navigation"

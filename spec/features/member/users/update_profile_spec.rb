@@ -15,6 +15,7 @@ feature 'Member can update their profile' do
       click_button("Update")
 
       # User should be saved
+      expect(page).to have_flash(:notice, "You updated your account successfully.")
       click_header_option("My Profile")
       current_user.reload
       expect(current_user.email).to eq("valid@example.com")
@@ -28,6 +29,7 @@ feature 'Member can update their profile' do
       fill_in("Email", with: "")
       click_button("Update")
 
+      expect(page).to have_flash(:alert, "User could not be updated. Please address the errors below.")
       expect(page).to have_error_message(:email, "can't be blank")
       expect(page).to have_error_message(:given_names, "can't be blank")
     end
