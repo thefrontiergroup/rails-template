@@ -2,13 +2,13 @@ module Feature
   module SortSupport
 
     # Assert that a link behaves like a sorting link by first asserting that clicking it once
-    # will set an order, the clicking it a second time will reverse that order.
+    # will set an order, then clicking it a second time will reverse that order.
     #
     # Basic usage:
     #   expect_heading_to_sort_objects("Name", [alpha, bravo])
     #
     # When the page has sorted by the given order already (Note: This will assert that the
-    # order of the objects is set to alpha,bravo before clicking the links:
+    # order of the objects is set to [alpha, bravo] before clicking the links:
     #   expect_heading_to_sort_objects("Name", [alpha, bravo], sorted_by_default: true)
     #
     # When the objects cannot be identified by the output of their #to_s you can pass a block
