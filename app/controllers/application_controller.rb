@@ -23,7 +23,7 @@ protected
 
   # Provided by Devise
   def after_sign_in_path_for(resource)
-    AfterSignInPath.new(resource).to_s
+    stored_location_for(:user) || AfterSignInPath.new(resource).to_s
   end
 
 # Strong Parameters
