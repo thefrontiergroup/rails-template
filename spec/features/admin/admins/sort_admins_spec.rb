@@ -3,45 +3,31 @@ require 'rails_helper'
 feature 'Admin can sort an index of users' do
 
   scenario "sorting by 'Email'" do
-    alpha_admin = FactoryGirl.create(:user, :admin, email: "alpha@example.com")
-    beta_admin  = FactoryGirl.create(:user, :admin, email: "beta@example.com")
+    alpha = FactoryGirl.create(:user, :admin, email: "alpha@example.com")
+    beta  = FactoryGirl.create(:user, :admin, email: "beta@example.com")
 
-    navigate_to_admins_index(alpha_admin)
+    navigate_to_admins_index(alpha)
 
-    click_link("Email")
-    expect_objects_to_be_ordered(alpha_admin, beta_admin)
-
-    click_link("Email")
-    expect_objects_to_be_ordered(beta_admin, alpha_admin)
+    expect_heading_to_sort_objects("Email", [alpha, beta])
   end
 
   scenario "sorting by 'Given names'" do
-    alpha_admin = FactoryGirl.create(:user, :admin, given_names: "alpha")
-    beta_admin  = FactoryGirl.create(:user, :admin, given_names: "beta")
+    alpha = FactoryGirl.create(:user, :admin, given_names: "alpha")
+    beta  = FactoryGirl.create(:user, :admin, given_names: "beta")
 
-    navigate_to_admins_index(alpha_admin)
+    navigate_to_admins_index(alpha)
 
     # Ordered by given_names by default
-    expect_objects_to_be_ordered(alpha_admin, beta_admin)
-
-    click_link("Given names")
-    expect_objects_to_be_ordered(beta_admin, alpha_admin)
-
-    click_link("Given names")
-    expect_objects_to_be_ordered(alpha_admin, beta_admin)
+    expect_heading_to_sort_objects("Given names", [alpha, beta], sorted_by_default: true)
   end
 
   scenario "sorting by 'Family name'" do
-    alpha_admin = FactoryGirl.create(:user, :admin, family_name: "alpha")
-    beta_admin  = FactoryGirl.create(:user, :admin, family_name: "beta")
+    alpha = FactoryGirl.create(:user, :admin, family_name: "alpha")
+    beta  = FactoryGirl.create(:user, :admin, family_name: "beta")
 
-    navigate_to_admins_index(alpha_admin)
+    navigate_to_admins_index(alpha)
 
-    click_link("Family name")
-    expect_objects_to_be_ordered(alpha_admin, beta_admin)
-
-    click_link("Family name")
-    expect_objects_to_be_ordered(beta_admin, alpha_admin)
+    expect_heading_to_sort_objects("Family name", [alpha, beta])
   end
 
 private
