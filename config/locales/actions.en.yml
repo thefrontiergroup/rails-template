@@ -1,0 +1,8 @@
+en:
+  actions:
+    archive_prompt:
+      label: "Archive"
+      confirmation: "Are you sure you want to archive %{name}?"
+    delete_prompt:
+      label: "Delete"
+      confirmation: "Are you sure you want to delete %{name}?"
