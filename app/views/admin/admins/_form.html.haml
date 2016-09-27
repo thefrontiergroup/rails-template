@@ -3,7 +3,7 @@
   = f.input :given_names, input_html: {maxlength: User::MAX_NAME_LENGTH}
   = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
   = f.input :email
-  = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters"
+  = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters", input_html: {autocomplete: "new-password"}
 
   .form-actions
     = f.button :submit
