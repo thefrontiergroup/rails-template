@@ -6,6 +6,6 @@
   = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters", input_html: {autocomplete: "new-password"}
 
   .ui.buttons
-    = f.button :submit
+    = f.button :submit, class: "primary"
     .or
     = link_to "Cancel", admin_members_path, class: "ui button"
