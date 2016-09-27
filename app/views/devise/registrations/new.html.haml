@@ -1,14 +1,28 @@
-.authentication
+.ui.center.aligned.stackable.grid.container
+  .column
+    %h2.ui.top.attached.block.header= current_page_title
 
-  %h2= current_page_title
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: "semantic_ui", html: { class: "ui form large left aligned attached segment" }) do |f|
+      = f.input :given_names, label_html: {class: "visually-hidden"} do
+        .ui.input
+          = f.input_field :given_names, maxlength: User::MAX_NAME_LENGTH, placeholder: "Given Names"
+      = f.input :family_name, label_html: {class: "visually-hidden"} do
+        .ui.input
+          = f.input_field :family_name, maxlength: User::MAX_NAME_LENGTH, placeholder: "Family Name"
+      = f.input :email, label_html: {class: "visually-hidden"} do
+        .ui.left.icon.input
+          %i.mail.icon
+          = f.input_field :email, autofocus: true, placeholder: "E-mail"
+      = f.input :password, label_html: {class: "visually-hidden"}, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters" do
+        .ui.left.icon.input
+          %i.lock.icon
+          = f.input_field :password, autocomplete: "new-password", placeholder: "Password"
 
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "authentication-form" }) do |f|
+      = f.input :password_confirmation, label_html: {class: "visually-hidden"} do
+        .ui.left.icon.input
+          %i.lock.icon
+          = f.input_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation"
 
-    = f.input :given_names, autofocus: true, input_html: {maxlength: User::MAX_NAME_LENGTH}
-    = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
-    = f.input :email
-    = f.input :password, autocomplete: "off", hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters"
-    = f.input :password_confirmation, autocomplete: "off"
-    = f.button :submit, "Sign up"
+      = f.button :submit, "Sign up", class: "primary fluid large"
 
-  = render "devise/shared/links"
+    = render "devise/shared/links"

@@ -1,11 +1,11 @@
-= simple_form_for [:admin, @user], wrapper: "horizontal", html: { class: "form-horizontal"}, url: url do |f|
+= simple_form_for [:admin, @user], wrapper: "semantic_ui", html: { class: "ui form"}, url: url do |f|
 
   = f.input :given_names, input_html: {maxlength: User::MAX_NAME_LENGTH}
   = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
   = f.input :email
   = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters", input_html: {autocomplete: "new-password"}
 
-  .form-actions
+  .ui.buttons
     = f.button :submit
-    %span.or or
-    = link_to "Cancel", admin_admins_path
+    .or
+    = link_to "Cancel", admin_admins_path, class: "ui button"

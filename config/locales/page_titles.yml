@@ -1,6 +1,7 @@
 en:
   app:
     name: "Rails Template"
+    owner: "The Frontier Group"
 
   home:
     index:

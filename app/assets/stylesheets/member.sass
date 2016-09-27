@@ -4,7 +4,6 @@
 // This file contains imports for logged in members only.
 // -----------------------------------------------------------------------------
 
-@import 'normalize-rails'
 @import 'bourbon'
 
 /*!
@@ -22,13 +21,11 @@
 @import 'abstracts/grid-settings'
 
 /// 2. Vendor code
-
-////
-//   # TEMPORARY
-//   The below has to be removed once we have actual design for pages outside admin
-//   There must not be any imports from the admin template in this file.
-////
-@import 'admin'
+///
+//  TEMPORARY
+//  If we need custom styles, we swap `semantic-ui` with `normalize-rails`
+///
+@import 'semantic-ui'
 
 /// 3. Boilerplate styles for commonly used HTML elements
 // Order of global imports is important (order of appearance on the page)

@@ -22,7 +22,7 @@ The output of this script should give you the instructions you will need.
 
 - Mailer configuration for development, staging (jazz), production (jazz), and test environment
 - PostgreSQL with TFG SOE database.yml. No configuration required.
-- RVM Support via .ruby-gemset and .ruby-version
+- RVM Support via `.ruby-gemset` and `.ruby-version`
 - Seeds configuration via SeedHelper, including seeding some initial Users
 
 ### Functionality

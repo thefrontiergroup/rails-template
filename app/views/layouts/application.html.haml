@@ -8,42 +8,39 @@
     = favicon_link_tag "favicon.ico"
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
 
-  %body
+  %body.pushable
     = link_to "Skip to main content", "#skip-to-content", class: "visually-hidden"
     %h1.visually-hidden= page_title
 
-    %header{role: "banner"}
-      .container
-        = link_to root_path, class: "logo", rel: "home" do
-          = image_tag "create-glyph-logo.svg", size: "34x34"
+    .ui.vertical.inverted.sidebar.menu.left
+      = yield(:navigation) if content_for?(:navigation)
+      - if current_user
+        = link_to "Sign out", destroy_user_session_path, method: :delete, class: "item"
+      - else
+        = link_to "Sign in", new_user_session_path, class: "item"
+        = link_to "Sign up", new_user_registration_path, class: "item"
 
-        .navigation-wrapper
-          %button.mobile-nav.js-nav-toggle{aria: {label: "Toggle Navigation"}, data: {navigation_toggle_target: "#site-nav", requires_modal: "true"}}
-            %span.visually-hidden Menu
-
-          %nav#site-nav.is-collapsed{role: "navigation"}
-            %h2.visually-hidden Navigation
-
-            %ul.site-nav
-              - if content_for?(:navigation)
-                = yield(:navigation)
-              - else
-                = render "layouts/navigation"
-
-            %ul.session
+    .pusher
+      .ui.inverted.vertical.masthead.center.aligned.segment
+        .ui.container
+          .ui.large.secondary.inverted.pointing.menu
+            %a.toc.item
+              %i.sidebar.icon
+            = yield(:navigation) if content_for?(:navigation)
+            .right.item
               - if current_user
-                %li= link_to "Sign out", destroy_user_session_path, method: :delete
+                = link_to "Sign out", destroy_user_session_path, method: :delete, class: "ui inverted button"
               - else
-                %li= link_to "Sign in", new_user_session_path
-                %li= link_to "Sign up", new_user_registration_path
+                = link_to "Sign in", new_user_session_path, class: "ui inverted button"
+                = link_to "Sign up", new_user_registration_path, class: "ui inverted button"
 
-    #skip-to-content.container
-      - flash.each do |key, value|
-        .flash-wrapper
-          .flash{class: "flash-#{key}"}= value
+        #skip-to-content
+          - if flash.any?
+            .ui.inverted.padded.vertical.segment
+              - flash.each do |key, value|
+                .ui{class: flash_class(key)}= value
 
-      = content_for?(:content) ? yield(:content) : yield
+          = content_for?(:content) ? yield(:content) : yield
 
-    #js-fade-screen
     = yield(:javascripts)
     = javascript_include_tag "easy_sign_in" if Rails.application.config.should_show_easy_login

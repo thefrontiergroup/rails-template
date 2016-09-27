@@ -25,6 +25,7 @@ gem 'neat'
 gem 'normalize-rails'
 gem 'page_title_helper'
 gem 'sass-rails'
+gem 'semantic-ui-sass'
 gem 'simple_form'
 gem 'uglifier'
 

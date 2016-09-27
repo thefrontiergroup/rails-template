@@ -1,0 +1,5 @@
+= active_link_to "Home", root_path, class: "item", active: :exclusive
+- if current_user.try(:member?)
+  = active_link_to "Dashboard", member_dashboard_index_path, class: "item"
+- if current_user.try(:admin?)
+  = active_link_to "Administration", admin_dashboard_index_path, class: "item"

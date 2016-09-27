@@ -5,7 +5,7 @@ The `base/` folder holds so called boilerplate code for the project.
 This includes but is not limited to:
 
 - Typographic rules
-- font declaration/imports
+- Font declaration/imports
 - Site-wide helpers
 - Stylesheet defining some standard styles for commonly used HTML elements (`_base.sass`).
 

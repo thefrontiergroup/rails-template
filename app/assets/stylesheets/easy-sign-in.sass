@@ -3,30 +3,3 @@
 // -----------------------------------------------------------------------------
 // Standalone styles for easy-sign-in component (to be called on its own).
 // -----------------------------------------------------------------------------
-
-@import "bourbon"
-@import "abstracts/grid-settings"
-
-// Tell Neat to not set box-sizing for this component, as it is already set on global level
-$border-box-sizing: false
-
-@import "neat"
-
-.easy-sign-in
-  +span-columns(4)
-  +shift(2)
-  +pad(1em)
-  background: #f7f7f7
-  border-radius: 3px
-
-  ul
-    list-style-type: disc
-    margin-bottom: 0
-    padding-left: 1.25em
-
-  +media($large-screen-down)
-    +span-columns(3)
-    +shift(0)
-
-  +media($medium-screen-down)
-    +fill-parent
