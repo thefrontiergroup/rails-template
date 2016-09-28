@@ -2,7 +2,7 @@
   .column
     - # Only show the search options if there are users to search for
     - if params[:q].present? || @users.present?
-      = search_form_for @ransack_query, method: :get, url: request.path, wrapper: "semantic_ui" do |s|
+      = search_form_for @ransack_query, method: :get, url: request.path, wrapper: "semantic_ui", html: { class: "search-form"} do |s|
         = s.input :full_name_or_email_cont, wrapper_html: {class: "ui action left icon input"}, label_html: {class: "visually-hidden"}, required: false do
           %i.search.icon
           = s.input_field :full_name_or_email_cont, label: "Search by name or email", placeholder: "Search by name or email", as: :string
@@ -16,7 +16,7 @@
             %th= sort_link(@ransack_query, :family_name)
             %th= sort_link(@ransack_query, :email)
             - if can?(:manage, User)
-              %th.right.aligned Actions
+              %th.right.aligned.actions Actions
         %tbody
           - @users.each do |user|
             %tr
@@ -24,7 +24,7 @@
               %td= user.family_name
               %td= user.email
               - if can?(:manage, user)
-                %td.right.aligned
+                %td.right.aligned.actions
                   - if can?(:edit, user)
                     = link_to edit_path_for_user(user), class: "ui icon tiny compact button" do
                       %i.pencil.icon

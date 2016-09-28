@@ -12,7 +12,7 @@
     = link_to "Skip to main content", "#skip-to-content", class: "visually-hidden"
     %h1.visually-hidden= page_title
 
-    .ui.vertical.inverted.sidebar.menu.left
+    .ui.left.inverted.vertical.sidebar.menu
       = yield(:navigation) if content_for?(:navigation)
       - if current_user
         = link_to "Sign out", destroy_user_session_path, method: :delete, class: "item"
@@ -26,6 +26,7 @@
           .ui.large.secondary.inverted.pointing.menu
             %a.toc.item
               %i.sidebar.icon
+              Menu
             = yield(:navigation) if content_for?(:navigation)
             .right.item
               - if current_user
