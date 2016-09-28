@@ -1,1 +1,13 @@
+.header.item
+  = link_to root_path, rel: "home" do
+    = inline_svg("create-glyph-logo.svg")
+  %p
+    = link_to "My Profile", destroy_user_session_path, method: :delete
+    &ndash;
+    = link_to "Sign out", destroy_user_session_path, method: :delete
 = active_link_to "Dashboard", admin_dashboard_index_path, class: "item"
+.item
+  .header User Management
+  .menu
+    = active_link_to "Admins", admin_admins_path, class: "item"
+    = active_link_to "Members", admin_members_path, class: "item"
