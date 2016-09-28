@@ -17,7 +17,7 @@ feature 'Admin can archive an existing User' do
 
       # User should be deleted
       expect(target_user.reload).to be_deleted
-      expect(page).to have_flash(:notice, "'something@nothing.com' deleted")
+      expect(page).to have_flash(:notice, "'something@nothing.com' archived.")
     end
   end
 end

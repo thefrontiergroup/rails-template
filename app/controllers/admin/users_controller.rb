@@ -38,7 +38,7 @@ class Admin::UsersController < Admin::BaseController
     @user = find_user
     authorize!(:destroy, @user)
     @user.destroy
-    redirect_to(redirect_path, notice: "'#{@user}' deleted")
+    redirect_to(redirect_path, notice: "'#{@user}' archived.")
   end
 
 protected
