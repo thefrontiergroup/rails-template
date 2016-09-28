@@ -1,5 +1,6 @@
 .header.item
   = link_to root_path, rel: "home", class: "app-logo" do
+    %span.visually-hidden Home
     = inline_svg("create-glyph-logo.svg")
   %p
     = link_to current_user.full_name, edit_user_registration_path, class: "account"
