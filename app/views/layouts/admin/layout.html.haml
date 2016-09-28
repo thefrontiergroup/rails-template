@@ -52,6 +52,8 @@
 
         .ui.main.grid
           - flash.each do |key, value|
-            .ui{class: flash_class(key)}= value
+            .ui.floating{class: flash_class(key)}
+              %i.close.icon
+              = value
 
           = yield
