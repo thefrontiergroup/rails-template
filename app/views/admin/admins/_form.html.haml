@@ -1,11 +1,13 @@
-= simple_form_for [:admin, @user], wrapper: "semantic_ui", html: { class: "ui form"}, url: url do |f|
+.ui.row
+  .column
+    = simple_form_for [:admin, @user], wrapper: "semantic_ui", html: { class: "ui form"}, url: url do |f|
 
-  = f.input :given_names, input_html: {maxlength: User::MAX_NAME_LENGTH}
-  = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
-  = f.input :email
-  = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters", input_html: {autocomplete: "new-password"}
+      = f.input :given_names, input_html: {maxlength: User::MAX_NAME_LENGTH}
+      = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
+      = f.input :email
+      = f.input :password, hint: "Minimum is #{Rails.configuration.devise.password_length.min} characters", input_html: {autocomplete: "new-password"}
 
-  .ui.buttons
-    = f.button :submit
-    .or
-    = link_to "Cancel", admin_admins_path, class: "ui button"
+      .ui.buttons
+        = f.button :submit, class: "primary"
+        .or
+        = link_to "Cancel", admin_admins_path, class: "ui button"

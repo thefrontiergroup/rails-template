@@ -11,14 +11,38 @@
 
   %body.pushable
     = link_to "Skip to main content", "#skip-to-content", class: "visually-hidden"
-    %h1.visually-hidden= page_title
+
+    .ui.sidebar.inverted.vertical.menu
+      .header.item
+        = link_to root_path, rel: "home" do
+          = inline_svg("create-glyph-logo.svg")
+        %p
+          = link_to "My Profile", destroy_user_session_path, method: :delete
+          &bull;
+          = link_to "Sign out", destroy_user_session_path, method: :delete
+      = render "layouts/admin/navigation"
+      .item
+        .header User Management
+        .menu
+          = active_link_to "Admins", admin_admins_path, class: "item"
+          = active_link_to "Members", admin_members_path, class: "item"
+
+    .ui.fixed.inverted.main.menu
+      .ui.container
+        %a.item.sidebar-toggle
+          %i.sidebar.icon
+          Menu
+
     .pusher
       .ui.grid.container
         .ui.left.fixed.vertical.inverted.menu
           .header.item
             = link_to root_path, rel: "home" do
-              = image_tag 'create-glyph-logo.svg', size: '34x34'
-            %p= link_to "Sign out", destroy_user_session_path, method: :delete
+              = inline_svg("create-glyph-logo.svg")
+            %p
+              = link_to "My Profile", destroy_user_session_path, method: :delete
+              &ndash;
+              = link_to "Sign out", destroy_user_session_path, method: :delete
           = render "layouts/admin/navigation"
           .item
             .header User Management

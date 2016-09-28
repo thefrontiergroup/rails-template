@@ -1,6 +1,8 @@
 .ui.row
-  %h2= current_page_title
-  = link_to "Add new member", new_admin_member_path, class: "ui primary button"
+  .column
+    %h1.ui.left.floated.header= current_page_title
+    = link_to new_admin_member_path, class: "ui right floated primary button" do
+      %i.add.user.icon
+      Add new member
 
-.ui.row
-  = render partial: "user_results", locals: {new_path_for_user: new_admin_member_path}
+= render partial: "user_results", locals: {new_path_for_user: new_admin_member_path}
