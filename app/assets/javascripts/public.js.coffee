@@ -1,4 +1,4 @@
-#= require global
+#= require _global
 
 #= require semantic-ui
 
