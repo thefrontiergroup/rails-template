@@ -3,9 +3,9 @@
     - # Only show the search options if there are users to search for
     - if params[:q].present? || @users.present?
       = search_form_for @ransack_query, method: :get, url: request.path, wrapper: "semantic_ui", html: { class: "search-form"} do |s|
-        = s.input :full_name_or_email_cont, wrapper_html: {class: "ui action left icon input"}, label_html: {class: "visually-hidden"}, required: false do
+        = s.input :full_name_or_email_cont, wrapper_html: {class: "ui action left icon input"}, label_html: {class: "visually-hidden"}, required: false, label: "Search by name or email" do
           %i.search.icon
-          = s.input_field :full_name_or_email_cont, label: "Search by name or email", placeholder: "Search by name or email", as: :string
+          = s.input_field :full_name_or_email_cont, placeholder: "Search by name or email", as: :string
           = s.button :button, "Search"
 
     - if @users.present?
