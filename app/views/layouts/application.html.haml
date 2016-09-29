@@ -14,7 +14,7 @@
 
     .ui.left.inverted.vertical.sidebar.menu
       = yield(:navigation) if content_for?(:navigation)
-      = render partial: "authentication_navigation", locals: {item_class: "item"}
+      = render partial: "layouts/authentication_navigation", locals: {item_class: "item"}
 
     .pusher
       .ui.inverted.vertical.masthead.center.aligned.segment
@@ -25,7 +25,7 @@
               Menu
             = yield(:navigation) if content_for?(:navigation)
             .right.item
-              = render partial: "authentication_navigation", locals: {item_class: "ui inverted button"}
+              = render partial: "layouts/authentication_navigation", locals: {item_class: "ui inverted button"}
 
         #skip-to-content
           - if flash.any?
