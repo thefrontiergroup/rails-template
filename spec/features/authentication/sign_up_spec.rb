@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'A visitor can sign up' do
 
   background do
-    visit root_path
-    click_link 'Sign up'
+    visit(root_path)
+    click_header_option('Sign up')
   end
 
   scenario 'User signs up successfully' do
@@ -13,7 +13,7 @@ feature 'A visitor can sign up' do
     fill_in("Email", with: "email@example.com")
     # The preceding space and asterix is how capybara is able to match the "Password"
     # field without also matching the "Password confirmation" field.
-    fill_in("* Password", with: "password", exact: true)
+    fill_in("Password", with: "password", exact: true)
     fill_in("Password confirmation", with: "password")
 
     submit_form
@@ -37,7 +37,6 @@ feature 'A visitor can sign up' do
       expect(page).to have_error_message(:given_names, "can't be blank")
       expect(page).to have_error_message(:email, "can't be blank")
       expect(page).to have_error_message(:password, "can't be blank")
-      expect(page).to have_hint_message(:password, "Minimum is #{Rails.configuration.devise.password_length.min} characters")
     end
   end
 end

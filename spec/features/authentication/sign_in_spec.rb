@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'A user can sign in' do
 
   background do
-    visit root_path
-    click_link 'Sign in'
+    visit(root_path)
+    click_header_option('Sign in')
   end
 
   context "As admin" do

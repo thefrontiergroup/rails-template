@@ -12,13 +12,9 @@
     = link_to "Skip to main content", "#skip-to-content", class: "visually-hidden"
     %h1.visually-hidden= page_title
 
-    .ui.vertical.inverted.sidebar.menu.left
+    .ui.left.inverted.vertical.sidebar.menu
       = yield(:navigation) if content_for?(:navigation)
-      - if current_user
-        = link_to "Sign out", destroy_user_session_path, method: :delete, class: "item"
-      - else
-        = link_to "Sign in", new_user_session_path, class: "item"
-        = link_to "Sign up", new_user_registration_path, class: "item"
+      = render partial: "layouts/authentication_navigation", locals: {item_class: "item"}
 
     .pusher
       .ui.inverted.vertical.masthead.center.aligned.segment
@@ -26,13 +22,10 @@
           .ui.large.secondary.inverted.pointing.menu
             %a.toc.item
               %i.sidebar.icon
+              Menu
             = yield(:navigation) if content_for?(:navigation)
             .right.item
-              - if current_user
-                = link_to "Sign out", destroy_user_session_path, method: :delete, class: "ui inverted button"
-              - else
-                = link_to "Sign in", new_user_session_path, class: "ui inverted button"
-                = link_to "Sign up", new_user_registration_path, class: "ui inverted button"
+              = render partial: "layouts/authentication_navigation", locals: {item_class: "ui inverted button"}
 
         #skip-to-content
           - if flash.any?
@@ -43,4 +36,4 @@
           = content_for?(:content) ? yield(:content) : yield
 
     = yield(:javascripts)
-    = javascript_include_tag "easy_sign_in" if Rails.application.config.should_show_easy_login
+    = javascript_include_tag "easy-sign-in" if Rails.application.config.should_show_easy_login

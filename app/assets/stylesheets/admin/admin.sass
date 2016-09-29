@@ -23,6 +23,7 @@
 /// 2. Vendor code
 @import "semantic-ui"
 @import "pikaday"
+@import "jquery.timepicker"
 
 /// 3. Boilerplate styles for commonly used HTML elements
 // Order of global imports is important (order of appearance on the page)
@@ -30,16 +31,19 @@
 @import "base/fonts"
 @import "base/typography"
 @import "base/helpers"
+@import "base/tables"
 
 /// 4. Layout related sections
+@import "layout/main-grid"
 @import "layout/forms"
 
 /// 5. Components
-@import "components/datepicker"
-@import "components/timepicker"
+@import "components/page-header"
+@import "components/search-form"
 
 /// 6. Page-specific styles
 @import "pages/dashboard"
 
 /// 7. Vendor extensions/overrides
 @import "vendor-extensions/pikaday"
+@import "vendor-extensions/timepicker"

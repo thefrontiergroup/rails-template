@@ -6,7 +6,7 @@ feature 'Admin can archive an existing User' do
     let!(:target_user) { FactoryGirl.create(:user, :admin, email: "something@nothing.com") }
 
     before do
-      click_header_option("Dashboard")
+      click_sidemenu_option("Dashboard")
       click_sidemenu_option("Admins")
     end
 
@@ -16,7 +16,7 @@ feature 'Admin can archive an existing User' do
       end
 
       # User should be deleted
-      expect(page).to have_flash(:notice, "'something@nothing.com' deleted")
+      expect(page).to have_flash(:notice, "'something@nothing.com' archived.")
       expect(target_user.reload).to be_deleted
     end
   end

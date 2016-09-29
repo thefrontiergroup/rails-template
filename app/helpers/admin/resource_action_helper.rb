@@ -9,7 +9,7 @@ module Admin::ResourceActionHelper
 
     link_to(path, html_options) do
       [
-        content_tag("i", nil, {class: "trash icon"}),
+        content_tag("i", nil, {class: "archive icon"}),
         t("actions.archive_prompt.label")
       ].join.html_safe
     end

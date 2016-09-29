@@ -5,6 +5,12 @@
 #
 # Default usage:
 #   = f.input :deadline, as: :date_picker
+#
+# Semantic UI usage:
+#   = f.input :deadline do
+#     .ui.left.icon.input
+#       %i.calendar.icon
+#       = f.input_field :deadline, as: :date_picker
 
 class DatePickerInput < SimpleForm::Inputs::StringInput
   def input(wrapper_options)

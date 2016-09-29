@@ -34,7 +34,7 @@ private
 
   def navigate_to_admins_index(user)
     sign_in_as(user)
-    click_header_option("Dashboard")
+    click_sidemenu_option("Dashboard")
     click_sidemenu_option("Admins")
   end
 

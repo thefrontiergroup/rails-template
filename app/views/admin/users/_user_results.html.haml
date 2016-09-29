@@ -1,39 +1,43 @@
-- # Only show the search options if there are users to search for
-- if params[:q].present? || @users.present?
-  = search_form_for @ransack_query, method: :get, url: request.path, wrapper: "semantic_ui", html: { class: "ui form"} do |s|
-    = s.input :full_name_or_email_cont, label: "Search by name or email", placeholder: "Search by name or email", as: :string, label_html: {class: "visually-hidden"}, required: false
-    = s.button :submit, "Search"
+.ui.row
+  .column
+    - # Only show the search options if there are users to search for
+    - if params[:q].present? || @users.present?
+      = search_form_for @ransack_query, method: :get, url: request.path, wrapper: "semantic_ui", html: { class: "search-form"} do |s|
+        = s.input :full_name_or_email_cont, wrapper_html: {class: "ui action left icon input"}, label_html: {class: "visually-hidden"}, required: false, label: "Search by name or email" do
+          %i.search.icon
+          = s.input_field :full_name_or_email_cont, placeholder: "Search by name or email", as: :string
+          = s.button :button, "Search"
 
-- if @users.present?
-  %table.ui.celled.table
-    %thead
-      %tr
-        %th= sort_link(@ransack_query, :given_names)
-        %th= sort_link(@ransack_query, :family_name)
-        %th= sort_link(@ransack_query, :email)
-        - if can?(:manage, User)
-          %th.actions Actions
-    %tbody
-      - @users.each do |user|
-        %tr
-          %td= user.given_names
-          %td= user.family_name
-          %td= user.email
-          - if can?(:manage, user)
-            %td.actions
-              - if can?(:edit, user)
-                = link_to edit_path_for_user(user), class: "ui icon tiny compact button" do
-                  %i.pencil.icon
-                  Edit
-              - if can?(:destroy, user)
-                = link_to_archive_resource(delete_path_for_user(user), user.full_name)
-  = paginate @users
+    - if @users.present?
+      %table.ui.fixed.striped.table
+        %thead
+          %tr
+            %th= sort_link(@ransack_query, :given_names)
+            %th= sort_link(@ransack_query, :family_name)
+            %th= sort_link(@ransack_query, :email)
+            - if can?(:manage, User)
+              %th.right.aligned.actions Actions
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.given_names
+              %td= user.family_name
+              %td= user.email
+              - if can?(:manage, user)
+                %td.right.aligned.actions
+                  - if can?(:edit, user)
+                    = link_to edit_path_for_user(user), class: "ui icon tiny compact button" do
+                      %i.pencil.icon
+                      Edit
+                  - if can?(:destroy, user)
+                    = link_to_archive_resource(delete_path_for_user(user), user.full_name)
+      = paginate @users
 
-- elsif params[:q].present?
-  %p
-    No users matched your search.
-    = link_to "Show all users.", request.path
-- else
-  %p
-    There are no users.
-    = link_to "Create a user.", new_path_for_user
+    - elsif params[:q].present?
+      %p
+        No users matched your search.
+        = link_to "Show all users.", request.path
+    - else
+      %p
+        There are no users.
+        = link_to "Create a user.", new_path_for_user
