@@ -6,5 +6,5 @@
 
 $(document).ready ->
 
-    # create sidebar and attach to menu open
+    # Create sidebar and attach to menu open
     $('.ui.sidebar').sidebar('attach events', '.toc.item')
