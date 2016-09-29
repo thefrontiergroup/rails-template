@@ -14,11 +14,7 @@
 
     .ui.left.inverted.vertical.sidebar.menu
       = yield(:navigation) if content_for?(:navigation)
-      - if current_user
-        = link_to "Sign out", destroy_user_session_path, method: :delete, class: "item"
-      - else
-        = link_to "Sign in", new_user_session_path, class: "item"
-        = link_to "Sign up", new_user_registration_path, class: "item"
+      = render partial: "authentication_navigation", locals: {item_class: "item"}
 
     .pusher
       .ui.inverted.vertical.masthead.center.aligned.segment
@@ -29,11 +25,7 @@
               Menu
             = yield(:navigation) if content_for?(:navigation)
             .right.item
-              - if current_user
-                = link_to "Sign out", destroy_user_session_path, method: :delete, class: "ui inverted button"
-              - else
-                = link_to "Sign in", new_user_session_path, class: "ui inverted button"
-                = link_to "Sign up", new_user_registration_path, class: "ui inverted button"
+              = render partial: "authentication_navigation", locals: {item_class: "ui inverted button"}
 
         #skip-to-content
           - if flash.any?
