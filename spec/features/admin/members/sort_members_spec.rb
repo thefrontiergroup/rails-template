@@ -35,7 +35,7 @@ feature 'Admin can sort an index of users' do
 private
 
   def navigate_to_members_index
-    click_header_option("Dashboard")
+    click_sidemenu_option("Dashboard")
     click_sidemenu_option("Members")
   end
 

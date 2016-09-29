@@ -4,7 +4,7 @@ feature 'Admin can create a new User' do
 
   signed_in_as(:admin) do
     before do
-      click_header_option("Dashboard")
+      click_sidemenu_option("Dashboard")
       click_sidemenu_option("Members")
       click_link("Add new member")
     end

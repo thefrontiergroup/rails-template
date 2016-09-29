@@ -4,7 +4,7 @@ feature 'Member can update their profile' do
 
   signed_in_as(:member) do
     before do
-      click_header_option("My Profile")
+      click_member_my_profile_link
     end
 
     scenario 'With valid data' do
@@ -16,7 +16,7 @@ feature 'Member can update their profile' do
 
       # User should be saved
       expect(page).to have_flash(:notice, "You updated your account successfully.")
-      click_header_option("My Profile")
+      click_member_my_profile_link
       current_user.reload
       expect(current_user.email).to eq("valid@example.com")
       expect(current_user.given_names).to eq("Jordan")

@@ -4,7 +4,7 @@ feature 'Member can close their account' do
 
   signed_in_as(:member) do
     before do
-      click_header_option("My Profile")
+      click_member_my_profile_link
     end
 
     scenario do

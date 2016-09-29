@@ -19,7 +19,7 @@ feature 'Admin can search for members by email' do
     end
 
     before do
-      click_header_option("Dashboard")
+      click_sidemenu_option("Dashboard")
       click_sidemenu_option("Members")
     end
 

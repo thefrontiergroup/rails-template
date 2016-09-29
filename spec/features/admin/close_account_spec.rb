@@ -4,7 +4,7 @@ feature 'Admin can close their account' do
 
   signed_in_as(:admin) do
     before do
-      click_header_option("My Profile")
+      click_admin_my_profile_link(current_user)
     end
 
     scenario do
