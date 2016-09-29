@@ -4,7 +4,6 @@
 // This file contains all Admin styles.
 // -----------------------------------------------------------------------------
 
-@import "normalize-rails"
 @import "bourbon"
 
 /*!
@@ -22,7 +21,7 @@
 @import "abstracts/grid-settings"
 
 /// 2. Vendor code
-@import "neat"
+@import "semantic-ui"
 @import "pikaday"
 
 /// 3. Boilerplate styles for commonly used HTML elements
@@ -31,26 +30,13 @@
 @import "base/fonts"
 @import "base/typography"
 @import "base/helpers"
-@import "base/navigation"
-@import "base/forms"
-@import "base/buttons"
-@import "base/lists"
-@import "base/tables"
-@import "base/modals"
 
 /// 4. Layout related sections
-// @import "layout/..."
+@import "layout/forms"
 
 /// 5. Components
-@import "components/flashes"
-@import "components/errors"
-@import "components/sortable"
-@import "components/sidebar"
 @import "components/datepicker"
 @import "components/timepicker"
-@import "components/pagination"
-@import "components/simple-form"
-@import "components/tabs"
 
 /// 6. Page-specific styles
 @import "pages/dashboard"

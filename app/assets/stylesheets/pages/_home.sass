@@ -1,17 +1,33 @@
-.splash
-  display: block
-  margin: 0 auto
-  text-align: center
-  +span-columns(4)
-  +shift(4)
+.masthead
+  &.segment
+    min-height: 100vh
+    padding: 1em 0em
 
-  img
-    height: auto
-    width: 100%
+  .ui.menu .ui.button
+    margin-left: 0.5em
 
-  span
-    display: block
-    font-family: Courier, monospace
-    font-size: 5vw
-    font-weight: 700
-    text-transform: uppercase
+  h1.ui.header
+    font-size: 4em
+    font-weight: normal
+    margin-bottom: 0em
+    margin-top: 3em
+
+  h2
+    font-size: 1.7em
+    font-weight: normal
+    margin-bottom: 1em
+
+  @media only screen and (max-width: 700px)
+    &.segment
+      padding: 0.5em
+
+    .ui.menu
+      margin-bottom: 0.7em
+
+    h1.ui.header
+      font-size: 2em
+      margin-top: 1.5em
+
+    h2
+      margin-top: 0.5em
+      font-size: 1.5em

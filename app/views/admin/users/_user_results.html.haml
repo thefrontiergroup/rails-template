@@ -1,11 +1,11 @@
 - # Only show the search options if there are users to search for
 - if params[:q].present? || @users.present?
-  = search_form_for @ransack_query, method: :get, url: request.path do |s|
+  = search_form_for @ransack_query, method: :get, url: request.path, wrapper: "semantic_ui", html: { class: "ui form"} do |s|
     = s.input :full_name_or_email_cont, label: "Search by name or email", placeholder: "Search by name or email", as: :string, label_html: {class: "visually-hidden"}, required: false
     = s.button :submit, "Search"
 
 - if @users.present?
-  %table
+  %table.ui.celled.table
     %thead
       %tr
         %th= sort_link(@ransack_query, :given_names)
@@ -22,7 +22,9 @@
           - if can?(:manage, user)
             %td.actions
               - if can?(:edit, user)
-                = link_to "Edit", edit_path_for_user(user), class: "btn btn-small"
+                = link_to edit_path_for_user(user), class: "ui icon tiny compact button" do
+                  %i.pencil.icon
+                  Edit
               - if can?(:destroy, user)
                 = link_to_archive_resource(delete_path_for_user(user), user.full_name)
   = paginate @users

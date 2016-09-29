@@ -254,6 +254,8 @@ GEM
     seed_helper (1.13.0)
       colorize (~> 0.7.5)
       rake (>= 10.0.0)
+    semantic-ui-sass (2.2.4.0)
+      sass (>= 3.2)
     sexp_processor (4.7.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
@@ -331,6 +333,7 @@ DEPENDENCIES
   rspec_junit_formatter
   sass-rails
   seed_helper
+  semantic-ui-sass
   shoulda-matchers
   simple_form
   simplecov
@@ -341,4 +344,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.1

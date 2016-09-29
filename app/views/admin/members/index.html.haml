@@ -1,6 +1,8 @@
-.content-header
-  %h2.content-title= current_page_title
-  .collection-actions
-    = link_to "Add new member", new_admin_member_path, class: "btn"
+.ui.two.column.stackable.grid
+  .eleven.wide.column
+    .ui
+      %h2= current_page_title
+  .five.wide.column
+    = link_to "Add new member", new_admin_member_path, class: "ui primary button"
 
 = render partial: "user_results", locals: {new_path_for_user: new_admin_member_path}

@@ -1,20 +1,26 @@
-.authentication
+.ui.center.aligned.stackable.grid.container
+  .column
+    %h2.ui.top.attached.block.header= current_page_title
 
-  %h2= current_page_title
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: "semantic_ui", html: { class: "ui form large left aligned attached segment" }) do |f|
+      .ui.error.message
+      = f.input :email, label_html: {class: "visually-hidden"} do
+        .ui.left.icon.input
+          %i.mail.icon
+          = f.input_field :email, placeholder: "E-mail address"
+      = f.input :password, label_html: {class: "visually-hidden"} do
+        .ui.left.icon.input
+          %i.lock.icon
+          = f.input_field :password, autocomplete: "off", placeholder: "Password"
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, as: :boolean, wrapper: :checkbox
+      = f.button :submit, "Sign in", class: "primary fluid large"
 
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "authentication-form" }) do |f|
+    = render "devise/shared/links"
 
-    = f.input :email, autofocus: true
-    = f.input :password, autocomplete: "off"
-    - if devise_mapping.rememberable?
-      = f.input :remember_me, as: :boolean
-    = f.button :submit, "Sign in"
-
-  = render "devise/shared/links"
-
-- if Rails.application.config.should_show_easy_login
-  .easy-sign-in
-    %h3 Easy Sign-in
-    %ul
-      - User.roles.keys.each do |role_name|
-        %li= link_to "Sign in as #{role_name.titleize}", '#', data: { email: "#{role_name}@example.com", password: "password" }
+    - if Rails.application.config.should_show_easy_login
+      .ui.left.aligned.secondary.segment.easy-sign-in
+        %h3 Easy Sign-in
+        %ul.list
+          - User.roles.keys.each do |role_name|
+            %li= link_to "Sign in as #{role_name.titleize}", '#', data: { email: "#{role_name}@example.com", password: "password" }

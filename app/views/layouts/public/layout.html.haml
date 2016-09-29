@@ -5,6 +5,9 @@
   = stylesheet_link_tag 'public', media: 'all'
   = stylesheet_link_tag 'easy-sign-in', media: 'all' if Rails.application.config.should_show_easy_login
 
+- content_for :navigation do
+  = render "layouts/public/navigation"
+
 - content_for :content do
   = yield
 

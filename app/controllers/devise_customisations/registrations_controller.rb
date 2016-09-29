@@ -1,5 +1,7 @@
 class DeviseCustomisations::RegistrationsController < Devise::RegistrationsController
 
+  layout :choose_layout
+
   def build_resource(args)
     super.tap do |user|
       user.role = User.roles["member"]
@@ -31,6 +33,21 @@ protected
       :given_names,
       :family_name,
     ]
+  end
+
+private
+
+  def choose_layout
+    case action_name.to_sym
+    when :edit, :update
+      if current_user.admin?
+        "admin/layout"
+      else
+        "member/layout"
+      end
+    else
+      "public/layout"
+    end
   end
 
 end

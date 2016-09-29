@@ -1,5 +1,11 @@
 - page_title! t(".title"), :public_home
 
-.splash
-  = image_tag 'create-glyph-logo.svg', size: '336x336'
-  %span Create
+.ui.text.container
+  %h1.ui.inverted.header
+    = t(".title")
+  %h2
+    = t("app.owner")
+    = t("app.name")
+  = link_to new_user_session_path, class: "ui huge primary button" do
+    Get Started
+    %i.right.arrow.icon
