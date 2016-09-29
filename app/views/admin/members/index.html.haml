@@ -1,8 +1,9 @@
-.ui.two.column.stackable.grid
-  .eleven.wide.column
-    .ui
-      %h2= current_page_title
-  .five.wide.column
-    = link_to "Add new member", new_admin_member_path, class: "ui primary button"
+.ui.row.page-header
+  .column
+    %h1.ui.left.floated.header= current_page_title
+    .ui.right.floated.page.header
+      = link_to new_admin_member_path, class: "ui primary button" do
+        %i.add.user.icon
+        Add new member
 
 = render partial: "user_results", locals: {new_path_for_user: new_admin_member_path}

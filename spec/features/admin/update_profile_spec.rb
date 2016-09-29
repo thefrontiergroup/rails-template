@@ -4,7 +4,7 @@ feature 'Admin can update their profile' do
 
   signed_in_as(:admin) do
     before do
-      click_header_option("My Profile")
+      click_admin_my_profile_link(current_user)
     end
 
     scenario 'With valid data' do
@@ -16,8 +16,7 @@ feature 'Admin can update their profile' do
 
       # User should be saved
       expect(page).to have_flash(:notice, "You updated your account successfully.")
-      click_header_option("My Profile")
-      current_user.reload
+      click_admin_my_profile_link(current_user.reload)
       expect(current_user.email).to eq("valid@example.com")
       expect(current_user.given_names).to eq("Jordan")
       expect(current_user.family_name).to eq("Maguire")

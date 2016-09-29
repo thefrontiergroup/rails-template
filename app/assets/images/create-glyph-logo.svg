@@ -1,9 +1,8 @@
-<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Create" transform="translate(2.000000, 4.000000) rotate(180, 15, 13)" stroke="#222222" stroke-width="2">
-            <polygon id="Triangle-1" points="15 0 30 26 0 26 "></polygon>
-            <path d="M23.445253,16 L6.62920506,16" id="Line" stroke-linecap="square"></path>
-            <path d="M15.2333333,16.2899177 L15.2333333,25.0044124" id="Line" stroke-linecap="square"></path>
-        </g>
+<svg viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" role="image">
+    <title>Rails Template</title>
+    <g transform="translate(2, 1)" stroke-width="2" stroke-linecap="square">
+        <polygon fill="none" points="15,30 30,4 0,4 "></polygon>
+        <path d="M7,15 L23,15"></path>
+        <path d="M15.233,5 L15.233,14"></path>
     </g>
 </svg>

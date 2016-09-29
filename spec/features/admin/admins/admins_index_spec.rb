@@ -7,7 +7,7 @@ feature 'Admin can view an index of users' do
     let!(:member)      { FactoryGirl.create(:user, :member) }
 
     before do
-      click_header_option("Dashboard")
+      click_sidemenu_option("Dashboard")
       click_sidemenu_option("Admins")
     end
 

@@ -1,17 +1,27 @@
-.ui.center.aligned.stackable.grid.container
+.ui.row
   .column
-    %h2.ui.top.attached.block.header= current_page_title
+    %h1.ui.left.floated.header= current_page_title
 
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: "semantic_ui", html: { class: "ui form large left aligned attached segment", method: :put }) do |f|
-      = f.input :given_names, autofocus: true, input_html: {maxlength: User::MAX_NAME_LENGTH}
-      = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
-      = f.input :email
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %p.ui.message.info
-          Currently waiting confirmation for:
-          %strong #{resource.unconfirmed_email}
-      = f.input :password, autocomplete: "new-password", hint: "Leave blank if you don't want to change it. Minimum is #{Rails.configuration.devise.password_length.min} characters."
-      = f.input :password_confirmation, autocomplete: "new-password"
-      = f.input :current_password, autocomplete: "current-password", hint: "Required to confirm your changes"
-      = f.button :submit, "Update", class: "primary fluid large"
-      = link_to("Close my account", user_registration_path, method: :delete, data: { confirm: "Are you sure you want to close your account?" })
+.ui.row
+  .column
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: "semantic_ui", html: {class: "ui form", method: :put}) do |f|
+      .two.fields
+        = f.input :email
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %p.ui.message.info
+            Currently waiting confirmation for:
+            %strong #{resource.unconfirmed_email}
+      .two.fields
+        = f.input :given_names, input_html: {maxlength: User::MAX_NAME_LENGTH}
+        = f.input :family_name, input_html: {maxlength: User::MAX_NAME_LENGTH}
+      .two.fields
+        = f.input :password, autocomplete: "new-password", hint: "Leave blank if you don't want to change it. Minimum is #{Rails.configuration.devise.password_length.min} characters."
+        = f.input :password_confirmation, autocomplete: "new-password"
+      .ui.basic.secondary.segment
+        .fields
+          = f.input :current_password, autocomplete: "current-password", hint: "Required to confirm your changes", required: true
+      = f.button :button, "Update", class: "primary"
+      .ui.divider
+      = link_to user_registration_path, method: :delete, data: {confirm: "Are you sure you want to close your account?"}, class: "ui small basic red button" do
+        %i.warning.sign.icon
+        Close my account

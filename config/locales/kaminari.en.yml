@@ -2,8 +2,8 @@ en:
   views:
     pagination:
       page:
-        current: "TODO"
-        goto: "TODO"
+        current: "Page %{page}"
+        goto: "Go to page %{page}"
       first: "&laquo; First"
       last: "Last &raquo;"
       previous: "&lsaquo; Prev"

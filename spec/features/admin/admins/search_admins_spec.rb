@@ -19,19 +19,23 @@ feature 'Admin can search for admins by email' do
 
   before do
     sign_in_as(current_user)
-    click_header_option("Dashboard")
+    click_sidemenu_option("Dashboard")
     click_sidemenu_option("Admins")
   end
 
   scenario "Search by email" do
-    expect(page).to have_content(matching_admin.email)
-    expect(page).to have_content(current_user.email)
+    within("table") do
+      expect(page).to have_content(matching_admin.email)
+      expect(page).to have_content(current_user.email)
+    end
 
     fill_in('Search by name or email', with: matching_admin.email)
     click_button('Search')
 
-    expect(page).to have_content(matching_admin.email)
-    expect(page).not_to have_content(current_user.email)
+    within("table") do
+      expect(page).to have_content(matching_admin.email)
+      expect(page).not_to have_content(current_user.email)
+    end
 
     fill_in('Search by name or email', with: "Not a valid email for this individual")
     click_button('Search')
@@ -42,32 +46,37 @@ feature 'Admin can search for admins by email' do
   end
 
   scenario "Search by name" do
-    expect(page).to have_content(matching_admin.given_names)
-    expect(page).to have_content(current_user.given_names)
-
-    expect(page).to have_content(matching_admin.given_names)
-    expect(page).to have_content(current_user.given_names)
+    within("table") do
+      expect(page).to have_content(matching_admin.given_names)
+      expect(page).to have_content(current_user.given_names)
+    end
 
     # Only given_names
     fill_in('Search by name or email', with: "Bob")
     click_button('Search')
 
-    expect(page).to have_content(matching_admin.given_names)
-    expect(page).not_to have_content(current_user.given_names)
+    within("table") do
+      expect(page).to have_content(matching_admin.given_names)
+      expect(page).not_to have_content(current_user.given_names)
+    end
 
     # Only family_name
     fill_in('Search by name or email', with: "Dob")
     click_button('Search')
 
-    expect(page).to have_content(matching_admin.given_names)
-    expect(page).not_to have_content(current_user.given_names)
+    within("table") do
+      expect(page).to have_content(matching_admin.given_names)
+      expect(page).not_to have_content(current_user.given_names)
+    end
 
     # Full name
     fill_in('Search by name or email', with: "Bob Dob")
     click_button('Search')
 
-    expect(page).to have_content(matching_admin.given_names)
-    expect(page).not_to have_content(current_user.given_names)
+    within("table") do
+      expect(page).to have_content(matching_admin.given_names)
+      expect(page).not_to have_content(current_user.given_names)
+    end
   end
 
 end

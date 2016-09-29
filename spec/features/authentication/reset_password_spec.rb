@@ -4,9 +4,9 @@ feature 'Existing users can reset their passwords' do
   let(:user) { FactoryGirl.create(:user) }
 
   background do
-    visit root_path
-    click_link 'Sign in'
-    click_link 'Forgot your password?'
+    visit(root_path)
+    click_header_option('Sign in')
+    click_link('Forgot your password?')
   end
 
   scenario 'User enters a valid email address' do
@@ -27,8 +27,7 @@ feature 'Existing users can reset their passwords' do
     fill_in 'Email', with: 'fake@email.com'
     submit_form
     within("form") do
-      # Errors show below the inputs, Capybara will show the error as follows
-      expect(page).to have_content("Emailnot found")
+      expect(page).to have_content("Email not found")
     end
   end
 end

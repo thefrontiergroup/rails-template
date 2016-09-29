@@ -1,0 +1,37 @@
+.ui.main.grid
+  left: 18.75%
+  position: relative
+  padding-bottom: 1rem
+  width: 81.25%
+
+  > .ui.message
+    width: 100%
+
+  h1.ui.header
+    word-break: break-word
+
+.ui.left.fixed.menu
+  padding-left: 0
+  padding-right: 0
+
+.ui.fixed.inverted.main.menu
+  display: none
+
+  > .container
+    width: 100%
+
+@media only screen and (max-width: 991px)
+  .ui.left.fixed.vertical.inverted.menu
+    display: none
+
+  .ui.fixed.inverted.main.menu
+    display: block
+
+  .ui.fixed.menu + .ui.main.grid
+    padding-top: 5rem
+
+  .ui.main.grid
+    left: 0
+    margin: 0 auto
+    padding: 3rem 0 1rem
+    width: 100%

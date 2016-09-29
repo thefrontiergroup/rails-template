@@ -1,3 +1,5 @@
-%h2= current_page_title(@user)
+.ui.row
+  .column
+    %h1.ui.left.floated.header= current_page_title(@user)
 
 = render partial: "form", locals: {url: admin_admin_path(@user)}

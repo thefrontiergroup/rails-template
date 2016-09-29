@@ -1,2 +1,22 @@
-= active_link_to "Dashboard", admin_dashboard_index_path, class: "item"
-= active_link_to "My Profile", edit_user_registration_path, class: "item"
+.header.item
+  = link_to root_path, rel: "home", class: "app-logo" do
+    %span.visually-hidden Home
+    = inline_svg("create-glyph-logo.svg")
+  %p
+    = link_to current_user.full_name, edit_user_registration_path, class: "account"
+
+= active_link_to admin_dashboard_index_path, class: "item" do
+  %i.dashboard.icon
+  Dashboard
+
+.item
+  %i.user.icon
+  .header
+    User Management
+  .menu
+    = active_link_to "Admins", admin_admins_path, class: "item"
+    = active_link_to "Members", admin_members_path, class: "item"
+
+= link_to destroy_user_session_path, method: :delete, class: "item" do
+  %i.power.icon
+  %span Sign out
