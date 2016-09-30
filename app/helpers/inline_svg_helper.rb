@@ -5,9 +5,9 @@ module InlineSvgHelper
   # = inline_svg('icons/svgdefs.svg')
   def inline_svg(filename)
     if Rails.application.config.assets.precompile
-      raw Rails.application.assets.find_asset(filename)
-    else
       raw Rails.application.assets_manifest.find_sources(filename).try(:first)
+    else
+      raw Rails.application.assets.find_asset(filename)
     end
   end
 
