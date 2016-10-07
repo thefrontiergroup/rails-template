@@ -29,7 +29,7 @@ The output of this script should give you the instructions you will need.
 
 - Script to spin up app (`bin/setup`)
 - Admin and Member Users with CRUD for both
-- Authorization with Pundit with full unit tests
+- Authorization with CanCanCan with full unit tests
 - Custom 404, 500, and maintenance pages
 - Custom favicon
 - Dashboard for admins and members
@@ -39,9 +39,4 @@ The output of this script should give you the instructions you will need.
   - Signing up
   - Signing out
 - Easy sign in functionality to speed up development
-- Responsive and Desktop styles
-
-## TODO
-
-- (Possible) Add in rake task for adding build to CI
-- Use dropdown menu for user actions
+- Responsive and Desktop styles in admin namespace
