@@ -15,7 +15,7 @@ RSpec.describe AfterSignInPath do
 
     context "when member" do
       let(:user) { FactoryGirl.build(:user, :member) }
-      it { should eq(member_dashboard_index_path) }
+      it { should eq(dashboard_path) }
     end
 
     context "when nil" do

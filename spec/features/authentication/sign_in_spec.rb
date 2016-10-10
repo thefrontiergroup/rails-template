@@ -19,7 +19,7 @@ feature 'A user can sign in' do
     let!(:user) { FactoryGirl.create(:user, :member) }
 
     scenario 'Member signs in with valid credentials' do
-      expect_sign_in_to_redirect_to(user, member_dashboard_index_path)
+      expect_sign_in_to_redirect_to(user, dashboard_path)
     end
   end
 

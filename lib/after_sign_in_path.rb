@@ -13,7 +13,7 @@ class AfterSignInPath
       if user.admin?
         admin_dashboard_index_path
       else
-        member_dashboard_index_path
+        dashboard_path
       end
     else
       root_path

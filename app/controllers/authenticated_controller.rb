@@ -1,4 +1,4 @@
-class Member::BaseController < ApplicationController
+class AuthenticatedController < ApplicationController
   before_action :authenticate_user!
   check_authorization
 

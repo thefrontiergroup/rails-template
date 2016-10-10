@@ -12,7 +12,7 @@ describe AdminAbility do
 
   describe "managing Users" do
     it { should be_able_to(:show, :admin_dashboard) }
-    it { should_not be_able_to(:show, :member_dashboard) }
+    it { should_not be_able_to(:show, :user_dashboard) }
   end
 
 end
