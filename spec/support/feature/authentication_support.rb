@@ -25,7 +25,7 @@ module Feature
       if user.admin?
         admin_dashboard_index_path
       elsif user.member?
-        member_dashboard_index_path
+        dashboard_path
       else
         root_path
       end

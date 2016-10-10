@@ -7,10 +7,9 @@ en:
     index:
       title: "Welcome"
 
-  member:
-    dashboard:
-      index:
-        title: "Member Dashboard"
+  dashboard:
+    index:
+      title: "My Dashboard"
 
   admin:
     dashboard:

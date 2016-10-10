@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     resources :admins
   end
 
-  namespace :member do
-    resources :dashboard, only: :index
-  end
+  get "dashboard", to: "dashboard#index"
 
 end

@@ -19,7 +19,7 @@ feature 'A visitor can sign up' do
     submit_form
 
     expect(page).to have_flash :notice, /signed up/
-    expect(current_path).to eq(member_dashboard_index_path)
+    expect(current_path).to eq(dashboard_path)
 
     # Signing up should create the user as a member
     new_user = User.first

@@ -2,7 +2,7 @@ class AdminAbility < BaseAbility
 
   def initialize(user)
     can :manage, :all
-    cannot :show, :member_dashboard
+    cannot :show, :user_dashboard
   end
 
 end

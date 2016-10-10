@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Member::DashboardController do
+RSpec.describe DashboardController do
 
   describe 'GET index' do
     subject { get :index }

@@ -11,7 +11,7 @@ describe MemberAbility do
   it { should_not be_able_to(:show, :admin_controllers) }
 
   describe "showing Dashboards" do
-    it { should be_able_to(:show, :member_dashboard) }
+    it { should be_able_to(:show, :user_dashboard) }
     it { should_not be_able_to(:show, :admin_dashboard) }
   end
 

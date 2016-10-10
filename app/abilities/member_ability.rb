@@ -5,7 +5,7 @@ class MemberAbility < BaseAbility
 
     cannot :show, :admin_controllers
     cannot :show, :admin_dashboard
-    can :show, :member_dashboard
+    can :show, :user_dashboard
   end
 
 end
