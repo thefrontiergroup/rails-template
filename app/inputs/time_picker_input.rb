@@ -19,7 +19,7 @@ class TimePickerInput < SimpleForm::Inputs::StringInput
     input_html_options[:class] << "time-picker"
     input_html_options[:autocomplete] = "off"
 
-    if object.send(attribute_name).present?
+    if object.respond_to?(attribute_name) && object.send(attribute_name).present?
       input_html_options[:value] = I18n.l(object[attribute_name], format: :concise)
     end
 
