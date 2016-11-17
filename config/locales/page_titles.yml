@@ -18,7 +18,7 @@ en:
 
     admins:
       index:
-        title: "Admin Management"
+        title: "Admins"
       new:
         title: "New Admin"
       edit:
@@ -26,7 +26,7 @@ en:
 
     members:
       index:
-        title: "Member Management"
+        title: "Members"
       new:
         title: "New Member"
       edit:
