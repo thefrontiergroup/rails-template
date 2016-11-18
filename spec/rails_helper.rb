@@ -49,6 +49,7 @@ RSpec.configure do |config|
   config.include Feature::PikadaySupport, type: :feature
   config.include Feature::SortSupport, type: :feature
   config.include Feature::TableSupport, type: :feature
+  config.include Feature::RowLocationSupport, type: :feature
   config.include Warden::Test::Helpers
 
   config.extend Feature::AuthenticationMacros, type: :feature
