@@ -32,6 +32,9 @@ gem 'uglifier'
 # Misc
 gem 'responders'
 
+# Monitoring & Ops
+gem 'health_check'
+
 group :development do
   gem 'better_errors'
   gem 'letter_opener'
